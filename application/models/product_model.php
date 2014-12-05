@@ -30,7 +30,7 @@ class Product_model extends CI_Model {
     }
 
     function getProductSearchByName($keyword) {
-        $q = $this->db->query("SELECT name, price, image FROM product ");
+        $q = $this->db->query("SELECT productID, name, price, image FROM product ");
 //        where name LIKE \"%" . $keyword . "%;\"
         if ($q->num_rows() > 0) {
             return $q->result_array();
