@@ -12,6 +12,9 @@ class seach extends CI_Controller {
         $data['title'] = "Tìm sản phẩm | ABC mobile shop";
         $data['data'] = "";
         $data['template'] = "seach_view";
+        
+        $data['keyword'] = $_GET['x'];
+        $data['products'] = $this->product_model->getProductSearchByName($data['keyword']);
         $this->load->view("layout_webuser", $data);
     }
 
