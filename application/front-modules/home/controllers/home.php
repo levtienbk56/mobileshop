@@ -12,11 +12,8 @@ class Home extends CI_Controller {
 
     // Controller mặc định cho trang chủ
     public function index() {
-
         // Load the cart library to use it.
-
         $data['products'] = $this->product_model->getAllProductCart();
-
         if ($this->input->get('id') != '') {
             $id = $this->input->get('id') - 1;
             $price = $data['products'][$id]->price;
@@ -41,7 +38,6 @@ class Home extends CI_Controller {
                         'rowid' => $content['rowid'],
                         'qty' => $content['qty']
                     );
-
                     $this->cart->update($info);
                 }
             }
@@ -58,18 +54,4 @@ class Home extends CI_Controller {
 
         $this->load->view("layout_webuser", $data);
     }
-
-    function updatecart() {
-        $contents = $this->input->post();
-
-        foreach ($contents as $content) {
-            $info = array(
-                'rowid' => $content['rowid'],
-                'qty' => $content['qty']
-            );
-
-            $this->cart->update($info);
-        }
-    }
-
 }

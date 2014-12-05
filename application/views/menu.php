@@ -22,7 +22,7 @@
                                  <li><a href="<?php echo base_url(); ?>index.php/product/view_category/4">Sony</a></li>
                                  <li><a href="<?php echo base_url(); ?>index.php/product/view_category/5">LG</a></li>
                                  <li><a href="<?php echo base_url(); ?>index.php/product/view_category/6">HP</a></li>
-                                 <li><a href="<?php echo base_url(); ?>index.php/product/view_category/7">Phụ kiện điện thoại</a></li>
+                                 <li><a href="<?php echo base_url(); ?>index.php/product/view_category/7">Phụ kiện điện thoại</a></li>                                 
                               </ul>
                            </li>
                            <li class="dropdown">

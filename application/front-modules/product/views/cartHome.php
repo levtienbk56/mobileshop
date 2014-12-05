@@ -1,6 +1,5 @@
-<form id="ajaxform" action="<?php echo base_url(); ?>" method="post" accept-charset="UTF-8">
+<form id="ajaxform" action="<?php echo base_url(); ?>" method="post" >
         <table cellpadding="6" cellspacing="1" style="width:100%" border="1">
-
         <tr>
             <th>QTY</th>
             <th>Item Description</th>
@@ -45,19 +44,3 @@
     </table>
     <p><input type="submit"  name="update_cart" value="Update your Cart" /></p>    
 </form>
-<!--
-<script type="text/javascript">
-    var frm = $('#ajaxform');
-    frm.submit(function (ev) {
-        $.ajax({
-            type: frm.attr('method'),
-            url: frm.attr('action'),
-            data: frm.serialize(),
-            success: function (data) {
-                //alert('ok');
-            }
-        });
-
-//        ev.preventDefault();
-    });
-</script>-->

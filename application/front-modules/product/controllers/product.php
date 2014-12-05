@@ -60,6 +60,7 @@ class Product extends CI_Controller {
         
         $this->load->view("layout_webuser", $data);
     }
+    
 
     //Xem hoa don
     function view_receipt() {
@@ -77,12 +78,13 @@ class Product extends CI_Controller {
         $this->load->view("layout_webuser", $data);
     }
 
-    //tao hoa don
+    
     function xem_bao_gia() {
         $data['title'] = "Xem bao gia";
         $data['data'] = "Xem bao gia";
         $data['template'] = "baogia_view";
         $this->load->view("layout_webuser", $data);
     }
+    
 
 }

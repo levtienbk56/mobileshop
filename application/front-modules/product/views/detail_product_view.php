@@ -14,7 +14,6 @@
 
         <!-- Products List -->
         <div class="span9"> 
-
             <!-- Breadcrumb -->
             <ul class="breadcrumb">
                 <li><a href="#">Trang chủ</a> <span class="divider">/</span></li>
@@ -25,7 +24,6 @@
 
             <h1><?php echo $product->name; ?></h1>
 
-
             <div class="nav nav-stacked product-info">
                 <?php echo $product->shortInfo; ?>
             </div>
@@ -33,16 +31,11 @@
             <!-- Price -->
             <p class="main-price"><span><?php if ($product->saleOff > 0) echo number_format($product->price * (100+ $product->saleOff) / 100 * 1000000, 0, ".", $thousands_sep = ",") . "VND" ?></span> <strong><?php echo number_format($product->price * 1000000, 0, ".", $thousands_sep = ",") . "VND"; ?></strong></p>
 
-
-
             <!-- Add Buttons -->             
             <input type="button" value="Thêm vào giỏ hàng" class="btn btn-add-cart">
             <input type="text" placeholder="1" class="input-quantity">
             <span class="input-quantity-text">Số lượng</span>
             <div class="clearfix"></div>
-
-
-
 
             <div class="col-md-6">
                 <div class="panel with-nav-tabs panel-primary">

@@ -1,6 +1,6 @@
-<form action="header-search">
+<form action="<?php echo base_url() ?>index.php/seach" method="get">
    <div class="search-box">
-      <div class="col-xs-8 col-xs-offset-2">
+      <div class="col-xs-8 col-xs-offset-2">                                  
          <div class="input-group">
             <div class="dropdown luachontieuchi">
                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
@@ -20,7 +20,7 @@
             </div>
             <input type="hidden" name="search_param" value="all" id="search_param">         
             <input type="text" class="form-control khung-search" name="x" placeholder="Tìm kiếm">
-            <button class="btn-search"><i class="icon-search"></i></button>            
+            <button type="submit" class="btn-search"><i class="icon-search"></i></button>
          </div>
       </div>
    </div>

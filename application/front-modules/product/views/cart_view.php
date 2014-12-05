@@ -2,70 +2,60 @@
     .table td{text-align: left;}
     .table th{text-align: left;}
 </style>
-<div class="container">
-  <div class="row">
-    <div class="span12"> 
-      
-      <!-- Breadcrumb -->
-      <ul class="breadcrumb">
-        <li><a href="#">Trang chủ</a> <span class="divider">/</span></li>
-        <li class="active">Giỏ hàng</li>
-      </ul>
-      <br>
-      <h1>Giỏ hàng</h1>
-      <br>
-      <p class="small-desc">Chút mô tả</p>
-      
-      <!-- Alert -->
-      <div class="alert alert-info">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>Thông báo</strong> giỏ hàng rỗng</div>
-      
-      <!-- Cart -->
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th></th>
-            <th class="p-name">Tên sản phẩm</th>
-            <th>Giá</th>
-            <th>Số lượng</th>                        
-            <th>Thay đổi</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="thumb-cart"><a href="#"><img src="<?php echo base_url(); ?>themes/front/img/products/iphone.png" alt="Product"></a></td>
-            <td class="p-name"><h5><a href="#">iPhone 5 16GB Trắng</a></h5></td>
-            <td><strong>8.000.000 VND</strong></td>
-            <td><input type="number" class="form-control text-center soluongmua" value="1"></td>            
-            
-            <td>
-                <i class="icon-refresh"></i>
-                <i class="icon-trash"></i>                
-            </td>
-          </tr>
-          <tr>
-            <td class="thumb-cart"><a href="#"><img src="<?php echo base_url(); ?>themes/front/img/products/iphone.png" alt="Product"></a></td>
-            <td class="p-name"><h5><a href="#">iPhone 4 16GB đen</a></h5></td>
-            <td><strong>4 250 000VND</strong></td>
-            <td><input type="number" class="form-control text-center soluongmua" value="1"></td>            
-            
-            <td>
-                <i class="icon-refresh"></i>
-                <i class="icon-trash"></i>                
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      
-      <!-- Cart Total -->
-      <div class="main-cart-total">
-        <p class="total">Tổng cộng <span>12 250 000 VND</span> 
-      </p></div>
-      <div class="main-checkout"><a href="<?php echo base_url(); ?>index.php/product/make_bill" class="btn btn-checkout">Tạo hóa đơn</a></div>
-    </div>
-  </div>
-</div>
+<!-- Breadcrumb -->
+<ul class="breadcrumb">
+    <li><a href="#">Trang chủ</a> <span class="divider">/</span></li>
+    <li class="active">Giỏ hàng</li>
+</ul>
+<br>
+<h1>Chi tiết giỏ hàng</h1>
+<br>
+<p class="small-desc">Chút mô tả</p>
 
 
-<?php $this->load->view('cartHome'); ?>
+<form id="ajaxform" action="<?php echo base_url(); ?>" method="post" >
+    <table class="table table-hover" >
+        <tr>    
+            <th>Ảnh</th>
+            <th class="p-name">Sản phẩm</th>
+            <th style="text-align:center;">Giá</th>
+            <th style="text-align:center;">Số lượng</th>
+            <th style="text-align:right">Tổng tiền đơn vị</th>
+        </tr>
+
+        <?php $i = 1; ?>
+
+        <?php foreach ($this->cart->contents() as $items): ?>
+
+            <?php echo form_hidden($i . '[rowid]', $items['rowid']); ?>
+            <tr>                
+                <td class="thumb-cart"><a href="#"><img src="<?php echo base_url(); ?>themes/front/img/products/iphone.png" alt="Product"></a></td>
+                <td class="p-name">
+                    <?php echo $items['name']; ?>
+                    <?php if ($this->cart->has_options($items['rowid']) == TRUE): ?>
+                        <p>
+                            <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
+                                <strong><?php echo $option_name; ?>:</strong> <?php echo $option_value; ?><br />
+                            <?php endforeach; ?>
+                        </p>
+                    <?php endif; ?>
+                </td>
+                
+                
+                <td style="text-align:center;"> <?php echo number_format($this->cart->format_number($items['price']) * 1000000, 0, ".", $thousands_sep = " ")."VND"; ?></td>
+                <td style="text-align:center;"><input class="form-control text-center soluongmua"  name="<?php echo $i . '[qty]'; ?>" value="<?php echo $items['qty']; ?>" maxlength="3" size="5" type="number"></td>
+                
+                <td style="text-align:right"><?php echo number_format($this->cart->format_number($items['subtotal']) * 1000000, 0, ".", $thousands_sep = " ")." VND"; ?></td>
+            </tr>
+
+            <?php $i++; ?>
+
+        <?php endforeach; ?>
+
+    </table>    
+    <div class="main-cart-total">
+        <p class="total">Tổng cộng <span><?php echo $this->cart->format_number($this->cart->total()* 1000000, 0, ".", $thousands_sep = " ")." VND";; ?></span> 
+        </p></div>      
+    <div class="main-checkout"><a href="<?php echo base_url(); ?>index.php/product/make_bill" class="btn btn-checkout">Tạo hóa đơn</a></div>
+    <p><input type="submit" class="updatecart"  name="update_cart" value="Cập nhật" /></p>
+</form>

@@ -1,7 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
 <?php $this->load->view('slider'); ?>
 <?php $this->load->view('featureProducts_view'); ?>
-<?php $this->load->view('cartHome') ?>
 
 <div class="products-list">
     <div class="container">
@@ -17,7 +16,7 @@
                             <p class="price"><?php echo $product->price; ?></p>
                             <p class="rating"><i class="icon-star"><span>1</span></i><i class="icon-star"><span>2</span></i><i class="icon-star"><span>3</span></i><i class="icon-star"><span>4</span></i><i class="icon-star-empty"><span>5</span></i></p>
                             <a href="?id=<?php echo $product->productID; ?>" class="add_to_cart">Thêm vào giỏ</a>
-                            <a href="#" class="add-list"><i class="icon-tasks"></i>So sánh</a><a href="#" class="add-comp"><i class="icon-share-alt"></i>Xem chi tiết</a>
+                            <a href="#" class="add-list"><i class="icon-tasks"></i>So sánh</a><a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>" class="add-comp"><i class="icon-share-alt"></i>Xem chi tiết</a>
                         </div>
                     </li>
         <?php $i++;
