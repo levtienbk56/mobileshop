@@ -18,11 +18,13 @@ class Home extends CI_Controller {
             $id = $this->input->get('id') - 1;
             $price = $data['products'][$id]->price;
             $name = $data['products'][$id]->name;
+            $image = $data['products'][$id]->image;
             $insert = array(
                 'id' => $id,
                 'qty' => 1,
                 'price' => $price,
-                'name' => $name
+                'name' => $name,
+                'options' => array('img' => $image)
             );
 
             $this->cart->insert($insert);
