@@ -9,11 +9,11 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                        <li role="presentation"><a   id="tatca" >Tất cả</a></li>
-                        <li role="presentation"><a id="theoten" >Theo tên SP</a></li>
-                        <li role="presentation"><a id="theohang">Theo Hãng</a></li>
-                        <li role="presentation"><a id="camung" >Cảm ứng</a></li>
-                        <li role="presentation"><a id="wifi">wifi</a></li>
+                        <li role="presentation"><a id="tatca" name="tatca">Tất cả</a></li>
+                        <li role="presentation"><a id="theoten" name="theoten" >Theo tên SP</a></li>
+                        <li role="presentation"><a id="theohang" name="theohang">Theo Hãng</a></li>
+                        <li role="presentation"><a id="camung" name="camung" >Cảm ứng</a></li>
+                        <li role="presentation"><a id="wifi" name="wifi">wifi</a></li>
                     </ul>
                 </div>
                 <input type="hidden" name="search_filter" value="all" id="search_filter">
