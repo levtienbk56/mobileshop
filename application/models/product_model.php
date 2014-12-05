@@ -1,6 +1,6 @@
 <?php
 
-class product_model extends CI_Model {
+class Product_model extends CI_Model {
 
     function getAllProducts() {
         $q = $this->db->get("allProductsBrief_view");
@@ -25,6 +25,15 @@ class product_model extends CI_Model {
         $p = $this->db->get("productCart");
         if ($p->num_rows() > 0) {
             return $p->result();
+        }
+        return array();
+    }
+
+    function getProductSearchByName($keyword) {
+        $q = $this->db->query("SELECT name, price, image FROM product ");
+//        where name LIKE \"%" . $keyword . "%;\"
+        if ($q->num_rows() > 0) {
+            return $q->result_array();
         }
         return array();
     }
