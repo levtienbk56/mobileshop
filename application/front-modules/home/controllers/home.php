@@ -40,8 +40,7 @@ class Home extends CI_Controller {
                     );
                     $this->cart->update($info);
                 }
-            }
-            else {
+            } else {
                 echo "Gio hang rong";
             }
         }
@@ -54,4 +53,5 @@ class Home extends CI_Controller {
 
         $this->load->view("layout_webuser", $data);
     }
+
 }

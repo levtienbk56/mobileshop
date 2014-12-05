@@ -13,7 +13,7 @@
 <p class="small-desc">Chút mô tả</p>
 
 
-<form id="ajaxform" action="<?php echo base_url(); ?>" method="post" >
+<form id="ajaxform" action="<?php echo base_url(); ?>index.php/product/view_cart" method="post" >
     <table class="table table-hover" >
         <tr>    
             <th>Ảnh</th>

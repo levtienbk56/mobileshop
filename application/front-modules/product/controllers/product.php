@@ -58,6 +58,26 @@ class Product extends CI_Controller {
         $this->load->helper('form');
         $this->load->helper('url');
         
+                                        
+        $data['products'] = $this->product_model->getAllProductCart();
+        // Lets update our cart
+        if ($this->input->post('update_cart')) {
+            unset($_POST['update_cart']);
+            $contents = $this->input->post();
+            if ($contents != NULL) {
+                foreach ($contents as $content) {
+                    $info = array(
+                        'rowid' => $content['rowid'],
+                        'qty' => $content['qty']
+                    );
+                    $this->cart->update($info);
+                }
+            } else {
+                echo "Gio hang rong";
+            }
+        }
+                
+        $data['products'] = $this->product_model->getAllProducts();                                          
         $this->load->view("layout_webuser", $data);
     }
     
