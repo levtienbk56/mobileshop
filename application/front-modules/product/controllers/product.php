@@ -17,9 +17,8 @@ class Product extends CI_Controller {
         $this->load->view("layout_webuser", $data);
     }
 
-    function updatecart() {
+    function updatecart() {        
         $contents = $this->input->post();
-
         foreach ($contents as $content) {
             $info = array(
                 'rowid' => $content['rowid'],
@@ -27,6 +26,20 @@ class Product extends CI_Controller {
             );
 
             $this->cart->update($info);
+        }
+    }
+
+    function delete_item_in_cart($id) {
+        $contents = $this->input->post();        
+        foreach ($contents as $content) {            
+            if ($content['id'] == $id) {
+                
+                $info = array(
+                    'rowid' => $content['rowid'],
+                    'qty' => 0
+                );
+                $this->cart->update($info);
+            }
         }
     }
 
@@ -53,12 +66,12 @@ class Product extends CI_Controller {
         $data['title'] = "Xem gio hang";
         $data['data'] = "Cac san pham trong gio hang";
         $data['template'] = "cart_view";
-        
+
         $this->load->library('cart');
         $this->load->helper('form');
         $this->load->helper('url');
-        
-                                        
+
+
         $data['products'] = $this->product_model->getAllProductCart();
         // Lets update our cart
         if ($this->input->post('update_cart')) {
@@ -76,11 +89,10 @@ class Product extends CI_Controller {
                 echo "Gio hang rong";
             }
         }
-                
-        $data['products'] = $this->product_model->getAllProducts();                                          
+
+        $data['products'] = $this->product_model->getAllProducts();
         $this->load->view("layout_webuser", $data);
     }
-    
 
     //Xem hoa don
     function view_receipt() {
@@ -98,13 +110,11 @@ class Product extends CI_Controller {
         $this->load->view("layout_webuser", $data);
     }
 
-    
     function xem_bao_gia() {
         $data['title'] = "Xem bao gia";
         $data['data'] = "Xem bao gia";
         $data['template'] = "baogia_view";
         $this->load->view("layout_webuser", $data);
     }
-    
 
 }
