@@ -13,7 +13,7 @@ class seach extends CI_Controller {
         $data['data'] = "";
         $data['template'] = "seach_view";
         
-        $data['keyword'] = $_GET['x'];
+        $data['keyword'] = $_GET['keyword'];
         $data['products'] = $this->product_model->getProductSearchByName($data['keyword']);
         $this->load->view("layout_webuser", $data);
     }

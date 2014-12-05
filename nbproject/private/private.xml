@@ -3,15 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/var/www/html/mobileshop/application/front-modules/product/views/cart_view.php</file>
-            <file>file:/var/www/html/mobileshop/application/front-modules/product/controllers/product.php</file>
-            <file>file:/var/www/html/mobileshop/application/models/product_model.php</file>
-            <file>file:/var/www/html/mobileshop/application/front-modules/home/controllers/home.php</file>
-            <file>file:/var/www/html/mobileshop/application/views/headerCart.php</file>
-=======
+            <file>file:/C:/xampp/htdocs/mobileshop/application/front-modules/seach/controllers/seach.php</file>
+            <file>file:/C:/xampp/htdocs/mobileshop/application/front-modules/seach/views/seach_view.php</file>
             <file>file:/C:/xampp/htdocs/mobileshop/application/models/product_model.php</file>
->>>>>>> 88ef2877132f9584e74039bbefc86b6ed3ba141d
+            <file>file:/C:/xampp/htdocs/mobileshop/application/views/layout_webuser.php</file>
+            <file>file:/C:/xampp/htdocs/mobileshop/application/front-modules/product/views/product_home_view.php</file>
+            <file>file:/C:/xampp/htdocs/mobileshop/application/views/searchBox_view.php</file>
         </group>
     </open-files>
 </project-private>
