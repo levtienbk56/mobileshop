@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/mobileshop/application/front-modules/seach/controllers/seach.php</file>
-            <file>file:/C:/xampp/htdocs/mobileshop/application/front-modules/seach/views/seach_view.php</file>
-            <file>file:/C:/xampp/htdocs/mobileshop/application/models/product_model.php</file>
-            <file>file:/C:/xampp/htdocs/mobileshop/application/views/layout_webuser.php</file>
-            <file>file:/C:/xampp/htdocs/mobileshop/application/front-modules/product/views/product_home_view.php</file>
             <file>file:/C:/xampp/htdocs/mobileshop/application/views/searchBox_view.php</file>
+            <file>file:/C:/xampp/htdocs/mobileshop/application/front-modules/search/views/search_view.php</file>
+            <file>file:/C:/xampp/htdocs/mobileshop/application/front-modules/search/controllers/search.php</file>
+            <file>file:/C:/xampp/htdocs/mobileshop/application/front-modules/product/views/product_home_view.php</file>
+            <file>file:/C:/xampp/htdocs/mobileshop/application/models/product_model.php</file>
         </group>
     </open-files>
 </project-private>

@@ -2,6 +2,9 @@
 <?php $this->load->view('slider'); ?>
 <?php $this->load->view('featureProducts_view'); ?>
 
+<!--------------Search filter's---------------->
+
+<!-------------product list-------------------->
 <div class="products-list">
     <div class="container">
         <h3><span>Apple<a class="viewmore" href="#"> <i class="icon-chevron-sign-right"></i></a> </span></h3>
