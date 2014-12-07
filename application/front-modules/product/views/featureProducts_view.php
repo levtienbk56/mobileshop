@@ -1,7 +1,7 @@
 <div class="products-list products-list-small">
    <div class="container">
       <div class="tabbable">
-         <div class="nav nav-tabs"><a href="#tab1" data-toggle="tab" class="active"><span>Mới nhất</span></a><a href="#tab2" data-toggle="tab" class=""><span>Khuyến mai đặc biệt</span></a><a href="#tab3" data-toggle="tab" class=""><span>Được mua nhiều nhất</span></a></div>
+         <div class="nav nav-tabs"><a href="#tab1" data-toggle="tab" class="active"><span>Mới nhất</span></a><a href="#tab2" data-toggle="tab" class=""><span>Khuyến mại</span></a><a href="#tab3" data-toggle="tab" class=""><span>Mua nhiều nhất</span></a></div>
          <div class="tab-content">
             <div class="tab-pane active" id="tab1">
                <ul class="thumbnails">

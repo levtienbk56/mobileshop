@@ -9,14 +9,13 @@ class Home extends CI_Controller {
     public function index(){
         $data['title'] = "Trang chủ quản trị";
         $data['data'] = "Dữ liệu quản trị";        
-        $data['template'] = "home2";
+        $data['template'] = "home";
         if(! $this->session->userdata('validated')){
             redirect('admin/index.php/login');
         }
         else {
-            $this->load->view("layout2_admin",$data);
-        }
-        
+            $this->load->view("admin/layout_admin",$data);
+        }        
     }
     
     private function check_isvalidated(){

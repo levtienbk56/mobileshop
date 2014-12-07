@@ -10,7 +10,7 @@ class Product_model extends CI_Model {
             return $q->result();
         }
         return array();
-    }
+    }                    
 
     function getDetail($productID) {
         $this->db->where("productID", $productID);

@@ -13,7 +13,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout2_admin", $data);
+            $this->load->view("layout_admin", $data);
         }
     }
 
@@ -24,7 +24,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout2_admin", $data);
+            $this->load->view("layout_admin", $data);
         }
     }
 
@@ -36,7 +36,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout2_admin", $data);
+            $this->load->view("layout_admin", $data);
         }
     }
 
@@ -47,7 +47,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout2_admin", $data);
+            $this->load->view("layout_admin", $data);
         }
     }
 
@@ -58,7 +58,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout2_admin", $data);
+            $this->load->view("layout_admin", $data);
         }
     }
 
@@ -71,7 +71,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout2_admin", $data);
+            $this->load->view("layout_admin", $data);
         }
     }
 
@@ -82,7 +82,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout2_admin", $data);
+            $this->load->view("layout_admin", $data);
         }
     }
 
@@ -96,7 +96,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout3_admin", $data);
+            $this->load->view("layoutLogin_admin", $data);
         }
     }
 
@@ -107,20 +107,12 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout3_admin", $data);
+            $this->load->view("layoutLogin_admin", $data);
         }
     }
 
     function examples_lockscreen() {
             $this->load->view("examples/lockscreen");        
-//        $data['title'] = "examples_lockscreen";
-//        $data['data'] = "";
-//        $data['template'] = "examples/lockscreen";
-//        if (!$this->session->userdata('validated')) {
-//            redirect('admin/index.php/login');
-//        } else {
-//            $this->load->view("layout3_admin", $data);
-//        }
     }
 
     function examples_404() {
@@ -130,7 +122,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout2_admin", $data);
+            $this->load->view("layout_admin", $data);
         }
     }
 
@@ -143,7 +135,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout2_admin", $data);
+            $this->load->view("layout_admin", $data);
         }
     }
 
@@ -154,7 +146,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout2_admin", $data);
+            $this->load->view("layout_admin", $data);
         }
     }
 
@@ -165,7 +157,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout2_admin", $data);
+            $this->load->view("layout_admin", $data);
         }
     }
 
@@ -176,7 +168,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout2_admin", $data);
+            $this->load->view("layout_admin", $data);
         }
     }
 
@@ -187,7 +179,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout2_admin", $data);
+            $this->load->view("layout_admin", $data);
         }
     }
 

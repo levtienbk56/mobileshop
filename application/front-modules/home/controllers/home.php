@@ -14,20 +14,33 @@ class Home extends CI_Controller {
     public function index() {
         // Load the cart library to use it.
         $data['products'] = $this->product_model->getAllProductCart();
+
         if ($this->input->get('id') != '') {
             $id = $this->input->get('id') - 1;
-            $price = $data['products'][$id]->price;
-            $name = $data['products'][$id]->name;
-            $image = $data['products'][$id]->image;
-            $insert = array(
-                'id' => $id,
-                'qty' => 1,
-                'price' => $price,
-                'name' => $name,
-                'options' => array('img' => $image)
-            );
+            $exist = 0;
+            foreach ($this->cart->contents() as $items) {
+                if ($items['id'] == $id) {
+                    echo '<script language="javascript">';
+                    echo 'alert("Đã tồn tại sản phẩm trong giỏ hàng")';
+                    echo '</script>';
+                    $exit = 1;
+                }
+            }
 
-            $this->cart->insert($insert);
+            if ($exist == 0) {
+                $price = $data['products'][$id]->price;
+                $name = $data['products'][$id]->name;
+                $image = $data['products'][$id]->image;
+                $insert = array(
+                    'id' => $id,
+                    'qty' => 1,
+                    'price' => $price,
+                    'name' => $name,
+                    'options' => array('img' => $image)
+                );
+
+                $this->cart->insert($insert);
+            }
         }
 
         // Lets update our cart

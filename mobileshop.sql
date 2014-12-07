@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 07, 2014 at 09:49 PM
+-- Generation Time: Dec 08, 2014 at 01:16 AM
 -- Server version: 5.5.40-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.5
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `AdminUser` (
   `userID` int(10) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `realName` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `roleID` int(10) NOT NULL,
   PRIMARY KEY (`userID`)
@@ -40,8 +40,8 @@ CREATE TABLE IF NOT EXISTS `AdminUser` (
 --
 
 INSERT INTO `AdminUser` (`userID`, `username`, `password`, `realName`, `roleID`) VALUES
-(1, 'admin', 'admin', 'Phan Văn Huy', 1),
-(2, 'qtsanpham', '123456', 'ABC', 2);
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Phan Văn Huy', 1),
+(2, 'qtsanpham', 'e10adc3949ba59abbe56e057f20f883e', 'ABC', 2);
 
 -- --------------------------------------------------------
 
@@ -56,7 +56,8 @@ CREATE TABLE IF NOT EXISTS `allProductsBrief_view` (
 ,`isNew` bit(2)
 ,`isHot` bit(2)
 ,`saleOff` decimal(10,0)
-,`dateCreated` date
+,`status` bit(2)
+,`quantity` int(10)
 ,`categoryName` varchar(100)
 );
 -- --------------------------------------------------------
@@ -82,6 +83,20 @@ INSERT INTO `Category` (`categoryID`, `categoryName`, `description`, `image`) VA
 (2, 'Samsung', '', ''),
 (3, 'Nokia', '', ''),
 (4, 'LG', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ConfigurationInfo`
+--
+
+CREATE TABLE IF NOT EXISTS `ConfigurationInfo` (
+  `configID` int(11) NOT NULL AUTO_INCREMENT,
+  `touch_screen` tinyint(1) DEFAULT NULL,
+  `wifi` tinyint(1) DEFAULT NULL,
+  `3g` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`configID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -196,6 +211,7 @@ CREATE TABLE IF NOT EXISTS `productCart` (
 ,`qty` int(10)
 ,`price` double
 ,`name` varchar(100)
+,`image` varchar(200)
 );
 -- --------------------------------------------------------
 
@@ -268,26 +284,6 @@ INSERT INTO `Role` (`roleID`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `slidb32_users`
---
-
-CREATE TABLE IF NOT EXISTS `slidb32_users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `slidb32_users`
---
-
-INSERT INTO `slidb32_users` (`id`, `username`, `password`) VALUES
-(1, 'phanhuy', '123456');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `Supplier`
 --
 
@@ -336,7 +332,7 @@ INSERT INTO `webInfo` (`id`, `infoName`, `content`) VALUES
 --
 DROP TABLE IF EXISTS `allProductsBrief_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `allProductsBrief_view` AS select `Product`.`productID` AS `productID`,`Product`.`name` AS `name`,`Product`.`image` AS `image`,`Product`.`price` AS `price`,`Product`.`isNew` AS `isNew`,`Product`.`isHot` AS `isHot`,`Product`.`saleOff` AS `saleOff`,`Product`.`dateCreated` AS `dateCreated`,`Category`.`categoryName` AS `categoryName` from (`Product` join `Category`) where (`Product`.`categoryID` = `Category`.`categoryID`);
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `allProductsBrief_view` AS select `Product`.`productID` AS `productID`,`Product`.`name` AS `name`,`Product`.`image` AS `image`,`Product`.`price` AS `price`,`Product`.`isNew` AS `isNew`,`Product`.`isHot` AS `isHot`,`Product`.`saleOff` AS `saleOff`,`Product`.`status` AS `status`,`Product`.`quantity` AS `quantity`,`Category`.`categoryName` AS `categoryName` from (`Product` join `Category`) where (`Product`.`categoryID` = `Category`.`categoryID`);
 
 -- --------------------------------------------------------
 
@@ -345,7 +341,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `productCart`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `productCart` AS select `Product`.`productID` AS `id`,`Product`.`quantity` AS `qty`,`Product`.`price` AS `price`,`Product`.`name` AS `name` from `Product`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `productCart` AS select `Product`.`productID` AS `id`,`Product`.`quantity` AS `qty`,`Product`.`price` AS `price`,`Product`.`name` AS `name`,`Product`.`image` AS `image` from `Product`;
 
 -- --------------------------------------------------------
 
