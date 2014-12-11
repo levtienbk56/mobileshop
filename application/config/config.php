@@ -364,5 +364,7 @@ $config['proxy_ips'] = '';
  */
 $config['next_link'] = 'Next';
 $config['prev_link'] = 'Previous';
+
+
 /* End of file config.php */
 /* Location: ./application/config/config.php */

@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <?php ini_set('default_charset', 'UTF-8'); ?>
         <title><?php echo $title; ?> </title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
@@ -22,6 +23,11 @@
         <link href="<?php echo base_url(); ?>/themes/admin/AdminLTE/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         <link href="<?php echo base_url(); ?>/themes/admin/AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>/themes/admin/AdminLTE/css/colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>/themes/admin/css/stylechung_admin.css" rel="stylesheet" type="text/css" />
+
+ 
+        
         <!-- iCheck for checkboxes and radio inputs -->
         <link href="../css/iCheck/minimal/blue.css" rel="stylesheet" type="text/css" />
 
@@ -475,7 +481,12 @@
         <!-- AdminLTE for demo purposes -->
         <script src="<?php echo base_url(); ?>/themes/admin/AdminLTE/js/AdminLTE/demo.js" type="text/javascript"></script>
         
-        <!-- iCheck -->
-        <script src="../jsplugins//iCheck/icheck.min.js" type="text/javascript"></script>
+        <!-- CK Editor -->
+        <script src="<?php echo base_url(); ?>themes/admin/AdminLTE/js/plugins/ckeditor/ckeditor.js" type="text/javascript"></script>
+        
+
+
+        
+        
     </body>
 </html>

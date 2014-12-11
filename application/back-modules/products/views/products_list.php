@@ -34,13 +34,14 @@
                             <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
                         </span>
                     </div>
-                </form>
+                </form>                                                
             </div>
+            <div class="col-md-4" style="margin-top:-8px;"> <button class="btn bg-olive margin">Thêm mới</button></div>
             <div class="col-md-12">
                 <table class="table table-list-search">
                     <thead>
                         <tr>
-                            <th>productID</th>
+                            <th>Mã sản phẩm</th>
                             <th>tên</th>
                             <th>ảnh</th>
                             <th>giá</th>                                                                                                                
@@ -67,7 +68,7 @@
                                 <td><?php echo $product->status; ?></td>
                                 <td><?php echo $product->categoryName; ?></td>
                                 <td><a href="<?php echo base_url(); ?>admin/index.php/products/product_detail/viewDetail/<?php echo $product->productID; ?>"><i class="glyphicon glyphicon-edit"></i></a></td>
-                                <td><a href="#"><i class="fa fa-cut"></i></a> </td>
+                                <td><a href="#"><i class="fa fa-trash-o"></i></a> </td>
                             </tr>
                             <?php
                             $i++;
@@ -125,7 +126,7 @@
 //all tr elements are hidden
             if (tableRowsClass.children(':visible').length == 0)
             {
-                tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
+                tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">Không tìm thấy.</td></tr>');
             }
         });
     });

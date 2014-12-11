@@ -3,16 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/mobileshop/application/back-modules/login/views/login_view.php</file>
-            <file>file:/var/www/html/mobileshop/application/front-modules/product/views/cart_view.php</file>
-            <file>file:/var/www/html/mobileshop/application/config/config.php</file>
-            <file>file:/var/www/html/mobileshop/application/front-modules/cart_ajax/views/view-cart.php</file>
-            <file>file:/var/www/html/mobileshop/application/models/login_model.php</file>
-            <file>file:/var/www/html/mobileshop/application/front-modules/product/views/product_home_view.php</file>
-            <file>file:/var/www/html/mobileshop/application/front-modules/cart_ajax/controllers/cart.php</file>
+            <file>file:/var/www/html/mobileshop/application/models/product_model.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/controllers/product_detail.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/home/controllers/home.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/views/product_detail.php</file>
             <file>file:/var/www/html/mobileshop/application/back-modules/login/controllers/login.php</file>
-            <file>file:/var/www/html/mobileshop/application/views/headerCart.php</file>
-            <file>file:/var/www/html/mobileshop/application/front-modules/product/views/featureProducts_view.php</file>
         </group>
     </open-files>
 </project-private>

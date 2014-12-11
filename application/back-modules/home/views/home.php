@@ -82,7 +82,7 @@
                             65
                         </h3>
                         <p>
-                            Unique Visitors
+                            Thống kê truy cập
                         </p>
                     </div>
                     <div class="icon">
