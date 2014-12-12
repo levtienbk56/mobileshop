@@ -5,9 +5,7 @@
         <group>
             <file>file:/C:/xampp/htdocs/mobileshop/application/views/searchBox_view.php</file>
             <file>file:/C:/xampp/htdocs/mobileshop/application/front-modules/search/views/search_view.php</file>
-            <file>file:/C:/xampp/htdocs/mobileshop/application/front-modules/search/controllers/search.php</file>
             <file>file:/C:/xampp/htdocs/mobileshop/application/front-modules/product/views/product_home_view.php</file>
-            <file>file:/C:/xampp/htdocs/mobileshop/application/models/product_model.php</file>
         </group>
     </open-files>
 </project-private>

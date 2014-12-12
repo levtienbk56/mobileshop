@@ -38,32 +38,17 @@
                 </form>
             </div>
             <div class="row products-filter">
-<!--                <p><a href="#" class="active"><i class="icon-th"></i></a> <a href="#"><i class="icon-th-large"></i></a></p>-->
-
-                <select>
-                    <option class="selected">Show 30</option>
-                    <option>Show 60</option>
-                    <option>Show 90</option>
-                </select>
-
-                <!-------------- order by ---------------------->
-                <select>
+                <select >
                     <option class="selected">Sort by Default</option>
-                    <option>Name ( A - Z )</option>
-                    <option>Name ( Z - A )</option>
                     <option>Price ( Low &gt; High )</option>
                     <option>Price ( High &gt; Low )</option>
-                    <option>Rating ( Highest )</option>
-                    <option>Rating ( Lowest )</option>
-                    <option>Model ( A - Z )</option>
-                    <option>Model ( Z - A )</option>
                 </select>
 
             </div>
             <div class="products-list products-list-simple">
                 <ul class="thumbnails">
 
-                    <!--
+                    <!-- EXAMPLE -------->
                     <!-- Products Single Box 
                     <li class="span3" style="opacity: 1;">
                       <div class="thumbnail"><a href="#" class="thumb"><img src="<?php echo base_url(); ?>themes/front/img/products/iphone.png" alt="Product"></a>

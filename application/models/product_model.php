@@ -33,12 +33,13 @@ class Product_model extends CI_Model {
         return array();
     }
 
+  
     function getProductSearchByName($keyword) {
-//        $q = $this->db->query("SELECT productID, name, price, image FROM product ");
-//        where name LIKE \"%" . $keyword . "%;\"
+        // sử dụng codeigniter helpers
         $this->load->database();
         $this->db->select("productID, name, price, image");
         $this->db->like("name", $keyword);
+        $this->db->order_by("price desc");
         $q = $this->db->get("product");
 
         if ($q->num_rows() > 0) {
@@ -47,13 +48,15 @@ class Product_model extends CI_Model {
         return array();
     }
 
+    
     function getProductSearchFilter($keyword, $category, $pricefrom, $priceto) {
+        // dùng query
         $this->load->database();
         if ($category == 0) {
-            $q = $this->db->query("SELECT productID, name, price, image FROM product WHERE name LIKE \"%" . $keyword . "%\" AND price>" . $pricefrom . " AND price<" . $priceto . ";");
+            $q = $this->db->query("SELECT productID, name, price, image FROM product WHERE name LIKE \"%" . $keyword . "%\" AND price>" . $pricefrom . " AND price<" . $priceto . " ORDER BY price DESC;");
         }
         else{
-            $q = $this->db->query("SELECT productID, name, price, image FROM product WHERE name LIKE \"%".$keyword."%\" AND price>".$pricefrom." AND price<".$priceto." AND categoryID=".$category.";");
+            $q = $this->db->query("SELECT productID, name, price, image FROM product WHERE name LIKE \"%".$keyword."%\" AND price>".$pricefrom." AND price<".$priceto." AND categoryID=".$category." ORDER BY price DESC;");
         }
         if ($q->num_rows() > 0) {
             return $q->result_array();
