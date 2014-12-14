@@ -3,11 +3,42 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/mobileshop/application/models/product_model.php</file>
+            <file>file:/var/www/html/mobileshop/application/models/product_model_admin.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/product/views/cart_view.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/controllers/orders.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/views/order_detail_view.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/views/suppliers_view.php</file>
             <file>file:/var/www/html/mobileshop/application/back-modules/products/controllers/product_detail.php</file>
-            <file>file:/var/www/html/mobileshop/application/back-modules/home/controllers/home.php</file>
-            <file>file:/var/www/html/mobileshop/application/back-modules/products/views/product_detail.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/controllers/suppliers.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/product/views/baogia_view.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/product/views/product_home_view.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/contact/views/contact_view.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/controllers/add_new_product.php</file>
             <file>file:/var/www/html/mobileshop/application/back-modules/login/controllers/login.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/feedback/controllers/feedback.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/seach/views/seach_view.php</file>
+            <file>file:/var/www/html/mobileshop/application/views/webuser_layout/layout_webuser.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/views/order_view.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/about/controllers/about.php</file>
+            <file>file:/var/www/html/mobileshop/application/views/webuser_layout/headerCart.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/views/product_detail.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/product/views/featureProducts_view.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/home/views/home.php</file>
+            <file>file:/var/www/html/mobileshop/application/config/database.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/seach/controllers/seach.php</file>
+            <file>file:/var/www/html/mobileshop/application/models/product_model.php</file>
+            <file>file:/var/www/html/mobileshop/application/models/login_model.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/home/controllers/home.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/controllers/categories.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/views/categories_view.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/product/controllers/product.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/post/controllers/post.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/contact/controllers/contact.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/cart_ajax/controllers/cart.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/home/controllers/home.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/product/views/detail_product_view.php</file>
+            <file>file:/var/www/html/mobileshop/application/views/admin_layout/layout_admin.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/controllers/products_list.php</file>
         </group>
     </open-files>
 </project-private>

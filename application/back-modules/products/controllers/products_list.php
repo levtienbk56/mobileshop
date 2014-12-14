@@ -16,14 +16,19 @@ class Products_list extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout_admin", $data);
+            $this->load->view("admin_layout/layout_admin", $data);
         }
-    }            
-
+    }
     private function check_isvalidated() {
         if (!$this->session->userdata('validated')) {
-            redirect('admin/index.php/login');
+            redirect('admin_layout/index.php/login');
         }
     }
 
+    public function delete_product($product_id){
+        $this->product_model->delete_product($product_id);
+        redirect(base_url() . "admin/index.php/products/products_list");
+        
+    }
+    
 }

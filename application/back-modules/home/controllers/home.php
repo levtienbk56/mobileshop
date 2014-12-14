@@ -14,7 +14,7 @@ class Home extends CI_Controller {
             redirect('admin/index.php/login');
         }
         else {
-            $this->load->view("admin/layout_admin",$data);
+            $this->load->view("admin_layout/layout_admin",$data);
         }        
     }
     

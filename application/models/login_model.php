@@ -13,7 +13,7 @@ class Login_model extends CI_Model{
         $this->db->where('username', $username);
         $this->db->where('password', md5($password));
         
-        $query = $this->db->get("AdminUser");
+        $query = $this->db->get("adminuser");
         
         // Let's check if there are any results
         if($query->num_rows == 1)

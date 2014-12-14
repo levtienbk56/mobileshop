@@ -15,6 +15,6 @@ class seach extends CI_Controller {
         
         $data['keyword'] = $_GET['keyword'];
         //$data['products'] = $this->product_model->getProductSearchByName($data['keyword']);
-        $this->load->view("layout_webuser", $data);
+        $this->load->view("webuser_layout/layout_webuser", $data);
     }            
 }

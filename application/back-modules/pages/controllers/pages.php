@@ -13,7 +13,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout_admin", $data);
+            $this->load->view("admin_layout/layout_admin", $data);
         }
     }
 
@@ -24,7 +24,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout_admin", $data);
+            $this->load->view("admin_layout/layout_admin", $data);
         }
     }
 
@@ -36,7 +36,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout_admin", $data);
+            $this->load->view("admin_layout/layout_admin", $data);
         }
     }
 
@@ -47,7 +47,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout_admin", $data);
+            $this->load->view("admin_layout/layout_admin", $data);
         }
     }
 
@@ -58,7 +58,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout_admin", $data);
+            $this->load->view("admin_layout/layout_admin", $data);
         }
     }
 
@@ -71,7 +71,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout_admin", $data);
+            $this->load->view("admin_layout/layout_admin", $data);
         }
     }
 
@@ -82,7 +82,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout_admin", $data);
+            $this->load->view("admin_layout/layout_admin", $data);
         }
     }
 
@@ -122,7 +122,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout_admin", $data);
+            $this->load->view("admin_layout/layout_admin", $data);
         }
     }
 
@@ -135,7 +135,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout_admin", $data);
+            $this->load->view("admin_layout/layout_admin", $data);
         }
     }
 
@@ -146,7 +146,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout_admin", $data);
+            $this->load->view("admin_layout/layout_admin", $data);
         }
     }
 
@@ -157,7 +157,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout_admin", $data);
+            $this->load->view("admin_layout/layout_admin", $data);
         }
     }
 
@@ -168,7 +168,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout_admin", $data);
+            $this->load->view("admin_layout/layout_admin", $data);
         }
     }
 
@@ -179,7 +179,7 @@ class Pages extends CI_Controller {
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
-            $this->load->view("layout_admin", $data);
+            $this->load->view("admin_layout/layout_admin", $data);
         }
     }
 

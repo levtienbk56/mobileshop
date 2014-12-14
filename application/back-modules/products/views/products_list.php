@@ -36,7 +36,7 @@
                     </div>
                 </form>                                                
             </div>
-            <div class="col-md-4" style="margin-top:-8px;"> <button class="btn bg-olive margin">Thêm mới</button></div>
+            <div class="col-md-4" style="margin-top:-8px;"> <a href="<?php echo base_url(); ?>admin/index.php/products/add_new_product" class="btn bg-olive margin" >Thêm mới</a></div>
             <div class="col-md-12">
                 <table class="table table-list-search">
                     <thead>
@@ -63,18 +63,22 @@
                                 <td><?php echo $product->name; ?></td>                                
                                 <td><img width="50px;" src="<?php echo base_url(); ?>themes/front/img/products/<?php echo trim($product->image); ?>"></td>
                                 <td><?php echo number_format($product->price * 1000000, 0, ".", $thousands_sep = " ") . " VND"; ?></td>                                                                
-                                <td><?php $p = $product->saleOff; if($p>0) echo $p." %"; ?></td>
+                                <td><?php
+                                    $p = $product->saleOff;
+                                    if ($p > 0)
+                                        echo $p . " %";
+                                    ?></td>
                                 <td><?php echo $product->quantity; ?></td>
                                 <td><?php echo $product->status; ?></td>
                                 <td><?php echo $product->categoryName; ?></td>
                                 <td><a href="<?php echo base_url(); ?>admin/index.php/products/product_detail/viewDetail/<?php echo $product->productID; ?>"><i class="glyphicon glyphicon-edit"></i></a></td>
-                                <td><a href="#"><i class="fa fa-trash-o"></i></a> </td>
+                                <td><a href="#"><i class="fa fa-trash-o complexConfirm"  
+                                                   onclick="ConfirmDelete(<?php echo $product->productID;?>,<?php echo '\''. $product->name.'\''; ?>)" ></i></a> </td>
                             </tr>
                             <?php
                             $i++;
                         }
                         ?>
-
                     </tbody>
                 </table>
             </div>
@@ -130,4 +134,65 @@
             }
         });
     });
+</script>
+
+
+
+
+
+
+<script src="<?php echo base_url(); ?>/themes/admin/AdminLTE/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>themes/admin/jquery.confirm-master/jquery.confirm.js"></script>	    
+<script src="<?php echo base_url(); ?>themes/admin/jquery.confirm-master//run_prettify.js"></script>
+
+<script>
+//    
+//    $(".complexConfirm").confirm({
+//        title: "Xác nhận xóa",
+//        text: "Bạn có chắc chắn muốn xóa sản phẩm đã chọn?",
+//        confirm: function (button) {
+//            button.fadeOut(2000).fadeIn(2000);
+//            //alert("You just confirmed.");
+//        },
+//        cancel: function (button) {
+//            button.fadeOut(2000).fadeIn(2000);
+//        },
+//        confirmButton: "Đồng ý",
+//        cancelButton: "Hủy"
+//    });
+
+
+//     $('#complexConfirm').click(function(){
+//      var value = $(this).attr('value');
+//      alert(value); 
+//      $("#complexConfirm").confirm({
+//        title: "Xác nhận xóa",
+//        text: "Bạn có chắc chắn muốn xóa sản phẩm đã chọn?",        
+//        confirm: function (button) {
+//            button.fadeOut(2000).fadeIn(2000);
+//            alert("You just confirmed.");            
+//        },
+//        cancel: function (button) {
+//            button.fadeOut(2000).fadeIn(2000);            
+//        },
+//        confirmButton: "Đồng ý",
+//        cancelButton: "Hủy"
+//    });       
+//        
+//  });
+
+
+</script>
+
+
+
+<script type = "text/javascript" >    
+    function ConfirmDelete(newsID, newsTitle)
+    {                
+        if (confirm("Bạn có chắc chắn muốn xóa sản phẩm: '" + newsTitle + "' ?"))
+        {
+            var Url = '<?php echo base_url() . 'admin/index.php/products/products_list/delete_product/'; ?>'+ newsID;
+            window.location.href = Url;
+        }
+    }
 </script>

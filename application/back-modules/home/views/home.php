@@ -3,12 +3,10 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Dashboard
-            <small>Control panel</small>
+            Trang quản trị            
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Trang chủ</a></li>            
         </ol>
     </section>
 
@@ -32,7 +30,7 @@
                         <i class="ion ion-bag"></i>
                     </div>
                     <a href="#" class="small-box-footer">
-                        More info <i class="fa fa-arrow-circle-right"></i>
+                        Xem thêm <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div><!-- ./col -->
@@ -51,7 +49,7 @@
                         <i class="ion ion-stats-bars"></i>
                     </div>
                     <a href="#" class="small-box-footer">
-                        More info <i class="fa fa-arrow-circle-right"></i>
+                        Xem thêm <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div><!-- ./col -->
@@ -70,7 +68,7 @@
                         <i class="ion ion-person-add"></i>
                     </div>
                     <a href="#" class="small-box-footer">
-                        More info <i class="fa fa-arrow-circle-right"></i>
+                        Xem thêm <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div><!-- ./col -->
@@ -89,7 +87,7 @@
                         <i class="ion ion-pie-graph"></i>
                     </div>
                     <a href="#" class="small-box-footer">
-                        More info <i class="fa fa-arrow-circle-right"></i>
+                        Xem thêm <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div><!-- ./col -->
@@ -106,16 +104,7 @@
                 <div class="box box-primary">
                     <div class="box-header">
                         <i class="ion ion-clipboard"></i>
-                        <h3 class="box-title">To Do List</h3>
-                        <div class="box-tools pull-right">
-                            <ul class="pagination pagination-sm inline">
-                                <li><a href="#">&laquo;</a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">&raquo;</a></li>
-                            </ul>
-                        </div>
+                        <h3 class="box-title">Ghi chú công việc</h3>                            
                     </div><!-- /.box-header -->
                     <div class="box-body">
                         <ul class="todo-list">
@@ -205,7 +194,7 @@
                         </ul>
                     </div><!-- /.box-body -->
                     <div class="box-footer clearfix no-border">
-                        <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
+                        <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Thêm ghi chú</button>
                     </div>
                 </div><!-- /.box -->
 
@@ -213,7 +202,7 @@
                 <div class="box box-info">
                     <div class="box-header">
                         <i class="fa fa-envelope"></i>
-                        <h3 class="box-title">Quick Email</h3>
+                        <h3 class="box-title">Gửi mail nhanh</h3>
                         <!-- tools box -->
                         <div class="pull-right box-tools">
                             <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
@@ -246,66 +235,12 @@
                 <div class="box box-solid bg-green-gradient">
                     <div class="box-header">
                         <i class="fa fa-calendar"></i>
-                        <h3 class="box-title">Calendar</h3>
-                        <!-- tools box -->
-                        <div class="pull-right box-tools">
-                            <!-- button with a dropdown -->
-                            <div class="btn-group">
-                                <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></button>
-                                <ul class="dropdown-menu pull-right" role="menu">
-                                    <li><a href="#">Add new event</a></li>
-                                    <li><a href="#">Clear events</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">View calendar</a></li>
-                                </ul>
-                            </div>
-                            <button class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                            <button class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>                                        
-                        </div><!-- /. tools -->
+                        <h3 class="box-title">Lịch</h3>                        
                     </div><!-- /.box-header -->
                     <div class="box-body no-padding">
                         <!--The calendar -->
                         <div id="calendar" style="width: 100%"></div>
-                    </div><!-- /.box-body -->  
-                    <div class="box-footer text-black">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <!-- Progress bars -->
-                                <div class="clearfix">
-                                    <span class="pull-left">Task #1</span>
-                                    <small class="pull-right">90%</small>
-                                </div>
-                                <div class="progress xs">
-                                    <div class="progress-bar progress-bar-green" style="width: 90%;"></div>
-                                </div>
-
-                                <div class="clearfix">
-                                    <span class="pull-left">Task #2</span>
-                                    <small class="pull-right">70%</small>
-                                </div>
-                                <div class="progress xs">
-                                    <div class="progress-bar progress-bar-green" style="width: 70%;"></div>
-                                </div>
-                            </div><!-- /.col -->
-                            <div class="col-sm-6">
-                                <div class="clearfix">
-                                    <span class="pull-left">Task #3</span>
-                                    <small class="pull-right">60%</small>
-                                </div>
-                                <div class="progress xs">
-                                    <div class="progress-bar progress-bar-green" style="width: 60%;"></div>
-                                </div>
-
-                                <div class="clearfix">
-                                    <span class="pull-left">Task #4</span>
-                                    <small class="pull-right">40%</small>
-                                </div>
-                                <div class="progress xs">
-                                    <div class="progress-bar progress-bar-green" style="width: 40%;"></div>
-                                </div>
-                            </div><!-- /.col -->
-                        </div><!-- /.row -->                                                                        
-                    </div>
+                    </div><!-- /.box-body -->                      
                 </div><!-- /.box -->                            
 
             </section><!-- right col -->

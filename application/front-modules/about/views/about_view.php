@@ -1,16 +1,14 @@
-<div class="container">
+<div class="container" style="margin-left: 200px;">
    <div class="row">
-      <div class="span9">
+      <div class="span9" >
          <!-- Breadcrumb -->
          <ul class="breadcrumb">
-            <li><a href="#">Home</a> <span class="divider">/</span></li>
-            <li><a href="#">Blog</a> <span class="divider">/</span></li>
-            <li class="active">Single Post</li>
+            <li><a href="#">Trang chủ</a> <span class="divider">/</span></li>
+            <li><a href="#">Giới thiệu</a> </li>            
          </ul>
-         <!-- Single Post -->
-         <!-- Flex Slider -->
+                  
          <h1>Giới thiệu về Shop</h1>
-         <blockquote> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante <small>Someone famousSource Title</small></blockquote>
+         
          <p class="margin">
          </p>
          <p class="desc">
@@ -21,41 +19,22 @@
             Chúng tôi xin chân thành cảm ơn tất cả các khách hàng đã, đang và sẽ ủng hộ chúng tôi.    
          </p>
          <div class="address-shop-rw">
-            <label>Địa chỉ:</label>
-            <span>số 3000, Trần Đại Nghĩa, Hà Nội.</span>
+            Địa chỉ:
+            <strong>số 3000, Trần Đại Nghĩa, Hà Nội.</strong>
          </div>
          <div class="address-shop-rw">
-            <label>Điện thoại:</label>
-            <span>0123456789</span>
+            Điện thoại:
+            <strong>0123456789</strong>
          </div>
          <div class="address-shop-rw">
-            <label>Email:</label>
-            <span>contact@shopmobile.com</span>
+            Email:
+            <strong>contact@shopmobile.com</strong>
          </div>
          <div class="address-shop-rw">
-            <label>Website:</label>
-            <span>http://shopmobile.com/</span>
+            Website:
+            <strong>http://shopmobile.com/</strong>
          </div>
-         <ul class="blog-list">
-            <li class="span3">
-               <div class="thumbnail">
-                  <img src="products/folio-1.jpg" alt="Product">
-                  <div class="blog-thumb"><a href="products/folio-1.jpg" class="view-fancybox" rel="tag"><i class="icon-camera"></i></a></div>
-               </div>
-            </li>
-            <li class="span3">
-               <div class="thumbnail">
-                  <img src="products/folio-4.jpg" alt="Product">
-                  <div class="blog-thumb"><a href="products/folio-4.jpg" class="view-fancybox" rel="tag"><i class="icon-camera"></i></a></div>
-               </div>
-            </li>
-            <li class="span3">
-               <div class="thumbnail">
-                  <img src="products/folio-3.jpg" alt="Product">
-                  <div class="blog-thumb"><a href="products/folio-3.jpg" class="view-fancybox" rel="tag"><i class="icon-camera"></i></a></div>
-               </div>
-            </li>
-         </ul>
+         
          <div class="clearfix"></div>
       </div>
       <!-- Sidebar -->

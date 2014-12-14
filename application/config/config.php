@@ -365,6 +365,17 @@ $config['proxy_ips'] = '';
 $config['next_link'] = 'Next';
 $config['prev_link'] = 'Previous';
 
+$config['upload_path'] = './uploads/';
+
+$config['allowed_types'] = 'gif|jpg|png';
+
+$config['max_size'] = '100';
+
+$config['max_width'] = '1024';
+
+$config['max_height'] = '768';
+
+
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

@@ -14,8 +14,12 @@
             </ul>
             <div class="flex-viewport" style="overflow: hidden; position: relative;">
                <ul class="slides" style="width: 1200%; transition: 0.5s; -webkit-transition: 0.5s; -webkit-transform: translate3d(-3510px, 0px, 0px);">                   
-                  <li class="clone" style="width: 1170px; float: left; display: block;"><a href="#"><img src="<?php echo base_url(); ?>themes/front/img/banner/slider.jpg" alt="Slider"></a></li>
-                  <li class="clone" style="width: 1170px; float: left; display: block;"><a href="#"><img src="<?php echo base_url(); ?>themes/front/img/banner/slider2.jpg" alt="Slider"></a></li>
+                  <li class="clone" style="width: 1170px; float: left; display: block;"><a ><img src="<?php echo base_url(); ?>themes/front/img/banner/slider.jpg" alt="Slider"></a></li>
+                  <li class="clone" style="width: 1170px; float: left; display: block;"><a ><img src="<?php echo base_url(); ?>themes/front/img/banner/slider2.jpg" alt="Slider"></a></li>
+                  <li class="clone" style="width: 1170px; float: left; display: block;"><a ><img src="<?php echo base_url(); ?>themes/front/img/banner/banner-alpha.png" alt="Slider"></a></li>
+                  <li class="clone" style="width: 1170px; float: left; display: block;"><a ><img src="<?php echo base_url(); ?>themes/front/img/banner/banner-giang-sinh-Zenfone.png" alt="Slider"></a></li>
+                  <li class="clone" style="width: 1170px; float: left; display: block;"><a ><img src="<?php echo base_url(); ?>themes/front/img/banner/banner-note-4.png" alt="Slider"></a></li>
+                  <li class="clone" style="width: 1170px; float: left; display: block;"><a ><img src="<?php echo base_url(); ?>themes/front/img/banner/htc-one-dual-sim.png" alt="Slider"></a></li>
                </ul>
             </div>
             <ol class="flex-control-nav flex-control-paging">

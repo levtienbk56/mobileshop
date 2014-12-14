@@ -1,3 +1,8 @@
+<style>
+    th{
+        float:left;
+    }
+</style>
 <div class="container">
     <div class="row"> 
 
@@ -32,7 +37,24 @@
             <p class="main-price"><span><?php if ($product->saleOff > 0) echo number_format($product->price * (100+ $product->saleOff) / 100 * 1000000, 0, ".", $thousands_sep = ",") . "VND" ?></span> <strong><?php echo number_format($product->price * 1000000, 0, ".", $thousands_sep = ",") . "VND"; ?></strong></p>
 
             <!-- Add Buttons -->             
-            <input type="button" value="Thêm vào giỏ hàng" class="btn btn-add-cart">
+            
+            <?php 
+                $exist = 0;
+                foreach ($this->cart->contents() as $items) {
+                    if ($items['id'] == $product->productID) {
+                        $exist = 1;
+                    }
+                }
+                if ($exist == 0) {
+                    $cart_url = base_url() . "index.php/product/add_item_cart/" . $product->productID;
+                    $id_for_link = "not_exist";
+                } else {
+                    $cart_url = "#";
+                    $id_for_link = "is_exist";
+                }
+            ?>
+            
+            <a href="<?php  echo $cart_url; ?>" class="btn btn-add-cart" id="<?php echo $id_for_link; ?>">Thêm vào giỏ </a>
             <input type="text" placeholder="1" class="input-quantity">
             <span class="input-quantity-text">Số lượng</span>
             <div class="clearfix"></div>
@@ -100,3 +122,11 @@
     </div>
 </div>
 
+
+
+
+<script>
+    $("#is_exist").click(function (){
+       alert('Sản phẩm đã có trong giỏ hàng!') ;
+    });
+</script>

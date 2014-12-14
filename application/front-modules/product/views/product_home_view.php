@@ -37,8 +37,7 @@
                         <div class="thumbnail style1">
                             <a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>" class="thumb"><img src="<?php echo base_url(); ?>themes/front/img/products/<?php echo trim($product->image); ?>" alt="Product"></a>
                             <p><a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>"><?php echo $product->name; ?></a></p>
-                            <p class="price"><?php echo number_format($this->cart->format_number($product->price) * 1000000, 0, ".", $thousands_sep = " ")." VND"; ?></p>
-                            <p class="rating"><i class="icon-star"><span>1</span></i><i class="icon-star"><span>2</span></i><i class="icon-star"><span>3</span></i><i class="icon-star"><span>4</span></i><i class="icon-star-empty"><span>5</span></i></p>
+                            <p class="price"><?php echo number_format($this->cart->format_number($product->price) * 1000000, 0, ".", $thousands_sep = " ")." VND"; ?></p>                            
                             <a href="?id=<?php echo $product->productID; ?>" class="add_to_cart">Thêm vào giỏ</a>
                             <a href="#" class="add-list"><i class="icon-tasks"></i>So sánh</a><a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>" class="add-comp"><i class="icon-share-alt"></i>Xem chi tiết</a>
                         </div>
@@ -68,7 +67,6 @@ foreach ($products as $product) {
                             <a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>" class="thumb"><img src="<?php echo base_url(); ?>themes/front/img/products/<?php echo trim($product->image); ?>" alt="Product"></a>
                             <p><a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>"><?php echo $product->name; ?></a></p>
                             <p class="price"><?php echo number_format($this->cart->format_number($product->price) * 1000000, 0, ".", $thousands_sep = " ")." VND"; ?></p>
-                            <p class="rating"><i class="icon-star"><span>1</span></i><i class="icon-star"><span>2</span></i><i class="icon-star"><span>3</span></i><i class="icon-star"><span>4</span></i><i class="icon-star-empty"><span>5</span></i></p>
                             <a href="?id=<?php echo $product->productID; ?>" class="add_to_cart">Thêm vào giỏ</a>
                             <a href="#" class="add-list"><i class="icon-tasks"></i>So sánh</a><a href="#" class="add-comp"><i class="icon-share-alt"></i>Xem chi tiết</a>
                         </div>
@@ -84,6 +82,33 @@ foreach ($products as $product) {
 </div>
 
 
+<div class="products-list">
+    <div class="container">
+        <h3><span>LG<a class="viewmore" href="#"> <i class="icon-chevron-sign-right"></i></a> </span></h3>
+        <ul class="thumbnails">
+            <?php $i = 1;
+            foreach ($products as $product) {
+                ?>
+    <?php if ($product->categoryName == "LG" && $i <= 4) { ?>
+                    <li class="span3">
+                        <div class="thumbnail style1">
+                            <a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>" class="thumb"><img src="<?php echo base_url(); ?>themes/front/img/products/<?php echo trim($product->image); ?>" alt="Product"></a>
+                            <p><a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>"><?php echo $product->name; ?></a></p>
+                            <p class="price"><?php echo number_format($this->cart->format_number($product->price) * 1000000, 0, ".", $thousands_sep = " ")." VND"; ?></p>                            
+                            <a href="?id=<?php echo $product->productID; ?>" class="add_to_cart">Thêm vào giỏ</a>
+                            <a href="#" class="add-list"><i class="icon-tasks"></i>So sánh</a><a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>" class="add-comp"><i class="icon-share-alt"></i>Xem chi tiết</a>
+                        </div>
+                    </li>
+                    <?php
+                    $i++;
+                }
+            }
+            ?>   
+
+        </ul>
+    </div>
+</div>
+
 
 <div class="container">
     <div class="brands">
@@ -97,3 +122,10 @@ foreach ($products as $product) {
         </ul>
     </div>
 </div>
+
+
+<script>
+    $("#is_exist").click(function (){
+       alert('Sản phẩm đã có trong giỏ hàng!') ;
+    });
+</script>

@@ -14,7 +14,7 @@ class Feedback extends CI_Controller {
         $data['title'] = "Lien he";
         $data['data'] = "Contact";
         $data['template'] = "feedback_view";
-        $this->load->view("layout_webuser", $data);
+        $this->load->view("webuser_layout/layout_webuser", $data);
     }
 
 }

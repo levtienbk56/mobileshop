@@ -9,7 +9,7 @@ body {
     padding: 0;
 }
 .well{
-    padding: 40px 20px 40px 40px;
+    padding: 40px 20px 20px 40px;
 }
 .thsanpham{text-align: left !important;}
 .col-md-9{text-align: left !important;}
@@ -21,86 +21,60 @@ body {
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6 diachi">
                     <address>
-                        <strong>Elf Cafe</strong>
+                        Họ tên <strong><?php echo " ".$receipt_info_user[2]; ?></strong>
                         <br>
-                        2135 Sunset Blvd
-                        <br>
-                        Los Angeles, CA 90026
-                        <br>
-                        <abbr title="Phone">P:</abbr> (213) 484-6829
+                        Địa chỉ <strong><?php echo " ".$receipt_info_user[4]; ?></strong>
+                        <br>                                                
+                        <abbr title="Phone">Số điện thoại:<strong><?php echo " ".$receipt_info_user[3]; ?></strong></abbr> 
                     </address>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 text-right ngaymua">
                     <p>
-                        <em>Date: 1st November, 2013</em>
+                        <em>Ngày đặt: <strong><?php echo " ".$receipt_info_user[1]; ?></strong></em>
                     </p>
                     <p>
-                        <em>Receipt #: 34522677W</em>
+                        <em>Mã số hóa đơn #: <strong><?php echo " ".$receipt_info_user[0]; ?></strong></em>
                     </p>
                 </div>
             </div>
             <div class="row">
                 <div class="text-center">
-                    <h1>Receipt</h1>
+                    <h1>Hóa đơn</h1>
+                    <br>
+                    <h5>Bạn đã đặt hàng thành công, vui lòng kiểm tra lại hóa đơn đặt hàng!</h5>
+                    <br>
                 </div>
-                </span>
+                
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th class="thsanpham">Product</th>
-                            <th>#</th>
-                            <th class="text-center">Price</th>
-                            <th class="text-center">Total</th>
+                            <th class="thsanpham">Sản phẩm:</th>
+                            <th>Số lượng</th>
+                            <th class="text-center">Giá</th>
+                            <th class="text-center">Tổng</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($receipt_info_products as $product){?>
                         <tr>
-                            <td class="col-md-9"><em>Baked Rodopa Sheep Feta</em></h4></td>
-                            <td class="col-md-1" style="text-align: center"> 2 </td>
-                            <td class="col-md-1 text-center">$13</td>
-                            <td class="col-md-1 text-center">$26</td>
+                            <td class="col-md-9"><em><?php echo $product['name']; ?></em></td>
+                            <td class="col-md-1" style="text-align: center"> <?php echo $product['qty']; ?> </td>
+                            
+                            <td style="text-align:right"><?php echo number_format($product['subtotal'] * 1000000, 0, ".", $thousands_sep = " ") . " VND"; ?></td>
+                            <td style="text-align:right"><?php echo number_format($product['price']*$product['qty'] * 1000000, 0, ".", $thousands_sep = " ") . " VND"; ?></td>
+                            
                         </tr>
-                        <tr>
-                            <td class="col-md-9"><em>Lebanese Cabbage Salad</em></h4></td>
-                            <td class="col-md-1" style="text-align: center"> 1 </td>
-                            <td class="col-md-1 text-center">$8</td>
-                            <td class="col-md-1 text-center">$8</td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-9"><em>Baked Tart with Thyme and Garlic</em></h4></td>
-                            <td class="col-md-1" style="text-align: center"> 3 </td>
-                            <td class="col-md-1 text-center">$16</td>
-                            <td class="col-md-1 text-center">$48</td>
-                        </tr>
+                        
+                        <?php }?>
+                        
                         <tr>
                             <td>   </td>
                             <td>   </td>
-                            <td class="text-right">
-                            <p>
-                                <strong>Subtotal: </strong>
-                            </p>
-                            <p>
-                                <strong>Tax: </strong>
-                            </p></td>
-                            <td class="text-center">
-                            <p>
-                                <strong>$6.94</strong>
-                            </p>
-                            <p>
-                                <strong>$6.94</strong>
-                            </p></td>
-                        </tr>
-                        <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td class="text-right"><h4><strong>Total: </strong></h4></td>
-                            <td class="text-center text-danger"><h4><strong>$31.53</strong></h4></td>
+                            <td class="text-right" style="padding-top:30px;"><h4><strong>Tổng cộng: </strong></h4></td>
+                            <td class="text-center text-danger" style="padding-top:30px;"><h4><strong> <?php echo number_format($total * 1000000, 0, ".", $thousands_sep = " ") . " VND"; ?></strong></h4></td>
                         </tr>
                     </tbody>
-                </table>
-                <button type="button" class="btn btn-success btn-lg btn-block dathangthucsu">
-                    Đặt hàng   <span class="glyphicon glyphicon-chevron-right"></span>
-                </button></td>
+                </table>      
             </div>
         </div>
     </div>
