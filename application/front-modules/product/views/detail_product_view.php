@@ -34,7 +34,7 @@
             </div>
 
             <!-- Price -->
-            <p class="main-price"><span><?php if ($product->saleOff > 0) echo number_format($product->price * (100+ $product->saleOff) / 100 * 1000000, 0, ".", $thousands_sep = ",") . "VND" ?></span> <strong><?php echo number_format($product->price * 1000000, 0, ".", $thousands_sep = ",") . "VND"; ?></strong></p>
+            <p class="main-price"><span><?php if ($product->saleOff > 0) echo number_format($product->price * (100 + $product->saleOff) / 100 * 1000000, 0, ".", $thousands_sep = ",") . "VND" ?></span> <strong><?php echo number_format($product->price * 1000000, 0, ".", $thousands_sep = ",") . "VND"; ?></strong></p>
 
 
             <a  class="btn btn-add-cart add_to_cart_global" id="<?php echo $id_for_link; ?>">Thêm vào giỏ </a>
@@ -62,35 +62,55 @@
                             <div class="tab-pane fade" id="tab3primary">
                                 <div class="accordion-inner">
                                     <ul class="unstyled">
-                                        <li> <strong>John Doe</strong>
-                                            <p class="main-rating review"><i class="icon-star"><span>1</span></i><i class="icon-star"><span>2</span></i><i class="icon-star"><span>3</span></i><i class="icon-star-half-empty"><span>4</span></i><i class="icon-star-empty"><span>5</span></i></p>
-                                            <em>May 15th, 2013</em>
-                                            <p>Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table.</p>
-                                        </li>
-                                        <li> <strong>John Doe</strong>
-                                            <p class="main-rating review"><i class="icon-star"><span>1</span></i><i class="icon-star"><span>2</span></i><i class="icon-star"><span>3</span></i><i class="icon-star-half-empty"><span>4</span></i><i class="icon-star-empty"><span>5</span></i></p>
-                                            <em>May 15th, 2013</em>
-                                            <p>Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table.</p>
-                                        </li>
-                                        <li> <strong>John Doe</strong>
-                                            <p class="main-rating review"><i class="icon-star"><span>1</span></i><i class="icon-star"><span>2</span></i><i class="icon-star"><span>3</span></i><i class="icon-star-half-empty"><span>4</span></i><i class="icon-star-empty"><span>5</span></i></p>
-                                            <em>May 15th, 2013</em>
-                                            <p>Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table.</p>
-                                        </li>
+                                        <!-------- LOOP  REVIEW --------------------->
+                                        <?php
+                                        foreach ($reviews as $review) {
+                                            $star = $review['vote'];
+                                            $i = 0;
+                                            ?>
+                                            <li> <strong> <?php echo $review['name']; ?></strong>
+                                                <p class="main-rating review">
+                                                    <!-------------- LOOP STAR ------------->
+                                                    <?php while ($i < 5) {
+                                                        ?>
+                                                        <i class="<?php
+                                                        if ($i < $star)
+                                                            echo "icon-star";
+                                                        else
+                                                            echo "icon-star-empty"
+                                                            ?>"><span>1</span></i>
+                                                           <?php
+                                                           $i = $i + 1;
+                                                       }
+                                                       ?>
+                                                    <!--- original html code -------------------------
+                                                    <i class="icon-star"><span>2</span></i>
+                                                    <i class="icon-star"><span>2</span></i>
+                                                    <i class="icon-star"><span>3</span></i>
+                                                    <i class="icon-star-half-empty"><span>4</span></i>
+                                                    <i class="icon-star-empty"><span>5</span></i>
+                                                    -------------------------------------------------->
+                                                </p>
+                                                <em> <?php echo $review['time']; ?></em>
+                                                <p> <?php echo $review['comment']; ?></p>
+                                            </li>
+                                            <?php
+                                        }
+                                        ?>                                        
                                     </ul>
 
-                                    <!-- Write Review -->
+                                    <!------------- Write Review ---------------------------->
                                     <h5>Write a Review</h5>
-                                    <form action="write-review" class="write-review">
+                                    <form id="form-review" class="write-review">
                                         <fieldset>
-                                            <input type="text" placeholder="Name">
-                                            <textarea rows="5" placeholder="Message"></textarea>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                            <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                                            <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
-                                            <input type="radio" name="optionsRadios" id="optionsRadios5" value="option5">
-                                            <input type="submit" value="Send">
+                                            <input type="text" placeholder="Name" id="customer-review">
+                                            <textarea rows="5" placeholder="Message" id="comment-review"></textarea>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="1" checked="">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="2">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios3" value="3">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios4" value="4">
+                                            <input type="radio" name="optionsRadios" id="optionsRadios5" value="5">
+                                            <p><input type="button" value="Gửi" onclick="sendReview()"></p>
                                         </fieldset>
                                     </form>
                                 </div>
@@ -104,3 +124,31 @@
         </div>
     </div>
 </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+    function sendReview() {
+        var productID = <?php echo $product->productID; ?>;
+        var name = $("#customer-review").val();
+        var comment = $("#comment-review").val();
+        var vote = $('input[name="optionsRadios"]:checked').val();
+        var _url = '<?php echo base_url(); ?>index.php/product/add_review';
+
+        if (name === "" || comment === "") {
+            alert("Bạn cần nhập đầy đủ");
+
+        } else {
+            $.ajax({
+                url: _url,
+                type: 'POST', //the way you want to send data to your URL
+                data: {'productID': productID, 'name': name, 'comment': comment, 'vote': vote},
+                dataType: "text",
+                success: function (data) {
+                    alert("Đánh giá của bạn đã được gửi đi");
+                    $('#form-review').load(document.URL +  ' #form-review');
+                }
+            });
+        }
+    }
+</script>

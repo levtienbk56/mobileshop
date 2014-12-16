@@ -5,7 +5,7 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-$db['default']['password'] = 'phanvanhuy';
+$db['default']['password'] = 'bktitan01';
 $db['default']['database'] = 'mobileshop';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

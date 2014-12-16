@@ -81,7 +81,8 @@ class Product extends CI_Controller {
         $data['title'] = "Điện thoại " . $p->name;
         $data['data'] = "";
         $data['template'] = "detail_product_view";
-        $data['product'] = $p; //$this->product_model->getDetail($productID);
+        $data['product'] = $p; 
+        $data['reviews'] = $this->product_model->getCustomerReview($productID);
         $this->load->view("webuser_layout/layout_webuser", $data);
     }
 
@@ -201,6 +202,11 @@ class Product extends CI_Controller {
         } else {
             redirect(base_url());
         }
+    }
+    
+    function add_review(){
+        $this->product_model->add_review();
+        echo 'success';
     }
 
 }
