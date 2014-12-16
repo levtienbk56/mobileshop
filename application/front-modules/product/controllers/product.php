@@ -17,24 +17,36 @@ class Product extends CI_Controller {
         $this->load->view("webuser_layout/layout_webuser", $data);
     }
 
-    function add_item_cart($id) {
+    function add_item_cart() {
+        $id = $this->input->post('product_id');
         $products = $this->product_model->getAllProductCart();
-        foreach ($products as $product) {
-            if ($product->id == $id) {
-                $price = $product->price;
-                $name = $product->name;
-                $image = $product->image;
-                $insert = array(
-                    'id' => $id,
-                    'qty' => 1,
-                    'price' => $price,
-                    'name' => $name,
-                    'options' => array('img' => $image)
-                );
-                $this->cart->insert($insert);
-            }
+
+        $cart_items = $this->cart->contents();
+        $exist = 0;
+        foreach ($cart_items as $item) {
+            if ($item['id'] == $id)
+                $exist = 1;
         }
-        redirect(base_url() . "index.php/product/view_detail/" . $id);
+
+        echo $exist;
+        
+        if ($exist != 1) {
+            foreach ($products as $product) {
+                if ($product->id == $id) {
+                    $price = $product->price;
+                    $name = $product->name;
+                    $image = $product->image;
+                    $insert = array(
+                        'id' => $id,
+                        'qty' => 1,
+                        'price' => $price,
+                        'name' => $name,
+                        'options' => array('img' => $image)
+                    );
+                    $this->cart->insert($insert);
+                }
+            }
+        }            
     }
 
     function updatecart() {

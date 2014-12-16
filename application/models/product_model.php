@@ -70,10 +70,14 @@ class Product_model extends CI_Model {
     }
 
     function getProductSearchByName($keyword) {
-        $q = $this->db->query("SELECT name, price, image FROM product ");
-//        where name LIKE \"%" . $keyword . "%;\"
+        // sử dụng codeigniter helpers
+        $this->load->database();
+        $this->db->select("productID, name, price, image");
+        $this->db->like("name", $keyword);
+        $this->db->order_by("price desc");
+        $q = $this->db->get("allproductsbrief_view");
         if ($q->num_rows() > 0) {
-            return $q->result_array();
+            return $q->result();
         }
         return array();
     }

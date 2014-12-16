@@ -68,3 +68,4 @@
     <div class="main-checkout"><a href="<?php echo base_url(); ?>index.php/product/make_bill" class="btn btn-checkout">Tạo hóa đơn</a></div>
     <p><input type="submit" class="updatecart"  name="update_cart" value="Cập nhật" /></p>
 </form>
+
