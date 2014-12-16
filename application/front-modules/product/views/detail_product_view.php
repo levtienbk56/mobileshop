@@ -125,8 +125,6 @@
     </div>
 </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
-</script>
 <script type="text/javascript">
     function sendReview() {
         var productID = <?php echo $product->productID; ?>;
@@ -146,7 +144,7 @@
                 dataType: "text",
                 success: function (data) {
                     alert("Đánh giá của bạn đã được gửi đi");
-                    $('#form-review').load(document.URL +  ' #form-review');
+                    $('#form-review').load(document.URL + ' #form-review');
                 }
             });
         }

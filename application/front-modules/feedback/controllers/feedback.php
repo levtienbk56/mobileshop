@@ -16,5 +16,10 @@ class Feedback extends CI_Controller {
         $data['template'] = "feedback_view";
         $this->load->view("webuser_layout/layout_webuser", $data);
     }
+    
+    public function add_feedback(){
+        $this->load->model("feedback_model");
+        $this->feedback_model->add_feedback();
+    }
 
 }

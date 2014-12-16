@@ -51,7 +51,7 @@ class Product_model extends CI_Model {
         if ($q->num_rows() > 0) {
             return $q->result_array();
         }
-        return false;
+        return array();
     }
 
     function getCategories() {
@@ -174,19 +174,19 @@ class Product_model extends CI_Model {
     
     function add_review() {
         //$name = $_POST['name'];
-//        $productID = $this->input->post('productID');
-//        $name = $this->input->post('name');
-//        $comment = $this->input->post('comment');
-//        $vote = $this->input->post('vote');
-//        
-//        $data = array(
-//            'productID' => $productID,
-//            'name' => $name,
-//            'vote' => $vote,
-//            'comment' => $comment,
-//            'time' => date("h:i:s A d-m-Y"),
-//        );
-//        $this->db->insert('customer_review', $data);
+        $productID = $this->input->post('productID');
+        $name = $this->input->post('name');
+        $comment = $this->input->post('comment');
+        $vote = $this->input->post('vote');
+        
+        $data = array(
+            'productID' => $productID,
+            'name' => $name,
+            'vote' => $vote,
+            'comment' => $comment,
+            'time' => date("h:i:s A d-m-Y"),
+        );
+        $this->db->insert('customer_review', $data);
     }
 
     
