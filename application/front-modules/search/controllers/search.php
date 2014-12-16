@@ -28,9 +28,27 @@ class search extends CI_Controller {
         $keyword    = $_GET['keyword'];
         $priceRange = $_GET['price-range'];
         $category   = $_GET['category'];
-        
-        
+        $os         = $_GET['os'];
+        $screenSize = $_GET['screen-size'];
 
+        if(!isset($_GET['wifi'])){
+            $wifi = 'NULL';
+        }else{
+            $wifi = '';
+        }
+        if(!isset($_GET['_3g'])){
+            $_3g = 'NULL';
+        }else{
+            $_3g = '';
+        }
+        if(isset($_GET['_2sim'])){
+            $_2sim = 2;
+        }else{
+            $_2sim = 0;
+        }
+            
+            
+        
         switch ($priceRange) {
             case 1:
                 $pricefrom = 0;

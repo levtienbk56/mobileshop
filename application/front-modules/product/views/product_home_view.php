@@ -29,7 +29,7 @@
                             </p>
                             <a href="?id=<?php echo $product->productID; ?>" class="add_to_cart">Thêm vào giỏ</a>
                             <a href="#" class="add-list"><i class="icon-tasks"></i>So sánh</a>
-                            <a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>" class="add-comp"><i class="icon-share-alt"></i>Xem chi tiết</a>
+                            <a href="_detail/<?php echo $product->productID; ?>" class="add-comp"><i clas<?php echo base_url(); ?>index.php/product/views="icon-share-alt"></i>Xem chi tiết</a>
                         </div>
                     </li>
                     <?php
@@ -52,7 +52,7 @@
             $i = 1;
             foreach ($products as $product) {
                 ?>
-    <?php if ($product->categoryName == "Samsung" && $i <= 4) { ?>
+                <?php if ($product->categoryName == "Samsung" && $i <= 4) { ?>
                     <li class="span3">
                         <div class="thumbnail style1">
                             <a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>" class="thumb"><img src="<?php echo base_url(); ?>themes/front/img/products/<?php echo trim($product->image); ?>" alt="Product"></a>

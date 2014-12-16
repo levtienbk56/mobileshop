@@ -46,10 +46,14 @@ class Product extends CI_Controller {
     //Tim kiem theo product id
     function view_detail($productID) {
         $p = $this->product_model->getDetail($productID);
+        $review = $this->product_model->getCustomerReview($productID);
+        $configuration = $this->product_model->getConfigurationInfo($productID);
         $data['title'] = "Điện thoại " . $p->name;
         $data['data'] = "";
-        $data['template'] = "detail_product_view";
-        $data['product'] = $p; //$this->product_model->getDetail($productID);
+        $data['template']   = "detail_product_view";
+        $data['product']    = $p; 
+        $data['reviews']     = $review;
+        $data['configuration']  = $configuration;
         $this->load->view("layout_webuser", $data);
     }
 
@@ -116,5 +120,9 @@ class Product extends CI_Controller {
         $data['template'] = "baogia_view";
         $this->load->view("layout_webuser", $data);
     }
-
+    
+    function add_review(){
+        $this->product_model->add_review();
+        echo 'success';
+    }
 }
