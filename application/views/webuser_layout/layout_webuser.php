@@ -24,7 +24,7 @@
         <link href="<?php echo base_url(); ?>themes/front/css/styleChung.css" rel="stylesheet" type="text/css">
         <link rel="shortcut icon" href="<?php echo base_url(); ?>themes/front/img/favicon.ico">
 
-        
+
         <!-- Scripts -->   
 
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -33,7 +33,7 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>themes/front/templates/Preciso/js/jquery.fancybox.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>themes/front/templates/Preciso/js/jquery.masonry.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>themes/front/templates/Preciso/js/functions.js"></script>
-                                
+
         <!-- jquery alert-->
         <script src="<?php echo base_url(); ?>themes/front/templates/lib_alert/sweet-alert.js"></script>
         <link rel="stylesheet" href="<?php echo base_url(); ?>themes/front/templates/lib_alert/sweet-alert.css">
@@ -50,7 +50,7 @@
                             <a href="<?php echo base_url(); ?>" id="logo"><img src="<?php echo base_url(); ?>themes/front/img/logo.png" alt="logo"></a> 
                             <!-- Navbar Search -->                     
                             <?php $this->load->view('webuser_layout/searchBox_view'); ?>                                                             
-                            
+
                             <!-- Header Cart -->
                             <?php $this->load->view('webuser_layout/headerCart'); ?>     
                         </div>
@@ -59,16 +59,39 @@
             </nav>
         </div>
         <div class="container khung-content">
-            <div class="main-content">
+            <div class="main-content">                
                 <?php
+                print_r($data);
                 $this->load->view($template, $data);
                 ?>
             </div>
         </div>
-
-
         <!-- Footer -->
         <?php $this->load->view('webuser_layout/footer'); ?>
 
+
+
+
+        <script>
+            $('.add_to_cart_global').click(
+                    function () {
+                        var _url = "<?php echo base_url(); ?>index.php/product/add_item_cart";
+
+                        $.ajax({
+                            url: _url,
+                            type: 'POST',
+                            data: {product_id: this.id},
+                            dataType: "text",
+                            success:
+                                    function (data) {
+
+                                        if (data.trim() === "0")
+                                            $("#thongbaogio").load(document.URL + ' #thongbaogio');// phai co dau cach
+                                        else
+                                            alert('Sản phẩm đã có trong giỏ hàng');
+                                    }
+                        });
+                    });
+        </script>        
     </body>
 </html>

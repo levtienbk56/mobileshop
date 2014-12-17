@@ -71,8 +71,8 @@ class Home extends CI_Controller {
         $data['title'] = "Trang chủ";
         $data['data'] = "Dữ liệu trang home";
         $data['products'] = $this->product_model->getAllProducts();
+        
         $data['template'] = "home_view2";
-
         $this->load->view("webuser_layout/layout_webuser", $data);
     }
 

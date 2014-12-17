@@ -31,8 +31,13 @@
             <!-- Price -->
             <p class="main-price"><span><?php if ($product->saleOff > 0) echo number_format($product->price * (100 + $product->saleOff) / 100 * 1000000, 0, ".", $thousands_sep = ",") . "VND" ?></span> <strong><?php echo number_format($product->price * 1000000, 0, ".", $thousands_sep = ",") . "VND"; ?></strong></p>
 
+<<<<<<< HEAD
+
+            <a  class="btn btn-add-cart add_to_cart_global" id="<?php echo $id_for_link; ?>">Thêm vào giỏ </a>
+=======
             <!-- Add Buttons -->             
             <input type="button" value="Thêm vào giỏ hàng" class="btn btn-add-cart">
+>>>>>>> 5fe31be4b348161c24355c13cd2d57f5868cb940
             <input type="text" placeholder="1" class="input-quantity">
             <span class="input-quantity-text">Số lượng</span>
             <div class="clearfix"></div>
@@ -292,6 +297,9 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+</div>
+=======
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
@@ -319,3 +327,4 @@
         });
     }
 </script>
+>>>>>>> 5fe31be4b348161c24355c13cd2d57f5868cb940

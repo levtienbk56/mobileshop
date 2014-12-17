@@ -3,7 +3,7 @@
 <?php foreach ($this->cart->contents() as $items): ?>
     <?php $soloaiSP++; ?>
 <?php endforeach; ?>  
-<div class="cart on">    
+<div class="cart on" id="thongbaogio">    
     <i class="icon-shopping-cart"></i>
     <?php if($this->cart->total_items()!=0){ ?>
     <p> <?php echo number_format($this->cart->format_number($this->cart->total()) * 1000000, 0, ".", $thousands_sep = " ") . " VND"; ?><span>  ( <?php echo $soloaiSP . " loại sản phẩm"; ?> )</span></p>
@@ -55,21 +55,8 @@
     <div class="cart-content" style="width: 200px;">
           <div class="mini-cart-info">
             <h3>Giỏ hàng </h3>
-            <p class="empty">Giỏ hàng trống</p>
+            <p class="empty" >Giỏ hàng trống</p>
           </div>
         </div>
     <?php }?>
 </div>
-
-
-<!--
-<div class="showcase sweet">	
-	<button>Show error message</button>
-</div>-->
-<script>
-    document.querySelector('.showcase.sweet').onclick =  function () {        
-        $item;
-        <?php  ?>
-        swal("Đã tồn tại!", "sản phẩm ... đã có trong giỏ hàng");
-    };    
-</script>

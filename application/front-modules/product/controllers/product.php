@@ -17,24 +17,36 @@ class Product extends CI_Controller {
         $this->load->view("webuser_layout/layout_webuser", $data);
     }
 
-    function add_item_cart($id) {
+    function add_item_cart() {
+        $id = $this->input->post('product_id');
         $products = $this->product_model->getAllProductCart();
-        foreach ($products as $product) {
-            if ($product->id == $id) {
-                $price = $product->price;
-                $name = $product->name;
-                $image = $product->image;
-                $insert = array(
-                    'id' => $id,
-                    'qty' => 1,
-                    'price' => $price,
-                    'name' => $name,
-                    'options' => array('img' => $image)
-                );
-                $this->cart->insert($insert);
-            }
+
+        $cart_items = $this->cart->contents();
+        $exist = 0;
+        foreach ($cart_items as $item) {
+            if ($item['id'] == $id)
+                $exist = 1;
         }
-        redirect(base_url() . "index.php/product/view_detail/" . $id);
+
+        echo $exist;
+        
+        if ($exist != 1) {
+            foreach ($products as $product) {
+                if ($product->id == $id) {
+                    $price = $product->price;
+                    $name = $product->name;
+                    $image = $product->image;
+                    $insert = array(
+                        'id' => $id,
+                        'qty' => 1,
+                        'price' => $price,
+                        'name' => $name,
+                        'options' => array('img' => $image)
+                    );
+                    $this->cart->insert($insert);
+                }
+            }
+        }            
     }
 
     function updatecart() {
@@ -49,20 +61,41 @@ class Product extends CI_Controller {
         }
     }
 
-    function delete_item_in_cart($id) {
-        $contents = $this->input->post();
+    function delete_item_in_cart() {
+        $id = $this->input->post('product_id');
+        $contents = $this->cart->contents();        
         foreach ($contents as $content) {
             if ($content['id'] == $id) {
-
+                echo "<script>alert(\"xoa $id\")</script>";
                 $info = array(
                     'rowid' => $content['rowid'],
                     'qty' => 0
                 );
-                $this->cart->update($info);
+                $this->cart->update($info);                
             }
         }
+        
     }
 
+    
+    function delete_item_cart($id) {        
+        $data['title'] = "Xem giỏ hàng";
+        $data['data'] = "";
+        $data['template'] = "cart_view";                
+        $contents = $this->cart->contents();        
+        foreach ($contents as $content) {
+            if ($content['id'] == $id) {                
+                $info = array(
+                    'rowid' => $content['rowid'],
+                    'qty' => 0
+                );
+                $this->cart->update($info);                
+            }
+        }       
+        $this->load->view("webuser_layout/layout_webuser", $data);
+    }
+
+    
     //Tim kiem theo product id
     function view_detail($productID) {
         $p = $this->product_model->getDetail($productID);
@@ -70,17 +103,15 @@ class Product extends CI_Controller {
         $configuration = $this->product_model->getConfigurationInfo($productID);
         $data['title'] = "Điện thoại " . $p->name;
         $data['data'] = "";
-<<<<<<< HEAD
         $data['template']   = "detail_product_view";
         $data['product']    = $p; 
         $data['reviews']     = $review;
         $data['configuration']  = $configuration;
         $this->load->view("layout_webuser", $data);
-=======
+
         $data['template'] = "detail_product_view";
         $data['product'] = $p; //$this->product_model->getDetail($productID);
         $this->load->view("webuser_layout/layout_webuser", $data);
->>>>>>> origin/mobileshop_beta
     }
 
     //Hien thi san pham theo danh muc
