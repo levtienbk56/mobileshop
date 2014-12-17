@@ -42,7 +42,7 @@
     <body>
         <!-- Header -->
         <div class="header">
-            <nav class="navbar navbar-default navbar-fixed-top  phan-header-co-dinh" role="navigation">
+            <nav class="navbar navbar-default  phan-header-co-dinh" role="navigation">
                 <div class="container">
                     <div class="container">
                         <div class="row">
@@ -61,16 +61,13 @@
         <div class="container khung-content">
             <div class="main-content">                
                 <?php
-                print_r($data);
+                
                 $this->load->view($template, $data);
                 ?>
             </div>
         </div>
         <!-- Footer -->
         <?php $this->load->view('webuser_layout/footer'); ?>
-
-
-
 
         <script>
             $('.add_to_cart_global').click(

@@ -1,6 +1,6 @@
 <!-- Main Navbar -->
 <hr class="bordered">
-<div class="navbar-cont">
+<div class="navbar-cont" >
     <div class="container">
         <div class="row">
             <div class="span12">

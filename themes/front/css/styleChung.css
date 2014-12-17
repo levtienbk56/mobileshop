@@ -1,3 +1,6 @@
+.header{
+    margin:0px 65px;
+}
 .search-panel{
     float: left;
 }
@@ -23,7 +26,6 @@
 }
 
 
-.khung-content{ margin-top: 150px;}
 .phan-header-co-dinh{background-color: white;z-index: 999;}
 .single-link:hover{background-color: #0CC;}
 
@@ -154,3 +156,7 @@
             padding: 0px 25px;
 }
 .updatecart:hover{background: none repeat scroll 0% 0% #0CC;}
+
+.add_to_cart_global{
+    margin-left: 16px;
+}

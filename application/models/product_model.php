@@ -159,4 +159,13 @@ $isnew,$isHot,$saleOff,$quantity,$status,$dateCreated,$categoryID,$supplierID)";
         $this->db->query($sql);
     }
 
+    function getCustomerReview($productID) {
+        $this->db->where("productID", $productID);
+        $q = $this->db->get("customer_review_view");
+        if ($q->num_rows() > 0) {
+            return $q->result_array();
+        }
+        return array();
+    }
+
 }
