@@ -1,150 +1,133 @@
 <style>
-    .bill{margin-top: 20px;}
+    .form_input{
+        height: 30px !important;
+        width: 300px !important;
+    }
+    .msg{
+        color: red;
+        font-size: 12px;
+        margin-left: 30px;
+    }
+    .msg2{
+        color: red;
+        font-size: 12px;        
+    }
 </style>
-<div class="container bill">
-	<div class="row">
-        <div class="span8">
-    		<form action="<?php echo base_url(); ?>index.php/product/view_receipt" method="post" class="form-horizontal" id="billingform" accept-charset="utf-8">
-    			<div class="control-group">
-    				<label for="email" class="control-label">	
-    					Billing E-Mail 
-    				</label>
-    				<div class="controls">
-    					<input name="email" type="email" value="" id="email">
-    					<span class="help-inline">  Where should we send invoices?</span>
-    				</div>
-    			</div>
-     
-    			<div class="control-group">
-    				<label for="address" class="control-label">	
-    					Street Address
-    				</label>
-    				<div class="controls"><input name="address" placeholder="W 123 Street" type="text" value="" id="address"><span class="help-inline">  Street Name and/or apartment number</span>
-    				</div>
-    			</div>
-     
-    			<div class="control-group">
-    				<label for="zip" class="control-label">	
-    					Zip Code
-    				</label>
-    				<div class="controls"><input name="zip" type="text" value="" id="zip">
-    				</div>
-    			</div>
-     
-    			<div class="control-group">
-    				<label for="city" class="control-label">	
-    					City
-    				</label>
-    				<div class="controls"><input name="city" type="text" value="" id="city">
-    				</div>
-    			</div>
-    			
-    			<div class="control-group">
-    				<label for="country" class="control-label">	
-    					Country
-    				</label>
-    				<div class="controls">
-    					<select name="country" id="country">
-    						<option value=""></option>
-    						<option value="AR">Argentina</option>
-    						<option value="AU">Australia</option>
-    						<option value="AT">Austria</option>
-    						<option value="BY">Belarus</option>
-    						<option value="BE">Belgium</option>
-    						<option value="BA">Bosnia and Herzegovina</option>
-    						<option value="BR">Brazil</option>
-    						<option value="BG">Bulgaria</option>
-    						<option value="CA">Canada</option>
-    						<option value="CL">Chile</option>
-    						<option value="CN">China</option>
-    						<option value="CO">Colombia</option>
-    						<option value="CR">Costa Rica</option>
-    						<option value="HR">Croatia</option>
-    						<option value="CU">Cuba</option>
-    						<option value="CY">Cyprus</option>
-    						<option value="CZ">Czech Republic</option>
-    						<option value="DK">Denmark</option>
-    						<option value="DO">Dominican Republic</option>
-    						<option value="EG">Egypt</option>
-    						<option value="EE">Estonia</option>
-    						<option value="FI">Finland</option>
-    						<option value="FR">France</option>
-    						<option value="GE">Georgia</option>
-    						<option value="DE">Germany</option>
-    						<option value="GI">Gibraltar</option>
-    						<option value="GR">Greece</option>
-    						<option value="HK">Hong Kong S.A.R., China</option>
-    						<option value="HU">Hungary</option>
-    						<option value="IS">Iceland</option>
-    						<option value="IN">India</option>
-    						<option value="ID">Indonesia</option>
-    						<option value="IR">Iran</option>
-    						<option value="IQ">Iraq</option>
-    						<option value="IE">Ireland</option>
-    						<option value="IL">Israel</option>
-    						<option value="IT">Italy</option>
-    						<option value="JM">Jamaica</option>
-    						<option value="JP">Japan</option>
-    						<option value="KZ">Kazakhstan</option>
-    						<option value="KW">Kuwait</option>
-    						<option value="KG">Kyrgyzstan</option>
-    						<option value="LA">Laos</option>
-    						<option value="LV">Latvia</option>
-    						<option value="LB">Lebanon</option>
-    						<option value="LT">Lithuania</option>
-    						<option value="LU">Luxembourg</option>
-    						<option value="MK">Macedonia</option>
-    						<option value="MY">Malaysia</option>
-    						<option value="MT">Malta</option>
-    						<option value="MX">Mexico</option>
-    						<option value="MD">Moldova</option>
-    						<option value="MC">Monaco</option>
-    						<option value="ME">Montenegro</option>
-    						<option value="MA">Morocco</option>
-    						<option value="NL">Netherlands</option>
-    						<option value="NZ">New Zealand</option>
-    						<option value="NI">Nicaragua</option>
-    						<option value="KP">North Korea</option>
-    						<option value="NO">Norway</option>
-    						<option value="PK">Pakistan</option>
-    						<option value="PS">Palestinian Territory</option>
-    						<option value="PE">Peru</option>
-    						<option value="PH">Philippines</option>
-    						<option value="PL">Poland</option>
-    						<option value="PT">Portugal</option>
-    						<option value="PR">Puerto Rico</option>
-    						<option value="QA">Qatar</option>
-    						<option value="RO">Romania</option>
-    						<option value="RU">Russia</option>
-    						<option value="SA">Saudi Arabia</option>
-    						<option value="RS">Serbia</option>
-    						<option value="SG">Singapore</option>
-    						<option value="SK">Slovakia</option>
-    						<option value="SI">Slovenia</option>
-    						<option value="ZA">South Africa</option>
-    						<option value="KR">South Korea</option>
-    						<option value="ES">Spain</option>
-    						<option value="LK">Sri Lanka</option>
-    						<option value="SE">Sweden</option>
-    						<option value="CH">Switzerland</option>
-    						<option value="TW">Taiwan</option>
-    						<option value="TH">Thailand</option>
-    						<option value="TN">Tunisia</option>
-    						<option value="TR">Turkey</option>
-    						<option value="UA">Ukraine</option>
-    						<option value="AE">United Arab Emirates</option>
-    						<option value="GB">United Kingdom</option>
-    						<option value="US">USA</option>
-    						<option value="UZ">Uzbekistan</option>
-    						<option value="VN">Vietnam</option>
-    					</select>
-    				</div>
-    			</div>
-     
-    			<div class="form-actions">
-    				<button type="submit" class="btn btn-large btn-primary">Save Billing Address</button>
-    			</div>
-    		</form>
-    	</div> <!-- .span8 -->
-	</div>
+
+
+<div class="container hoadonmua">
+    <div class="row"> 
+
+    <!-- Products List -->
+    <div class="span6" style="text-align:center;">         
+        <h1>Tạo hóa đơn đặt hàng</h1>
+        <br>
+        <p class="small-desc" >Bạn vui lòng điền các thông tin theo mẫu ở dưới<br> cửa hàng ABC sẽ chuyển giao các sản phẩm bạn đã chọn mua trong 
+            thời gian sớm nhất.</p>
+    </div>
 </div>
+
+
+
+<div class="row">
+    <div class="span8">
+        <form action="<?php echo base_url(); ?>index.php/product/order_product" method="post" class="form-horizontal" id="billingform" accept-charset="utf-8">
+            <div class="control-group">
+                <label for="name" class="control-label">	
+                    Họ tên đầy đủ:
+                </label>
+                <div class="controls">
+                    <input name="fullname"  id="fullname" class="form_input">     <span class="msg" id="msg_name_input"></span>
+                    
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="address" class="control-label">	
+                    Địa chỉ nhận hàng:
+                </label>
+                <div class="controls"><input name="address" type="text"  id="address" class="form_input"> 
+                    <span class="msg" id="msg_address_input"></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="phone_number" class="control-label" >	
+                    Số điện thoại:
+                </label>
+                <div class="controls"><input name="phone_number"  type="text" value="" id="phone_number" class="form_input">
+                    <br>
+                    <span class="msg2" id="msg_sdt_input"></span>
+                </div>
+            </div>            
+
+            
+                <div class="control-group">
+                <label  class="control-label" >	
+                    Email:
+                </label>
+                <div class="controls"><input name="email"  type="text" value="" id="email" class="form_input">
+                    <br>
+                    <span class="msg2" id="msg_email_input"></span>
+                </div>
+            </div>            
+            
+            
+            
+            <button type="submit" class="btn btn-large btn-primary" style="margin-left: 30%;margin-top: 5%;">Đặt hàng</button>
+        </form>
+    </div> <!-- .span8 -->
+</div>    
+
+
+
+</div>
+
+
+<script>
+    //  Bind the event handler to the "submit" JavaScript event
+$('form').submit(function () {
+
+    $("#msg_name_input").html("");
+    $("#msg_address_input").html("");
+    $("#msg_sdt_input").html("");
+    $("#msg_email_input").html("");
+
+
+    // Get the Login Name value and trim it
+    var fullname = $.trim($('#fullname').val());
+    var address  = $.trim($('#address').val());
+    var phone   = $.trim($('#phone_number').val());
+    var email = $.trim($('#email').val());
+    
+    // Check if empty of not
+    if (fullname === '') {
+        //alert('Text-field is empty.');        
+        $("#msg_name_input").html( "Bạn cần nhập họ tên");
+        return false;
+    }
+    if(address === ''){
+        $("#msg_address_input").html( "Bạn cần nhập địa chỉ nhận hàng");
+        return false;
+    }
+    if(phone === '' || validateSdt(phone) === false){
+        $("#msg_sdt_input").html("Số điện thoại độ dài không quá 15 ký tự, chỉ chứa các chữ số hoặc dấu gạch ngang -");
+        return false;
+    }
+    if(validateEmail(email) === false){
+        $("#msg_email_input").html("Email không chính xác!");
+        return false;
+    }    
+});
+
+
+function validateEmail(email) { 
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+} 
+
+function validateSdt(sdt) { 
+    var re = /^([0-9]|-){10,15}$/;
+    return re.test(sdt);
+} 
+</script>

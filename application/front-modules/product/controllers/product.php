@@ -14,10 +14,30 @@ class Product extends CI_Controller {
         $data['title'] = "Trang chủ";
         $data['data'] = "Dữ liệu trang home";
         $data['template'] = "product_home_view";
-        $this->load->view("layout_webuser", $data);
+        $this->load->view("webuser_layout/layout_webuser", $data);
     }
 
-    function updatecart() {        
+    function add_item_cart($id) {
+        $products = $this->product_model->getAllProductCart();
+        foreach ($products as $product) {
+            if ($product->id == $id) {
+                $price = $product->price;
+                $name = $product->name;
+                $image = $product->image;
+                $insert = array(
+                    'id' => $id,
+                    'qty' => 1,
+                    'price' => $price,
+                    'name' => $name,
+                    'options' => array('img' => $image)
+                );
+                $this->cart->insert($insert);
+            }
+        }
+        redirect(base_url() . "index.php/product/view_detail/" . $id);
+    }
+
+    function updatecart() {
         $contents = $this->input->post();
         foreach ($contents as $content) {
             $info = array(
@@ -30,10 +50,10 @@ class Product extends CI_Controller {
     }
 
     function delete_item_in_cart($id) {
-        $contents = $this->input->post();        
-        foreach ($contents as $content) {            
+        $contents = $this->input->post();
+        foreach ($contents as $content) {
             if ($content['id'] == $id) {
-                
+
                 $info = array(
                     'rowid' => $content['rowid'],
                     'qty' => 0
@@ -50,11 +70,17 @@ class Product extends CI_Controller {
         $configuration = $this->product_model->getConfigurationInfo($productID);
         $data['title'] = "Điện thoại " . $p->name;
         $data['data'] = "";
+<<<<<<< HEAD
         $data['template']   = "detail_product_view";
         $data['product']    = $p; 
         $data['reviews']     = $review;
         $data['configuration']  = $configuration;
         $this->load->view("layout_webuser", $data);
+=======
+        $data['template'] = "detail_product_view";
+        $data['product'] = $p; //$this->product_model->getDetail($productID);
+        $this->load->view("webuser_layout/layout_webuser", $data);
+>>>>>>> origin/mobileshop_beta
     }
 
     //Hien thi san pham theo danh muc
@@ -62,19 +88,14 @@ class Product extends CI_Controller {
         $data['title'] = "Danh mục sản phẩm";
         $data['data'] = "Các sản phẩm trong danh mục";
         $data['template'] = "category_view";
-        $this->load->view("layout_webuser", $data);
+        $this->load->view("webuser_layout/layout_webuser", $data);
     }
 
     //xem gio hang
     function view_cart() {
-        $data['title'] = "Xem gio hang";
+        $data['title'] = "Xem giỏ hàng";
         $data['data'] = "Cac san pham trong gio hang";
         $data['template'] = "cart_view";
-
-        $this->load->library('cart');
-        $this->load->helper('form');
-        $this->load->helper('url');
-
 
         $data['products'] = $this->product_model->getAllProductCart();
         // Lets update our cart
@@ -95,30 +116,89 @@ class Product extends CI_Controller {
         }
 
         $data['products'] = $this->product_model->getAllProducts();
-        $this->load->view("layout_webuser", $data);
-    }
-
-    //Xem hoa don
-    function view_receipt() {
-        $data['title'] = "Xem hoa don";
-        $data['data'] = "Xem hoa don";
-        $data['template'] = "Receipt_view";
-        $this->load->view("layout_webuser", $data);
+        $this->load->view("webuser_layout/layout_webuser", $data);
     }
 
     //tao hoa don
     function make_bill() {
-        $data['title'] = "Tao hoa don";
+        $data['title'] = "Tạo hóa đơn";
         $data['data'] = "tao hoa don";
         $data['template'] = "bill_view";
-        $this->load->view("layout_webuser", $data);
+        $this->load->view("webuser_layout/layout_webuser", $data);
     }
 
     function xem_bao_gia() {
-        $data['title'] = "Xem bao gia";
-        $data['data'] = "Xem bao gia";
+        $data['title'] = "Xem báo giá";
+        $data['data'] = "";
+        $data['products'] = $this->product_model->getPriceList();
         $data['template'] = "baogia_view";
-        $this->load->view("layout_webuser", $data);
+        $this->load->view("webuser_layout/layout_webuser", $data);
+    }
+
+    function generate_code() {
+        $j = 0;
+        $code = "c"; //phai khoi tao
+        $date = date('m/d/Y h:i:s', time());
+        for ($i = 0; $i < strlen($date); $i++) {
+            if (is_numeric($date[$i])) {
+                $code[$j] = $date[$i];
+                $j++;
+            }
+        }
+        return $code;
+    }
+
+    //xu ly dat hang:
+    function order_product() {
+        if (isset($_POST['phone_number'])) {
+            $data['title'] = "Hóa đơn đặt hàng";
+            $data['data'] = "";
+
+
+            $j = 0;
+            $code = "c"; //phai khoi tao
+            $date = date('m/d/Y h:i:s', time());
+            for ($i = 0; $i < strlen($date); $i++) {
+                if (is_numeric($date[$i])) {
+                    $code[$j] = $date[$i];
+                    $j++;
+                }
+            }
+
+            $orderID = $code;
+
+            //Them vao bang Order
+            $order_info[0] = $orderID;
+            $order_info[1] = date("Y-m-d H:i:s");
+            $order_info[2] = $_POST['fullname'];
+            $order_info[3] = $_POST['phone_number'];
+            $order_info[4] = $_POST['address'];
+            $order_info[5] = $_POST['email'];
+            $this->product_model->order_products($order_info);
+
+
+            //Them vao bang Order_detail
+            foreach ($this->cart->contents() as $item) {
+                $detail_info[0] = $item['id'];
+                $detail_info[1] = $item['qty'];
+                $detail_info[2] = $item['price'];
+                $detail_info[3] = $orderID;
+                $this->product_model->order_detail($detail_info);
+            }
+
+            //chuyen du lieu de xem hoa don                
+            $data['receipt_info_user'] = $order_info;
+            $data['receipt_info_products'] = $this->cart->contents();
+            $data['total'] = $this->cart->total();
+
+            // xoa gio hang
+            $this->cart->destroy();
+
+            $data['template'] = "Receipt_view";
+            $this->load->view("webuser_layout/layout_webuser", $data);
+        } else {
+            redirect(base_url());
+        }
     }
     
     function add_review(){

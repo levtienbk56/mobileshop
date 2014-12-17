@@ -1,271 +1,254 @@
-<div class="container-fluid">
+<!-- Right side column. Contains the navbar and content of the page -->
+<aside class="right-side">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Trang quản trị            
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Trang chủ</a></li>            
+        </ol>
+    </section>
 
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Dashboard <small>Statistics Overview</small>
-                        </h1>
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i class="fa fa-dashboard"></i> Dashboard
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h3>
+                            150
+                        </h3>
+                        <p>
+                            Đơn đặt hàng mới
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">
+                        Xem thêm <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3>
+                            530
+                        </h3>
+                        <p>
+                            Đơn hàng chưa xử lý
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">
+                        Xem thêm <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3>
+                            40
+                        </h3>
+                        <p>
+                            Tin phản hồi
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">
+                        Xem thêm <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h3>
+                            65
+                        </h3>
+                        <p>
+                            Thống kê truy cập
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">
+                        Xem thêm <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div><!-- ./col -->
+        </div><!-- /.row -->
+
+        <!-- Main row -->
+        <div class="row">
+            <!-- Left col -->
+            <section class="col-lg-7 connectedSortable">                            
+
+
+
+                <!-- TO DO List -->
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <i class="ion ion-clipboard"></i>
+                        <h3 class="box-title">Ghi chú công việc</h3>                            
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <ul class="todo-list">
+                            <li>
+                                <!-- drag handle -->
+                                <span class="handle">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </span>
+                                <!-- checkbox -->
+                                <input type="checkbox" value="" name=""/>
+                                <!-- todo text -->
+                                <span class="text">Design a nice theme</span>
+                                <!-- Emphasis label -->
+                                <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
+                                <!-- General tools such as edit or delete-->
+                                <div class="tools">
+                                    <i class="fa fa-edit"></i>
+                                    <i class="fa fa-trash-o"></i>
+                                </div>
                             </li>
-                        </ol>
+                            <li>
+                                <span class="handle">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </span>
+                                <input type="checkbox" value="" name=""/>
+                                <span class="text">Make the theme responsive</span>
+                                <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
+                                <div class="tools">
+                                    <i class="fa fa-edit"></i>
+                                    <i class="fa fa-trash-o"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="handle">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </span>
+                                <input type="checkbox" value="" name=""/>
+                                <span class="text">Let theme shine like a star</span>
+                                <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
+                                <div class="tools">
+                                    <i class="fa fa-edit"></i>
+                                    <i class="fa fa-trash-o"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="handle">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </span>
+                                <input type="checkbox" value="" name=""/>
+                                <span class="text">Let theme shine like a star</span>
+                                <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
+                                <div class="tools">
+                                    <i class="fa fa-edit"></i>
+                                    <i class="fa fa-trash-o"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="handle">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </span>
+                                <input type="checkbox" value="" name=""/>
+                                <span class="text">Check your messages and notifications</span>
+                                <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
+                                <div class="tools">
+                                    <i class="fa fa-edit"></i>
+                                    <i class="fa fa-trash-o"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="handle">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </span>
+                                <input type="checkbox" value="" name=""/>
+                                <span class="text">Let theme shine like a star</span>
+                                <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
+                                <div class="tools">
+                                    <i class="fa fa-edit"></i>
+                                    <i class="fa fa-trash-o"></i>
+                                </div>
+                            </li>
+                        </ul>
+                    </div><!-- /.box-body -->
+                    <div class="box-footer clearfix no-border">
+                        <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Thêm ghi chú</button>
+                    </div>
+                </div><!-- /.box -->
+
+                <!-- quick email widget -->
+                <div class="box box-info">
+                    <div class="box-header">
+                        <i class="fa fa-envelope"></i>
+                        <h3 class="box-title">Gửi mail nhanh</h3>
+                        <!-- tools box -->
+                        <div class="pull-right box-tools">
+                            <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+                        </div><!-- /. tools -->
+                    </div>
+                    <div class="box-body">
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="emailto" placeholder="Email to:"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="subject" placeholder="Subject"/>
+                            </div>
+                            <div>
+                                <textarea class="textarea" placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="box-footer clearfix">
+                        <button class="pull-right btn btn-default" id="sendEmail">Send <i class="fa fa-arrow-circle-right"></i></button>
                     </div>
                 </div>
-                <!-- /.row -->
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="alert alert-info alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            <i class="fa fa-info-circle"></i>  <strong>Like SB Admin?</strong> Try out <a href="http://startbootstrap.com/template-overviews/sb-admin-2" class="alert-link">SB Admin 2</a> for additional features!
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
+            </section><!-- /.Left col -->
+            <!-- right col (We are only adding the ID to make the widgets sortable)-->
+            <section class="col-lg-5 connectedSortable"> 
 
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-comments fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">26</div>
-                                        <div>New Comments!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-tasks fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">12</div>
-                                        <div>New Tasks!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-yellow">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-shopping-cart fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">124</div>
-                                        <div>New Orders!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-support fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
-                                        <div>Support Tickets!</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Area Chart</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-area-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
+                <!-- Calendar -->
+                <div class="box box-solid bg-green-gradient">
+                    <div class="box-header">
+                        <i class="fa fa-calendar"></i>
+                        <h3 class="box-title">Lịch</h3>                        
+                    </div><!-- /.box-header -->
+                    <div class="box-body no-padding">
+                        <!--The calendar -->
+                        <div id="calendar" style="width: 100%"></div>
+                    </div><!-- /.box-body -->                      
+                </div><!-- /.box -->                            
 
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Donut Chart</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-donut-chart"></div>
-                                <div class="text-right">
-                                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Tasks Panel</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">just now</span>
-                                        <i class="fa fa-fw fa-calendar"></i> Calendar updated
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">4 minutes ago</span>
-                                        <i class="fa fa-fw fa-comment"></i> Commented on a post
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">23 minutes ago</span>
-                                        <i class="fa fa-fw fa-truck"></i> Order 392 shipped
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">46 minutes ago</span>
-                                        <i class="fa fa-fw fa-money"></i> Invoice 653 has been paid
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">1 hour ago</span>
-                                        <i class="fa fa-fw fa-user"></i> A new user has been added
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">2 hours ago</span>
-                                        <i class="fa fa-fw fa-check"></i> Completed task: "pick up dry cleaning"
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">yesterday</span>
-                                        <i class="fa fa-fw fa-globe"></i> Saved the world
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <span class="badge">two days ago</span>
-                                        <i class="fa fa-fw fa-check"></i> Completed task: "fix error on sales page"
-                                    </a>
-                                </div>
-                                <div class="text-right">
-                                    <a href="#">View All Activity <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Order #</th>
-                                                <th>Order Date</th>
-                                                <th>Order Time</th>
-                                                <th>Amount (USD)</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>$321.33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3325</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:20 PM</td>
-                                                <td>$234.34</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3324</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:03 PM</td>
-                                                <td>$724.17</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3323</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:00 PM</td>
-                                                <td>$23.71</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3322</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:49 PM</td>
-                                                <td>$8345.23</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3321</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:23 PM</td>
-                                                <td>$245.12</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3320</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:15 PM</td>
-                                                <td>$5663.54</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3319</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:13 PM</td>
-                                                <td>$943.45</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="text-right">
-                                    <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
+            </section><!-- right col -->
+        </div><!-- /.row (main row) -->
 
-            </div>
+    </section><!-- /.content -->
+</aside><!-- /.right-side -->
+
+
+<!-- add new calendar event modal -->
+

@@ -11,10 +11,10 @@ class Contact extends CI_Controller {
     }
 
     public function index() {
-        $data['title'] = "Lien he";
+        $data['title'] = "Thông tin liên hệ";
         $data['data'] = "Contact";
         $data['template'] = "contact_view";
-        $this->load->view("layout_webuser", $data);
+        $this->load->view("webuser_layout/layout_webuser", $data);
     }
 
 }

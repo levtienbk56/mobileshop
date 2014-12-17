@@ -14,7 +14,7 @@ class About extends CI_Controller {
         $data['title'] = "Giới thiệu";
         $data['data'] = "Trang giới thiệu";
         $data['template'] = "about_view";
-        $this->load->view("layout_webuser", $data);
+        $this->load->view("webuser_layout/layout_webuser", $data);
     }
 
 }
