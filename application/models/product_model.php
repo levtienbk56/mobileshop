@@ -167,5 +167,22 @@ $isnew,$isHot,$saleOff,$quantity,$status,$dateCreated,$categoryID,$supplierID)";
         }
         return array();
     }
+    
+    function add_review() {
+        //$name = $_POST['name'];
+        $productID = $this->input->post('productID');
+        $name = $this->input->post('name');
+        $comment = $this->input->post('comment');
+        $vote = $this->input->post('vote');
+        
+        $data = array(
+            'productID' => $productID,
+            'name' => $name,
+            'vote' => $vote,
+            'comment' => $comment,
+            'time' => date("h:i:s A d-m-Y"),
+        );
+        $this->db->insert('customer_review', $data);
+    }  
 
 }

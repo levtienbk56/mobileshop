@@ -98,14 +98,12 @@ class Product extends CI_Controller {
     
     //Tim kiem theo product id
     function view_detail($productID) {
-        
         $p = $this->product_model->getDetail($productID);
-        //$review = $this->product_model->getCustomerReview($productID);        
         $data['title'] = "Điện thoại " . $p->name;
         $data['data'] = "";
         $data['template']   = "detail_product_view";
         $data['product']    = $p; 
-        $data['reviews']     = array();        
+        $data['reviews']    =  $this->product_model->getCustomerReview($productID);                
         $this->load->view("webuser_layout/layout_webuser", $data);
     }
 
