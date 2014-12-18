@@ -13,7 +13,7 @@
                                     <li class="single-link"><a href="<?php echo base_url(); ?>">Trang chủ</a></li>
                                     <li class="single-link"><a href="<?php echo base_url(); ?>index.php/about">Giới thiệu</a></li>
                                     <li class="dropdown">
-                                        <a href="<?php echo base_url(); ?>index.php/product/view_category/0" class="dropdown-toggle" data-toggle="dropdown">Sản Phẩm<i class="icon-angle-down"></i></a> 
+                                        <a href="<?php echo base_url(); ?>index.php/product/view_category/0" class="dropdown-toggle" >Sản Phẩm<i class="icon-angle-down"></i></a> 
                                         <!-- Dropdown Navbar -->
                                         <ul class="dropdown-menu">
                                             <li><a href="<?php echo base_url(); ?>index.php/product/view_category/1">Apple</a></li>

@@ -29,6 +29,7 @@
             success: function (data) {
 //                alert(data);
                 document.getElementById("category_product_list").innerHTML = data;
+                document.getElementById("category_name").innerHTML = "Lọc sản phẩm";
             }
         });
     }
@@ -54,7 +55,7 @@
                 <li><a href="#">sản phẩm</a> <span class="divider">/</span></li>
                 <li class="active">danh mục</li>
             </ul>
-            <h1><?php echo $nameCategory; ?></h1>
+            <h1 id="category_name"><?php echo $nameCategory; ?></h1>
         </div>
     </div>
     <div class="row">
