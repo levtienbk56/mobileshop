@@ -13,16 +13,13 @@
                                     <li class="single-link"><a href="<?php echo base_url(); ?>">Trang chủ</a></li>
                                     <li class="single-link"><a href="<?php echo base_url(); ?>index.php/about">Giới thiệu</a></li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Danh mục<i class="icon-angle-down"></i></a> 
+                                        <a href="<?php echo base_url(); ?>index.php/product/view_category/0" class="dropdown-toggle" data-toggle="dropdown">Sản Phẩm<i class="icon-angle-down"></i></a> 
                                         <!-- Dropdown Navbar -->
                                         <ul class="dropdown-menu">
-                                            <li><a href="<?php echo base_url(); ?>index.php/product/view_category/1">Samsung</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/product/view_category/2">Iphone</a></li>
+                                            <li><a href="<?php echo base_url(); ?>index.php/product/view_category/1">Apple</a></li>
+                                            <li><a href="<?php echo base_url(); ?>index.php/product/view_category/2">Samsung</a></li>
                                             <li><a href="<?php echo base_url(); ?>index.php/product/view_category/3">Nokia</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/product/view_category/4">Sony</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/product/view_category/5">LG</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/product/view_category/6">HP</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/product/view_category/7">Phụ kiện điện thoại</a></li>                                 
+                                            <li><a href="<?php echo base_url(); ?>index.php/product/view_category/4">LG</a></li>                               
                                         </ul>
                                     </li>
                                     <li class="dropdown">

@@ -61,7 +61,6 @@
         <div class="container khung-content">
             <div class="main-content">                
                 <?php
-                
                 $this->load->view($template, $data);
                 ?>
             </div>

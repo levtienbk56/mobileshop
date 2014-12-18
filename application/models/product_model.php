@@ -81,13 +81,129 @@ class Product_model extends CI_Model {
         }
         return array();
     }
+        
+    function getProductSearchFilter(){
+        $category = $this->input->get('category');
+        $os = $this->input->get('os');
+        $price = $this->input->get('price');
+        $wifi = $this->input->get('wifi');
+        $_3g = $this->input->get('_3g');
+        $order = $this->input->get('order');
+        
+        if ($category > 0) {
+            $this->db->where("categoryID", $category);
+        }
+        if ($os != "") {
+            $this->db->where("os", $os);
+        }
+
+        switch ($price){
+            case 1: // <2 trieu
+                $this->db->where("price <", 2);
+                break;
+            case 2: // 2-4 trieu
+                $this->db->where("price >=", 2);
+                $this->db->where("price <", 4);
+                break;
+            case 3: // 4-10 trieu
+                $this->db->where("price >=", 4);
+                $this->db->where("price <", 10);
+                break;
+            case 4: // >10 trieu
+                $this->db->where("price >", 10);
+        }
+        
+        if ($wifi == 1) {
+            $this->db->where("wifi", 1);
+        }
+        if ($wifi == 2) {
+            $this->db->where("wifi", 0);
+        }
+
+        if ($_3g == 1) {
+            $this->db->where("3g", 1);
+        }
+        if($_3g == 2) {
+            $this->db->where("3g", 0);
+        }
+
+        if ($order == "increase") {
+            $this->db->order_by("price", "asc");
+        } else {
+            $this->db->order_by("price", "desc");
+        }
+
+        $q = $this->db->get("product");
+        if ($q->num_rows() > 0) {
+            return $q->result();
+        }
+        return array();
+    }
+
+    function getProductSearchFilter_post(){
+        $category = $this->input->post('category');
+        $os = $this->input->post('os');
+        $price = $this->input->post('price');
+        $wifi = $this->input->post('wifi');
+        $_3g = $this->input->post('_3g');
+        $order = $this->input->post('order');
+        
+        if ($category > 0) {
+            $this->db->where("categoryID", $category);
+        }
+        if ($os != "") {
+            $this->db->where("os", $os);
+        }
+
+        switch ($price){
+            case 1: // <2 trieu
+                $this->db->where("price <", 2);
+                break;
+            case 2: // 2-4 trieu
+                $this->db->where("price >=", 2);
+                $this->db->where("price <", 4);
+                break;
+            case 3: // 4-10 trieu
+                $this->db->where("price >=", 4);
+                $this->db->where("price <", 10);
+                break;
+            case 4: // >10 trieu
+                $this->db->where("price >", 10);
+        }
+        
+        if ($wifi == 1) {
+            $this->db->where("wifi", 1);
+        }
+        if ($wifi == 2) {
+            $this->db->where("wifi", 0);
+        }
+
+        if ($_3g == 1) {
+            $this->db->where("3g", 1);
+        }
+        if($_3g == 2) {
+            $this->db->where("3g", 0);
+        }
+
+        if ($order == "increase") {
+            $this->db->order_by("price", "asc");
+        } else {
+            $this->db->order_by("price", "desc");
+        }
+
+        $q = $this->db->get("product");
+        if ($q->num_rows() > 0) {
+            return $q->result();
+        }
+        return array();
+    }
 
     function getPriceList() {
         $p = $this->db->get("products_price_list_view");
         if ($p->num_rows() > 0) {
             return $p->result();
         }
-        return array();
+        return array("Volvo", "BMW", "Toyota");
     }
 
     function update_product($inputArray) {
@@ -185,4 +301,13 @@ $isnew,$isHot,$saleOff,$quantity,$status,$dateCreated,$categoryID,$supplierID)";
         $this->db->insert('customer_review', $data);
     }  
 
+    function getProductByCategory($id){
+        $this->db->where("categoryID", $id);
+        $q = $this->db->get("product");
+        
+        if ($q->num_rows() > 0) {
+            return $q->result();
+        }
+        return array();
+    }
 }

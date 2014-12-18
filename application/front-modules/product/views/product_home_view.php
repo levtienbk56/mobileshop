@@ -23,7 +23,7 @@
 <?php $this->load->view('featureProducts_view'); ?>
 <div class="products-list">
     <div class="container">
-        <h3><span>Apple<a class="viewmore" href="#"> <i class="icon-chevron-sign-right"></i></a> </span></h3>
+        <h3><span>Apple<a class="viewmore" href="<?php echo base_url(); ?>index.php/product/view_category/1"> <i class="icon-chevron-sign-right"></i></a> </span></h3>
         <ul class="thumbnails">
             <?php
             $i = 1;
@@ -49,7 +49,7 @@
 </div>
 <div class="products-list">
     <div class="container">
-        <h3><span>Samsung<a class="viewmore" href="#"> <i class="icon-chevron-sign-right"></i></a> </span></h3>
+        <h3><span>Samsung<a class="viewmore" href="<?php echo base_url(); ?>index.php/product/view_category/2"> <i class="icon-chevron-sign-right"></i></a> </span></h3>
         <ul class="thumbnails">
             <?php
             $i = 1;
@@ -75,7 +75,7 @@
 </div>
 <div class="products-list">
     <div class="container">
-        <h3><span>LG<a class="viewmore" href="#"> <i class="icon-chevron-sign-right"></i></a> </span></h3>
+        <h3><span>LG<a class="viewmore" href="<?php echo base_url(); ?>index.php/product/view_category/4"> <i class="icon-chevron-sign-right"></i></a> </span></h3>
         <ul class="thumbnails">
             <?php
             $i = 1;

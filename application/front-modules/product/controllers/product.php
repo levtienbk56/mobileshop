@@ -29,7 +29,7 @@ class Product extends CI_Controller {
         }
 
         echo $exist;
-        
+
         if ($exist != 1) {
             foreach ($products as $product) {
                 if ($product->id == $id) {
@@ -46,7 +46,7 @@ class Product extends CI_Controller {
                     $this->cart->insert($insert);
                 }
             }
-        }            
+        }
     }
 
     function updatecart() {
@@ -63,7 +63,7 @@ class Product extends CI_Controller {
 
     function delete_item_in_cart() {
         $id = $this->input->post('product_id');
-        $contents = $this->cart->contents();        
+        $contents = $this->cart->contents();
         foreach ($contents as $content) {
             if ($content['id'] == $id) {
                 echo "<script>alert(\"xoa $id\")</script>";
@@ -71,47 +71,76 @@ class Product extends CI_Controller {
                     'rowid' => $content['rowid'],
                     'qty' => 0
                 );
-                $this->cart->update($info);                
+                $this->cart->update($info);
             }
         }
-        
     }
 
-    
-    function delete_item_cart($id) {        
+    function delete_item_cart($id) {
         $data['title'] = "Xem giỏ hàng";
         $data['data'] = "";
-        $data['template'] = "cart_view";                
-        $contents = $this->cart->contents();        
+        $data['template'] = "cart_view";
+        $contents = $this->cart->contents();
         foreach ($contents as $content) {
-            if ($content['id'] == $id) {                
+            if ($content['id'] == $id) {
                 $info = array(
                     'rowid' => $content['rowid'],
                     'qty' => 0
                 );
-                $this->cart->update($info);                
+                $this->cart->update($info);
             }
-        }       
+        }
         $this->load->view("webuser_layout/layout_webuser", $data);
     }
 
-    
     //Tim kiem theo product id
     function view_detail($productID) {
         $p = $this->product_model->getDetail($productID);
         $data['title'] = "Điện thoại " . $p->name;
         $data['data'] = "";
-        $data['template']   = "detail_product_view";
-        $data['product']    = $p; 
-        $data['reviews']    =  $this->product_model->getCustomerReview($productID);                
+        $data['template'] = "detail_product_view";
+        $data['product'] = $p;
+        $data['reviews'] = $this->product_model->getCustomerReview($productID);
         $this->load->view("webuser_layout/layout_webuser", $data);
     }
 
     //Hien thi san pham theo danh muc
-    function view_category($id) {
+    function view_category() {
+        $args = func_get_args();
+        if (count($args) == 0) {
+            $data['title'] = "Lỗi truy cập";
+            $data['data'] = "Cac san pham trong gio hang";
+            $data['template'] = "loitruycap_view";
+            $this->load->view("webuser_layout/layout_webuser", $data);
+            return false;
+        }
+
+        $id = $args[0];
         $data['title'] = "Danh mục sản phẩm";
         $data['data'] = "Các sản phẩm trong danh mục";
         $data['template'] = "category_view";
+        $data['products'] = $this->product_model->getProductByCategory($id);
+
+        switch ($id) {
+            case 0:
+                $data['nameCategory'] = 'TẤT CẢ DANH MỤC';
+                $data['products'] = $this->product_model->getAllProducts();
+                break;
+            case 1:
+                $data['nameCategory'] = 'APPLE';
+                break;
+            case 2:
+                $data['nameCategory'] = 'SAMSUNG';
+                break;
+            case 3:
+                $data['nameCategory'] = 'NOKIA';
+                break;
+            case 4:
+                $data['nameCategory'] = 'LG';
+                break;
+            default :
+                $data['template'] = 'loitruycap_view';
+        }
         $this->load->view("webuser_layout/layout_webuser", $data);
     }
 
@@ -224,9 +253,35 @@ class Product extends CI_Controller {
             redirect(base_url());
         }
     }
-    
-    function add_review(){
+
+    function add_review() {
         $this->product_model->add_review();
         echo 'success';
     }
+
+    function search_filter() {
+        $data['title'] = "Danh mục sản phẩm";
+        $data['data'] = "Các sản phẩm trong danh mục";
+        $data['template'] = "category_view";
+        $data['products'] = $this->product_model->getProductSearchFilter_post();
+
+        switch ($this->input->get('category')) {
+            case 1:
+                $data['nameCategory'] = 'APPLE';
+                break;
+            case 2:
+                $data['nameCategory'] = 'SAMSUNG';
+                break;
+            case 3:
+                $data['nameCategory'] = 'NOKIA';
+                break;
+            case 4:
+                $data['nameCategory'] = 'LG';
+                break;
+            default:
+                $data['nameCategory'] = 'DANH MUC KHAC';
+        }
+        $this->load->view("webuser_layout/category_product_view", $data);
+    }
+
 }
