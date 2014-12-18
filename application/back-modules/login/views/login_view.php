@@ -75,7 +75,7 @@
         <?php if(! is_null($msg)) echo $msg;?>
         <input type="username" class="form-control" placeholder="Tên đăng nhập" required="" autofocus="" name="username">
         <input type="password" class="form-control" placeholder="Mật khẩu" required="" name="password">
-        <label class="checkbox">
+        <label class="checkbox" style="margin-left: 20px;">
           <input type="checkbox" value="remember-me"> Ghi nhớ
         </label>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Đăng nhập</button>

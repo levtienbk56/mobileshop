@@ -3,8 +3,7 @@ class Login_model extends CI_Model{
     function __construct(){
         parent::__construct();
     }
-        
-        
+                
     public function validate(){
         // grab user input
         $username = $this->security->xss_clean($this->input->post('username'));

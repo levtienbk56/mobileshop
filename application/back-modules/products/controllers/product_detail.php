@@ -5,7 +5,7 @@ class Product_detail extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->check_isvalidated();
-        $this->load->model("product_model");
+        $this->load->model("product_model_admin");
         ini_set('default_charset', 'UTF-8');                
     }
 
@@ -14,9 +14,9 @@ class Product_detail extends CI_Controller {
         $data['data'] = "Dữ liệu quản trị";
         $data['template'] = "product_detail";
         
-        $data['product'] = $this->product_model->getDetail($id);
-        $data['categories'] = $this->product_model->getCategories();
-        $data['suppliers'] = $this->product_model->getSuppliers();
+        $data['product'] = $this->product_model_admin->getDetail($id);
+        $data['categories'] = $this->product_model_admin->getCategories();
+        $data['suppliers'] = $this->product_model_admin->getSuppliers();
         
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
@@ -104,7 +104,7 @@ class Product_detail extends CI_Controller {
         }
         
         if($ok_to_save == 1)
-            $this->product_model->update_product($inputArray);
+            $this->product_model_admin->update_product($inputArray);
         redirect(base_url() . "admin/index.php/products/product_detail/viewDetail/".$inputArray[0]);
     }
 }

@@ -87,6 +87,7 @@
 
 </aside>
 
+
 <script type = "text/javascript">
     $(document).ready(function () {
         var activeSystemClass = $('.list-group-item.active');
@@ -137,53 +138,9 @@
 </script>
 
 
-
-
-
-
 <script src="<?php echo base_url(); ?>/themes/admin/AdminLTE/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>themes/admin/jquery.confirm-master/jquery.confirm.js"></script>	    
 <script src="<?php echo base_url(); ?>themes/admin/jquery.confirm-master//run_prettify.js"></script>
-
-<script>
-//    
-//    $(".complexConfirm").confirm({
-//        title: "Xác nhận xóa",
-//        text: "Bạn có chắc chắn muốn xóa sản phẩm đã chọn?",
-//        confirm: function (button) {
-//            button.fadeOut(2000).fadeIn(2000);
-//            //alert("You just confirmed.");
-//        },
-//        cancel: function (button) {
-//            button.fadeOut(2000).fadeIn(2000);
-//        },
-//        confirmButton: "Đồng ý",
-//        cancelButton: "Hủy"
-//    });
-
-
-//     $('#complexConfirm').click(function(){
-//      var value = $(this).attr('value');
-//      alert(value); 
-//      $("#complexConfirm").confirm({
-//        title: "Xác nhận xóa",
-//        text: "Bạn có chắc chắn muốn xóa sản phẩm đã chọn?",        
-//        confirm: function (button) {
-//            button.fadeOut(2000).fadeIn(2000);
-//            alert("You just confirmed.");            
-//        },
-//        cancel: function (button) {
-//            button.fadeOut(2000).fadeIn(2000);            
-//        },
-//        confirmButton: "Đồng ý",
-//        cancelButton: "Hủy"
-//    });       
-//        
-//  });
-
-
-</script>
-
 
 
 <script type = "text/javascript" >    

@@ -1,9 +1,8 @@
 <!-- Main Navbar -->
-<hr class="bordered">
 <div class="navbar-cont" >
     <div class="container">
         <div class="row">
-            <div class="span12">
+            <div class="span12" id="thuhep">
                 <div class="navbar">
                     <div class="navbar-inner">
                         <div class="container">
@@ -13,16 +12,18 @@
                                     <li class="single-link"><a href="<?php echo base_url(); ?>">Trang chủ</a></li>
                                     <li class="single-link"><a href="<?php echo base_url(); ?>index.php/about">Giới thiệu</a></li>
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Danh mục<i class="icon-angle-down"></i></a> 
+                                        <a href="<?php echo base_url(); ?>" class="dropdown-toggle" >Danh mục<i class="icon-angle-down"></i></a>
                                         <!-- Dropdown Navbar -->
+                                        <?php
+                                        $this->load->model("product_model");
+                                        $categories = $this->product_model->getCategories();
+                                        ?>
                                         <ul class="dropdown-menu">
-                                            <li><a href="<?php echo base_url(); ?>index.php/product/view_category/1">Samsung</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/product/view_category/2">Iphone</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/product/view_category/3">Nokia</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/product/view_category/4">Sony</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/product/view_category/5">LG</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/product/view_category/6">HP</a></li>
-                                            <li><a href="<?php echo base_url(); ?>index.php/product/view_category/7">Phụ kiện điện thoại</a></li>                                 
+                                            <?php foreach ($categories as $category){ 
+                                                $link = base_url()."index.php/product/view_category/".$category->categoryID;
+                                             ?>
+                                            <li><a class="category_css" href="<?php echo $link; ?>"><?php echo trim($category->categoryName); ?></a></li>
+                                            <?php } ?>                                            
                                         </ul>
                                     </li>
                                     <li class="dropdown">

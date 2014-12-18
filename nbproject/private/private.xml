@@ -3,20 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/mobileshop/application/front-modules/home/views/home_view2.php</file>
-            <file>file:/var/www/html/mobileshop/application/views/webuser_layout/menu.php</file>
+            <file>file:/var/www/html/mobileshop/application/models/product_model_admin.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/views/category_view/edit.php</file>
             <file>file:/var/www/html/mobileshop/application/config/database.php</file>
-            <file>file:/var/www/html/mobileshop/application/models/product_model.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/home/views/home_view.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/views/add_new_product.php</file>
             <file>file:/var/www/html/mobileshop/application/front-modules/product/views/product_home_view.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/controllers/categories.php</file>
             <file>file:/var/www/html/mobileshop/themes/front/css/styleChung.css</file>
-            <file>file:/var/www/html/mobileshop/application/front-modules/search/controllers/search.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/feedback/controllers/feedback.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/views/category_view/new.php</file>
             <file>file:/var/www/html/mobileshop/application/config/config.php</file>
             <file>file:/var/www/html/mobileshop/application/front-modules/product/controllers/product.php</file>
-            <file>file:/var/www/html/mobileshop/application/views/webuser_layout/layout_webuser.php</file>
             <file>file:/var/www/html/mobileshop/application/views/webuser_layout/searchBox_view.php</file>
             <file>file:/var/www/html/mobileshop/application/front-modules/home/controllers/home.php</file>
-            <file>file:/var/www/html/mobileshop/application/front-modules/search/views/search_view.php</file>
-            <file>file:/var/www/html/mobileshop/application/front-modules/product/views/detail_product_view.php</file>
+            <file>file:/var/www/html/mobileshop/application/views/admin_layout/layout_admin.php</file>
         </group>
     </open-files>
 </project-private>

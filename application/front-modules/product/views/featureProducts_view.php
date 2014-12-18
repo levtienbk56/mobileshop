@@ -1,11 +1,8 @@
-<div class="products-list products-list-small">
-    
-   <div class="container">
-       
+<div class="products-list products-list-small">    
+   <div class="container">       
       <div class="tabbable">
          <div class="nav nav-tabs"><a href="#tab1" data-toggle="tab" class="active"><span>Mới nhất</span></a><a href="#tab2" data-toggle="tab" class=""><span>Khuyến mại</span></a><a href="#tab3" data-toggle="tab" class=""><span>Mua nhiều nhất</span></a></div>
-         <div class="tab-content">
-            
+         <div class="tab-content">            
              <div class="tab-pane active" id="tab1">
                <ul class="thumbnails">
                   <!-- Products Single Box -->
@@ -21,8 +18,7 @@
                   </li>
                   <?php }?>
                </ul>
-            </div>
-            
+            </div>            
              <div class="tab-pane" id="tab2">
                <ul class="thumbnails">
                <?php foreach ($saleoff_products as $product){ ?>
@@ -31,7 +27,7 @@
                         <a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>" class="thumb"><img src="<?php echo base_url(); ?>themes/front/img/products/<?php echo $product->image; ?>" alt="Product"></a>
                         <p><a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>"><?php echo $product->name; ?></a></p>
                         <p class="price"><?php echo number_format($this->cart->format_number($product->price) * 1000000, 0, ".", $thousands_sep = " ")." VND"; ?></p>                                                
-                        <button  class="btn add_to_cart_global" id="<?php echo $product->productID; ?>" >Thêm vào giỏ </button>>
+                        <button  class="btn add_to_cart_global" id="<?php echo $product->productID; ?>" >Thêm vào giỏ </button>
                         <a href="" class="add-list"><i class="icon-star"></i>Wish List</a><a href="#" class="add-comp"><i class="icon-tasks"></i>Compare</a><span class="sale">-<?php echo $product->saleOff."%"; ?></span>
                      </div>
                   </li>

@@ -16,7 +16,7 @@
 <div class="alert alert-info">        
         <strong>Giỏ hàng rỗng!</strong>
 </div>
-<?php }?>
+<?php } else{?>
 
 
 
@@ -34,11 +34,10 @@
         <?php $i = 1; ?>
 
         <?php foreach ($this->cart->contents() as $items): ?>
-
             <?php echo form_hidden($i . '[rowid]', $items['rowid']); ?>
             <tr>                                
                 <?php if ($this->cart->has_options($items['rowid']) == TRUE): ?>
-                    <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>                                
+                    <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
                         <td class="thumb-cart"><a href="#"><img src="<?php echo base_url(); ?>themes/front/img/products/<?php echo $option_value; ?>" alt="<?php echo $option_name; ?>"></a></td>
                     <?php endforeach; ?>                        
                 <?php endif; ?>
@@ -71,6 +70,7 @@
     <p><input type="submit" class="updatecart"  name="update_cart" value="Cập nhật" /></p>
 </form>
 
+<?php }?>
 <script>
     $('.delete_item1').click(
             function () {

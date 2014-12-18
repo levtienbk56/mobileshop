@@ -3,8 +3,9 @@
 <?php foreach ($this->cart->contents() as $items): ?>
     <?php $soloaiSP++; ?>
 <?php endforeach; ?>  
-<div class="cart on" id="thongbaogio">    
+<div class="cart on" >    
     <i class="icon-shopping-cart"></i>
+    <div id="thongbaogio" style="float: right;">
     <?php if($this->cart->total_items()!=0){ ?>
     <p> <?php echo number_format($this->cart->format_number($this->cart->total()) * 1000000, 0, ".", $thousands_sep = " ") . " VND"; ?><span>  ( <?php echo $soloaiSP . " loại sản phẩm"; ?> )</span></p>
     <!-- Header Cart Content -->
@@ -59,4 +60,6 @@
           </div>
         </div>
     <?php }?>
+    </div>
 </div>
+

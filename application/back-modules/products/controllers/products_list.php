@@ -5,14 +5,14 @@ class Products_list extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->check_isvalidated();
-        $this->load->model("product_model");
+        $this->load->model("product_model_admin");
     }
 
     public function index() {
         $data['title'] = "Danh sách sản phẩm";
         $data['data'] = "Dữ liệu quản trị";
         $data['template'] = "products_list";
-        $data['products'] = $this->product_model->getAllProducts();
+        $data['products'] = $this->product_model_admin->getAllProducts();
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
         } else {
@@ -26,7 +26,7 @@ class Products_list extends CI_Controller {
     }
 
     public function delete_product($product_id){
-        $this->product_model->delete_product($product_id);
+        $this->product_model_admin->delete_product($product_id);
         redirect(base_url() . "admin/index.php/products/products_list");
         
     }

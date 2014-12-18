@@ -16,7 +16,8 @@ class Product extends CI_Controller {
         $data['template'] = "product_home_view";
         $this->load->view("webuser_layout/layout_webuser", $data);
     }
-
+    
+            
     function add_item_cart() {
         $id = $this->input->post('product_id');
         $products = $this->product_model->getAllProductCart();
@@ -24,8 +25,9 @@ class Product extends CI_Controller {
         $cart_items = $this->cart->contents();
         $exist = 0;
         foreach ($cart_items as $item) {
-            if ($item['id'] == $id)
+            if ($item['id'] == $id) {
                 $exist = 1;
+            }
         }
 
         echo $exist;
@@ -97,15 +99,13 @@ class Product extends CI_Controller {
 
     
     //Tim kiem theo product id
-    function view_detail($productID) {
-        
-        $p = $this->product_model->getDetail($productID);
-        //$review = $this->product_model->getCustomerReview($productID);        
+    function view_detail($productID) {        
+        $p = $this->product_model->getDetail($productID);        
         $data['title'] = "Điện thoại " . $p->name;
         $data['data'] = "";
         $data['template']   = "detail_product_view";
         $data['product']    = $p; 
-        $data['reviews']     = array();        
+        $data['reviews']     = array();
         $this->load->view("webuser_layout/layout_webuser", $data);
     }
 
@@ -114,6 +114,8 @@ class Product extends CI_Controller {
         $data['title'] = "Danh mục sản phẩm";
         $data['data'] = "Các sản phẩm trong danh mục";
         $data['template'] = "category_view";
+        $data['category'] = $this->product_model->getCategory($id);
+        $data['products'] = $this->product_model->getCategoryProducts($id);
         $this->load->view("webuser_layout/layout_webuser", $data);
     }
 

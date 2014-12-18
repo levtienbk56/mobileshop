@@ -32,7 +32,7 @@
                                          
 
                         <li class="active">
-                            <a href="<?php echo base_url(); ?>admin">
+                            <a href="<?php echo base_url(); ?>admin/index.php/feedback">
                                 <i class="fa fa-envelope-o"></i> <span>Phản hồi</span>
                             </a>
                         </li>

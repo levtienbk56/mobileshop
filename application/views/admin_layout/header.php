@@ -23,7 +23,7 @@
                         </li>
                         <!-- don dat hang moi -->
                         <li class="dropdown notifications-menu">
-                            <a href="#" class="dropdown-toggle">
+                            <a href="<?php echo base_url()."/admin/index.php/products/orders"; ?>" class="dropdown-toggle">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span class="label label-warning">10</span>
                             </a>                            

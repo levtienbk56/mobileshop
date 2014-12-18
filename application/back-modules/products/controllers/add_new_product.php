@@ -5,7 +5,7 @@ class Add_new_product extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->check_isvalidated();
-        $this->load->model("product_model");
+        $this->load->model("product_model_admin");
         ini_set('default_charset', 'UTF-8');
     }
 
@@ -14,8 +14,8 @@ class Add_new_product extends CI_Controller {
         $data['data'] = "Dữ liệu quản trị";
         $data['template'] = "add_new_product";
         
-        $data['categories'] = $this->product_model->getCategories();
-        $data['suppliers'] = $this->product_model->getSuppliers();
+        $data['categories'] = $this->product_model_admin->getCategories();
+        $data['suppliers'] = $this->product_model_admin->getSuppliers();
         
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
@@ -99,7 +99,7 @@ class Add_new_product extends CI_Controller {
         }
 
         if ($ok_to_save == 1) {
-            $this->product_model->add_product($inputArray);
+            $this->product_model_admin->add_product($inputArray);
         }
 
         redirect(base_url() . "admin/index.php/products/products_list");

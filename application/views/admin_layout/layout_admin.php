@@ -26,6 +26,7 @@
         <!-- iCheck for checkboxes and radio inputs -->
         <link href="../css/iCheck/minimal/blue.css" rel="stylesheet" type="text/css" />
 
+        <link href="<?php echo base_url(); ?>/themes/admin/css/stylechung_admin.css" rel="stylesheet" type="text/css" />
         
         <link rel="shortcut icon" href="<?php echo base_url(); ?>themes/front/img/favicon.ico">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

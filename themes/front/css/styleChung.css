@@ -11,6 +11,8 @@
 .khung-search{
     height: 30px !important;
     margin-top: 6px;
+    width: 300px;
+    margin-left: 50px;
 }
 .search-btn{
     height: 30px;
@@ -159,4 +161,18 @@
 
 .add_to_cart_global{
     margin-left: 16px;
+}
+.navbar-inner{
+    min-height: 35px !important;
+}
+.khung-content{
+    margin-top: 140px;
+}
+
+.category_css {
+    font-size: 16px !important;
+    font-weight: bold !important;
+}
+.navbar-inner .nav li .dropdown-menu{
+    width: 150px !important;
 }

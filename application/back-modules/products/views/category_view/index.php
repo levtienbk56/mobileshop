@@ -25,8 +25,12 @@
                             <td><?php echo $category->categoryID ?></td>
                             <td><?php echo $category->categoryName ?></td>
                             <td><?php echo $category->description ?></td>
-                            <td><img width="100" src="<?php echo base_url()."themes/front/img/products/".$category->image ?>"></td>
-                            <td><a href="#"><i class="fa fa-edit"></i></a> <a href="#" style="margin-left: 10px;  "><i class="fa fa-trash-o"></i></a>  </td>
+                            <?php 
+                                $image = base_url()."themes/front/img/products/".$category->image;
+                                $edit = base_url()."admin/index.php/products/categories/edit/".$category->categoryID;
+                            ?>
+                            <td><img width="100" src="<?php echo $image; ?>"></td>
+                            <td><a href="<?php echo $edit; ?>"><i class="fa fa-edit"></i></a> <a href="#" style="margin-left: 10px;  "><i class="fa fa-trash-o"></i></a>  </td>
                         </tr>   
                         <?php } ?>
                     </table>
