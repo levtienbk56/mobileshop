@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 19, 2014 at 09:42 AM
+-- Generation Time: Dec 20, 2014 at 09:33 PM
 -- Server version: 5.5.40-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.5
 
@@ -24,9 +24,20 @@ DELIMITER $$
 --
 -- Procedures
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_delete_category`(IN `_id` INT)
+    NO SQL
+delete from category where `categoryID`=_id$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_delete_product`(new_id INT)
 delete from `product` 
 where `productID` = new_id$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_delete_supplier`(IN `_id` INT)
+    NO SQL
+delete from supplier where `supplierID`=_id$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_insert_category`(_name varchar(100), _description varchar(500), _image varchar(200))
+insert into category(`categoryName`,`description`,`image`) values(_name,_description,_image)$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_insert_order`(IN `new_orderID` VARCHAR(15), IN `new_status` VARCHAR(20), IN `new_dateOrder` DATE, IN `new_name` VARCHAR(50), IN `new_phoneNumber` VARCHAR(15), IN `new_address` VARCHAR(200), IN `new_email` VARCHAR(100))
     NO SQL
@@ -42,11 +53,36 @@ INSERT INTO `product`(`name`, `image`, `price`, `shortInfo`, `description`, `con
 values (new_name ,new_image,new_price,new_shortInfo,new_description,new_configurationInfo,new_isNew,
 new_isHot,new_saleOff,new_quantity,new_status,new_dateCreated,new_categoryID,new_supplierID)$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_insert_supplier`(_name varchar(100), _description varchar(500))
+insert into supplier(`name`,`description`) values(_name,_description)$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_order_detail`(IN `new_order_id` VARCHAR(15))
     NO SQL
 select `order_details`.`orderItemID` AS `orderItemID`,`order_details`.`productID` AS `productID`,`order_details`.`quantity` AS `quantity`,`order_details`.`unitPrice` AS `unitPrice`,`order_details`.`orderID` AS `orderID`
 from `order_details`
 where `order_details`.`orderID` = new_order_id$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_update_account_info`(IN  _id int,IN `_username` VARCHAR(20), IN `_realName` VARCHAR(50), IN `_phonenumber` VARCHAR(15), IN `_email` VARCHAR(50), IN `_image` VARCHAR(200))
+    NO SQL
+update adminuser
+set username = _username,
+	realName = _realName,
+phonenumber = _phonenumber,
+email = _email,
+image = _image
+where 	id = _id$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_update_category`(_id int, _categoryName varchar(100), _description varchar(500), _image varchar(200))
+update 
+category set  `categoryName` = _categoryName, 
+description = _description,
+image = _image
+where `categoryID` = _id$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_update_pass`(IN `_id` INT, IN `_pass` VARCHAR(50))
+    NO SQL
+update `adminuser`
+set `password` = _pass  where `id` = _id$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_update_product`(IN `new_id` INT, IN `new_name` VARCHAR(200), IN `new_image` VARCHAR(200), IN `new_price` DOUBLE, IN `new_shortInfo` TEXT, IN `new_description` TEXT, IN `new_configurationInfo` TEXT, IN `new_isNew` TINYINT(1), IN `new_isHot` TINYINT(1), IN `new_saleOff` DECIMAL, IN `new_quantity` INT, IN `new_status` TINYINT(1), IN `new_dateCreated` VARCHAR(100), IN `new_categoryID` INT, IN `new_supplierID` INT)
     NO SQL
@@ -60,6 +96,12 @@ set `name`=new_name ,
 `dateCreated`=new_dateCreated,`categoryID`=new_categoryID,`supplierID` = new_supplierID
 where productID = new_id$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_update_supplier`(IN `_id` INT, IN `_name` VARCHAR(100), IN `_description` VARCHAR(500))
+update 
+supplier set  `name` = _name, 
+`description` = _description
+where `supplierID` = _id$$
+
 DELIMITER ;
 
 -- --------------------------------------------------------
@@ -69,22 +111,42 @@ DELIMITER ;
 --
 
 CREATE TABLE IF NOT EXISTS `adminuser` (
-  `userID` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) NOT NULL,
   `password` varchar(50) NOT NULL,
   `realName` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `roleID` int(10) NOT NULL,
-  PRIMARY KEY (`userID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `phonenumber` varchar(15) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `image` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `adminuser`
 --
 
-INSERT INTO `adminuser` (`userID`, `username`, `password`, `realName`, `roleID`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Phan Văn Huy', 1),
-(2, 'qtsanpham', 'e10adc3949ba59abbe56e057f20f883e', 'ABC', 2);
+INSERT INTO `adminuser` (`id`, `username`, `password`, `realName`, `roleID`, `phonenumber`, `email`, `image`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Phan Văn Huy', 1, '983-986-816', 'abc@gmail.com', 'Huy.jpg'),
+(2, 'qtsanpham', '2dd5900327f84af04052eeadb21b2d2f', 'Lê Văn Tiến', 2, '0969-860-887', 'abc@gmail.com', 'Tien.jpg'),
+(3, 'qtdathang', '17b5e65c6136320701ad1b235d812833', 'Nguyễn Tuấn Anh', 2, NULL, NULL, NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `admin_accounts_view`
+--
+CREATE TABLE IF NOT EXISTS `admin_accounts_view` (
+`id` int(10)
+,`username` varchar(20)
+,`password` varchar(50)
+,`realName` varchar(50)
+,`roleID` int(10)
+,`phonenumber` varchar(15)
+,`email` varchar(100)
+,`image` varchar(200)
+,`rolename` varchar(200)
+);
 -- --------------------------------------------------------
 
 --
@@ -111,21 +173,21 @@ CREATE TABLE IF NOT EXISTS `allproductsbrief_view` (
 
 CREATE TABLE IF NOT EXISTS `category` (
   `categoryID` int(10) NOT NULL AUTO_INCREMENT,
-  `categoryName` varchar(100) NOT NULL,
-  `description` varchar(500) NOT NULL,
-  `image` varchar(200) NOT NULL,
+  `categoryName` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`categoryID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`categoryID`, `categoryName`, `description`, `image`) VALUES
-(1, 'Apple', '', 'data/2514304_untitled-1.jpg'),
-(2, 'Samsung', '', ''),
-(3, 'Nokia', '', ''),
-(4, 'LG', '', '');
+(1, 'Apple', '', 'data/iphone-4s-16gb-white-md239vn-anh-4.jpg'),
+(2, 'Samsung', '<p>C&aacute;c sản phẩm mới nhất từ Samsung</p>\n', 'data/samsung-galaxy-s4-i9500-anh-1.jpg'),
+(4, 'LG', '', 'data/lg-g3-stylus-d.jpg'),
+(5, 'test', '', 'data/apple2.png');
 
 -- --------------------------------------------------------
 
@@ -200,7 +262,7 @@ CREATE TABLE IF NOT EXISTS `feedback` (
   `subject` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `status` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`feedbackID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `feedback`
@@ -212,7 +274,9 @@ INSERT INTO `feedback` (`feedbackID`, `name`, `email`, `content`, `time`, `subje
 (3, 'tèo em', 'teo.acb@gmail.com', 'nh?p thêm nokia ?ê anh ?i', '06:57:06 PM 16-12-2014', 'product', 0),
 (4, 'Hùng Nguy?n', 'hungnv@gmail.com', 'xem xét tháu ?? nhân viên', '06:58:58 PM 16-12-2014', 'service', 0),
 (5, 'hùng lê', 'hungle@gmail.com', 'mai có hàng ch?a anh', '07:00:56 PM 16-12-2014', 'service', 0),
-(6, 'Th?o Nguy?n', 'thaothu@yahoo.com', 'có b?o hành máy không admin', '07:02:58 PM 16-12-2014', 'product', 1);
+(6, 'Th?o Nguy?n', 'thaothu@yahoo.com', 'có b?o hành máy không admin', '07:02:58 PM 16-12-2014', 'product', 1),
+(7, 'phanhuy abc', 'phanhuy.hedspi56@gmail.com', 'tin phan hoi', '01:34:33 AM 20-12-2014', 'suggestions', NULL),
+(8, 'huy phan', 'phanhuy.hedspi56@gmail.com', 'xin chao mobileshop', '09:28:43 PM 20-12-2014', 'service', NULL);
 
 -- --------------------------------------------------------
 
@@ -500,7 +564,7 @@ CREATE TABLE IF NOT EXISTS `supplier` (
 --
 
 INSERT INTO `supplier` (`supplierID`, `name`, `description`) VALUES
-(1, 'NCC1', 'Nhà cung cấp tại tp. Hồ Chí Minh'),
+(1, 'NCC1', '<p>Nh&agrave; cung cấp tại tp. Hồ Ch&iacute; Minh</p>\n'),
 (2, 'NCC2', 'Nhà cung cấp tại Hà Nội'),
 (4, 'NCC 3', 'Nhà cung cấp tại Hải Phòng');
 
@@ -565,6 +629,15 @@ INSERT INTO `webinfo` (`id`, `infoName`, `content`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure for view `admin_accounts_view`
+--
+DROP TABLE IF EXISTS `admin_accounts_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `admin_accounts_view` AS select `adminuser`.`id` AS `id`,`adminuser`.`username` AS `username`,`adminuser`.`password` AS `password`,`adminuser`.`realName` AS `realName`,`adminuser`.`roleID` AS `roleID`,`adminuser`.`phonenumber` AS `phonenumber`,`adminuser`.`email` AS `email`,`adminuser`.`image` AS `image`,`role`.`description` AS `rolename` from (`adminuser` join `role`) where (`adminuser`.`roleID` = `role`.`roleID`);
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `allproductsbrief_view`
 --
 DROP TABLE IF EXISTS `allproductsbrief_view`;
@@ -614,7 +687,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `order_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `order_view` AS select `order`.`orderID` AS `orderID`,`order`.`status` AS `status`,`order`.`dateOrder` AS `dateOrder`,`order`.`name` AS `name`,`order`.`phoneNumber` AS `phoneNumber`,`order`.`address` AS `address`,`order`.`email` AS `email` from `order`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `order_view` AS select `order`.`orderID` AS `orderID`,`order`.`status` AS `status`,`order`.`dateOrder` AS `dateOrder`,`order`.`name` AS `name`,`order`.`phoneNumber` AS `phoneNumber`,`order`.`address` AS `address`,`order`.`email` AS `email` from `order` order by `order`.`dateOrder` desc;
 
 -- --------------------------------------------------------
 
