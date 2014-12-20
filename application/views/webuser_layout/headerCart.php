@@ -11,21 +11,19 @@
     <!-- Header Cart Content -->
     <div class="cart-content">       
         <div class="mini-cart-info">
-            <h3>Giỏ hàng</h3>
-            
+            <h3>Giỏ hàng</h3>            
             <ul>
                 <?php $i = 1; ?>
                 <?php foreach ($this->cart->contents() as $items): ?>
                     <?php if ($i < 3): ?>
                         <li>
                             <?php if ($this->cart->has_options($items['rowid']) == TRUE): ?>
-                                <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>                                
-                                    <a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $items['id'] + 1; ?>"><img src="<?php echo base_url(); ?>themes/front/img/products/<?php echo $option_value; ?>" alt="<?php echo $option_name; ?>"></a>
+                                <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
+                                    <a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $items['id']; ?>"><img src="<?php echo base_url(); ?>themes/front/img/products/<?php echo $option_value; ?>" alt="<?php echo $option_name; ?>"></a>
                                 <?php endforeach; ?>                        
                             <?php endif; ?>
-
                             <div class="mini-cart-detail">
-                                <h5><a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $items['id'] + 1; ?>"><?php echo $items['name']; ?></a></h5>
+                                <h5><a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $items['id']; ?>"><?php echo $items['name']; ?></a></h5>
                                 <em><?php echo $this->cart->format_number($items['qty']); ?> chiếc</em>
                                 <p> <?php echo number_format($this->cart->format_number($items['price']) * 1000000, 0, ".", $thousands_sep = " "); ?> VND</p>
 

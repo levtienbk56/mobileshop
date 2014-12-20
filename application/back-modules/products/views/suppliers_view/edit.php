@@ -2,13 +2,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1 style="float: left;">
-            Thêm mới danh mục
+            Sửa đổi nội dung nhà cung cấp
         </h1>
-        <a style="margin-top: -6px; margin-left: 100px;" href="<?php echo base_url(); ?>admin/index.php/products/categories" class="btn bg-olive margin" >Trở lại</a>
+        <a style="margin-top: -6px; margin-left: 100px;" href="<?php echo base_url(); ?>admin/index.php/products/suppliers" class="btn bg-olive margin" >Trở lại</a>
+        <a style="margin-top: -6px; margin-left: 30px;" href="<?php echo base_url(); ?>admin/index.php/products/suppliers/addNew" class="btn bg-olive margin" >Thêm mới</a>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Trang quản trị</a></li>
-            <li><a href="<?php echo base_url(); ?>admin/index.php/products/categories">Danh mục</a></li>
-            <li class="active">Thêm mới</li>
+            <li><a href="<?php echo base_url(); ?>admin/index.php/products/suppliers">Nhà cung cấp</a></li>
+            <li class="active"><?php echo $supplier->name; ?></li>
         </ol>
     </section>
 
@@ -28,25 +29,15 @@
             </div>
 
             <!-- main form -->
-            <?php $action_link = base_url() . "admin/index.php/products/categories/create" ?>
+            <?php $action_link = base_url() . "admin/index.php/products/suppliers/update" ?>
             <form role="form" action="<?php echo $action_link; ?>" method="post" enctype="multipart/form-data">
                 <div class="box-body">
-                    <input type="hidden" name="categoryID">
+                    <input type="hidden" name="supplierID" value="<?php echo $supplier->supplierID?>">
                     <div class="form-group">
-                        <label >Tên danh mục </label>
-                        <input class="form-control" name="category_name" type="text">
-                    </div>
-
-                    <div class="form-group">                                
-                        <label >Ảnh</label>
-                        <br>
-                        <img id="previewimg"  src=""/>
-                        <input type="hidden" id="img_content" name="category_image" >
-                        <br>
-                        <h5>Thay đổi ảnh?</h5>
-                        <input type="file" name="file" id="file"/>                                
-                        <br>
-
+                        <label >Tên NCC </label>
+                        <input class="form-control" name="supplier_name" type="text" value="<?php echo $supplier->name; ?>">
+                    </div>                                       
+                    <div class="form-group">                                                        
                         <div class='box'>
                             <div class='box-header'>
                                 <h3 class='box-title'>Mô tả</h3>
@@ -54,18 +45,15 @@
 
                             </div><!-- /.box-header -->
                             <div class='box-body pad'>                                    
-                                <textarea id="CKEditor" name="category_description"  rows="10" cols="80"></textarea>
+                                <textarea id="CKEditor" name="supplier_description"  rows="10" cols="80"><?php echo $supplier->description; ?></textarea>
                             </div>
                         </div>
 
                         <br>
                         <div class="box-footer">
-                            <button type="submit" id="submit" name="submit" class="btn btn-primary">Tạo mới</button>
-
+                            <button type="submit" id="submit" name="submit" class="btn btn-primary">Cập nhật</button>
                         </div>
                     </div>   
-
-                    <!-- /.box -->
                 </div>
             </form>
 

@@ -112,7 +112,7 @@
     -ms-transition: all linear 0.1s;
     -moz-transition: all linear 0.1s;
     -webkit-transition: all linear 0.1s;
-    -o-transition: all linear 0.1s;
+    -o-transition: all linear 0.1s;    
 }
 .products-list li:hover .thumbnail .add_to_cart {
     top: -20px;
@@ -175,4 +175,8 @@
 }
 .navbar-inner .nav li .dropdown-menu{
     width: 150px !important;
+}
+
+.hienthiten{
+    height: 40px;
 }

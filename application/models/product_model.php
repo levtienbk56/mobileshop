@@ -1,6 +1,6 @@
 <?php
-
 class Product_model extends CI_Model {
+
     function getAllProducts() {
         $q = $this->db->get("allproductsbrief_view");
         if ($q->num_rows() > 0) {
@@ -10,14 +10,14 @@ class Product_model extends CI_Model {
     }
 
     function getCategoryProducts($category) {
-        $this->db->where("category_id",$category);
+        $this->db->where("category_id", $category);
         $q = $this->db->get("allproductsbrief_view");
         if ($q->num_rows() > 0) {
             return $q->result();
         }
         return array();
     }
-    
+
     function getTopNew() {
         $q = $this->db->get("new_product_view");
         if ($q->num_rows() > 0) {
@@ -71,7 +71,6 @@ class Product_model extends CI_Model {
         return array();
     }
 
-    
     function order_products($order_info) {
         $orderID = "\"" . $order_info[0] . "\"";
         $status = "0";
@@ -101,24 +100,24 @@ class Product_model extends CI_Model {
         }
         return array();
     }
-    
-    function getCategories(){
+
+    function getCategories() {
         $q = $this->db->get("category");
-        if($q->num_rows()>0){
+        if ($q->num_rows() > 0) {
             return $q->result();
         }
         return array();
     }
-    function getCategory($id){
-        $this->db->where("categoryID",$id);
+
+    function getCategory($id) {
+        $this->db->where("categoryID", $id);
         $q = $this->db->get("category");
         if ($q->num_rows() > 0) {
             return $q->row();
         }
         return array();
     }
-       
-        
+
     function getDetail($productID) {
         $this->db->where("productID", $productID);
         $q = $this->db->get("productdetail_view");
@@ -127,4 +126,81 @@ class Product_model extends CI_Model {
         }
         return false;
     }
+
+    function add_review() {
+        //$name = $_POST['name'];
+        $productID = $this->input->post('productID');
+        $name = $this->input->post('name');
+        $comment = $this->input->post('comment');
+        $vote = $this->input->post('vote');
+
+        $data = array(
+            'productID' => $productID,
+            'name' => $name,
+            'vote' => $vote,
+            'comment' => $comment,
+            'time' => date("h:i:s A d-m-Y"),
+        );
+        $this->db->insert('customer_review', $data);
+
+        }
+        
+        function getProductSearchFilter_post(){
+        $category = $this->input->post('category');
+        $os = $this->input->post('os');
+        $price = $this->input->post('price');
+        $wifi = $this->input->post('wifi');
+        $_3g = $this->input->post('_3g');
+        $order = $this->input->post('order');
+        
+        if ($category > 0) {
+            $this->db->where("categoryID", $category);
+        }
+        if ($os != "") {
+            $this->db->where("os", $os);
+        }
+
+        switch ($price){
+            case 1: // <2 trieu
+                $this->db->where("price <", 2);
+                break;
+            case 2: // 2-4 trieu
+                $this->db->where("price >=", 2);
+                $this->db->where("price <", 4);
+                break;
+            case 3: // 4-10 trieu
+                $this->db->where("price >=", 4);
+                $this->db->where("price <", 10);
+                break;
+            case 4: // >10 trieu
+                $this->db->where("price >", 10);
+        }
+        
+        if ($wifi == 1) {
+            $this->db->where("wifi", 1);
+        }
+        if ($wifi == 2) {
+            $this->db->where("wifi", 0);
+        }
+
+        if ($_3g == 1) {
+            $this->db->where("3g", 1);
+        }
+        if($_3g == 2) {
+            $this->db->where("3g", 0);
+        }
+
+        if ($order == "increase") {
+            $this->db->order_by("price", "asc");
+        } else {
+            $this->db->order_by("price", "desc");
+        }
+
+        $q = $this->db->get("product");
+        if ($q->num_rows() > 0) {
+            return $q->result();
+        }
+        return array();
+    }
+
 }

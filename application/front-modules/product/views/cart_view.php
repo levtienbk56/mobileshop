@@ -15,6 +15,9 @@
 <?php if($this->cart->total_items() == 0){ ?>
 <div class="alert alert-info">        
         <strong>Giỏ hàng rỗng!</strong>
+        <br>        
+        <br>
+        <h3><a href="<?php echo base_url()."index.php/product/view_all"; ?>">Trở lại chọn hàng</a></h3>
 </div>
 <?php } else{?>
 

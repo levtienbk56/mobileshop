@@ -95,7 +95,7 @@
 
                                     <!-- Write Review -->
                                     <h5>Write a Review</h5>
-                                    <form id="form-review" class="write-review" onsubmit="sendReview()">
+                                    <form id="form-review" class="write-review">
                                         <fieldset>
                                             <input type="text" placeholder="Name" id="customer-review">
                                             <textarea rows="5" placeholder="Message" id="comment-review"></textarea>
@@ -104,7 +104,7 @@
                                             <input type="radio" name="optionsRadios" id="optionsRadios3" value="3">
                                             <input type="radio" name="optionsRadios" id="optionsRadios4" value="4">
                                             <input type="radio" name="optionsRadios" id="optionsRadios5" value="5">
-                                            <input type="submit" value="Send"">
+                                            <p><input type="button" value="Gửi" onclick="sendReview()"></p>
                                         </fieldset>
                                     </form>
                                 </div>
@@ -127,20 +127,20 @@
         var comment = $("#comment-review").val();
         var vote = $('input[name="optionsRadios"]:checked').val();
         var _url = '<?php echo base_url(); ?>index.php/product/add_review';
-        
-        if(name === "" || comment === ""){
-            alert("Bạn cần nhập tối thiểu tên và comment");
-            return;
+        if (name === "" || comment === "") {
+            alert("Bạn cần nhập đầy đủ");
+        } else {
+            $.ajax({
+                url: _url,
+                type: 'POST', //the way you want to send data to your URL
+                data: {'productID': productID, 'name': name, 'comment': comment, 'vote': vote},
+                dataType: "text",
+                success: function (data) {
+                    alert("Đánh giá của bạn đã được gửi đi");
+                    $('#form-review').load(document.URL + ' #form-review');
+                }
+            });
         }
-        $.ajax({
-            url: _url,
-            type: 'POST', //the way you want to send data to your URL
-            data: {'productID': productID, 'name': name, 'comment': comment, 'vote': vote},
-            dataType: "text",
-            success: function (data) {
-                alert(data);  //as a debugging message.
-            }
-        });
     }
 </script>
 

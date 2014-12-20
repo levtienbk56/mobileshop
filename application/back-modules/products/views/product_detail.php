@@ -6,7 +6,7 @@
         <h1 style="float: left;">
             Chi tiết sản phẩm            
         </h1>
-        <a style="margin-top: -6px; margin-left: 100px;" href="<?php echo base_url(); ?>admin/index.php/products/products_list" class="btn bg-olive margin" >Trở lại danh sách</a>
+        <a style="margin-top: -6px; margin-left: 100px;" href="<?php echo base_url(); ?>admin/index.php/products/products_list" class="btn bg-olive margin" >Quay lại</a>
         <a style="margin-top: -6px; margin-left: 30px;" href="<?php echo base_url(); ?>admin/index.php/products/add_new_product" class="btn bg-olive margin" >Thêm mới</a>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Trang quản trị</a></li>

@@ -1,7 +1,5 @@
 <?php
-
 class orders extends CI_Controller {
-
     function __construct() {
         parent::__construct();
         $this->check_isvalidated();
@@ -11,7 +9,7 @@ class orders extends CI_Controller {
     public function index() {
         $data['title'] = "Quản trị đơn hàng";
         $data['data'] = "";
-        $data['template'] = "order_view";
+        $data['template'] = "order_view/order_view";
         $data['orders'] = $this->product_model_admin->getOrders();
         if (!$this->session->userdata('validated')) {
             redirect('admin/index.php/login');
@@ -29,7 +27,7 @@ class orders extends CI_Controller {
     public function viewDetail($orderID){
         $data['title'] = "Chi tiết đơn hàng";
         $data['data'] = "";
-        $data['template'] = "order_detail_view";
+        $data['template'] = "order_view/order_detail_view";
         $data['orderID'] = $orderID;
         $data['items'] = $this->product_model_admin->getOrderDetail($orderID);
         
@@ -38,10 +36,6 @@ class orders extends CI_Controller {
         } else {
             $this->load->view("admin_layout/layout_admin", $data);
         }
-        
-        
-        
-        
     }
 
 }

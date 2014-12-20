@@ -2,20 +2,19 @@
     <div class="row"> 
 
         <!-- Sidebar -->
-        <div class="span3 sidebar"><img style="height: 135px;" src="<?php echo base_url(); ?>themes/front/img/products/<?php echo $category->image; ?>" alt="Category"></div>
+        
 
         <!-- Products List -->
         <div class="span9"> 
-
             <!-- Breadcrumb -->
             <ul class="breadcrumb">
                 <li><a href="#">Trang chủ</a> <span class="divider">/</span></li>
                 <li><a href="#">sản phẩm</a> <span class="divider">/</span></li>
                 <li class="active">danh mục</li>
             </ul>
-            <h1>Điện thoại hãng <?php echo $category->categoryName; ?></h1>
+            <h1>Điện thoại tất cả các hãng</h1>
             <br>
-            <p class="small-desc"><?php echo $category->description; ?></p>
+            
         </div>
     </div>
     <div class="row">
@@ -78,9 +77,9 @@
                         <li class="span3">
                             <div class="thumbnail style1">
                                 <a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>" class="thumb"><img src="<?php echo base_url() . "themes/front/img/products/" . trim($product->image); ?>" alt="Product"></a>
-                                <p ><a class="hienthiten" href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>"><?php echo $product->name; ?></a></p>
+                                <p><a class="hienthiten" href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>"><?php echo $product->name; ?></a></p>
                                 <p class="price"><?php echo number_format($this->cart->format_number($product->price) * 1000000, 0, ".", $thousands_sep = " ") . " VND"; ?></p>
-                                <button class="btn add_to_cart add_to_cart_global" id="<?php echo $product->productID; ?>" >Thêm vào giỏ </button>
+                                <button class="btn add_to_cart add_to_cart_global" style="font-size: 12px;" id="<?php echo $product->productID; ?>" >Thêm vào giỏ </button>
                                 <a href="#" class="add-list"><i class="icon-tasks"></i>So sánh</a><a href="#" class="add-comp"><i class="icon-share-alt"></i>Xem chi tiết</a>
                             </div>
                         </li>
@@ -108,7 +107,7 @@
 </div>
 
 <script type="text/javascript">
-    function search() {
+    function search() {        
         var select = document.getElementById("select-category");
         var category = select.options[select.selectedIndex].value;
 
@@ -120,25 +119,24 @@
 
         var select = document.getElementById("select-wifi");
         var wifi = select.options[select.selectedIndex].value;
-
         var select = document.getElementById("select-3g");
         var _3g = select.options[select.selectedIndex].value;
 
         var select = document.getElementById("select-order");
         var order = select.options[select.selectedIndex].value;
 
-        var _url = '<?php echo base_url(); ?>index.php/product/search_filter';
+        var _url = '<?php echo base_url(); ?>index.php/product/search_filter';        
         $.ajax({
             url: _url,
             type: 'POST', //the way you want to send data to your URL
             data: {'category': category, 'os': os, 'price': price, 'wifi': wifi, '_3g': _3g, 'order': order},
             dataType: "text",
-            success: function (data) {
-                alert('abc mmm');
-                document.getElementById("category_product_list").innerHTML = data;
+            success: function (data) {     
+                //alert (data);
+                //document.getElementById("category_product_list").innerHTML = data;
+                $("#category_product_list").html(data);
                 document.getElementById("category_name").innerHTML = "Lọc sản phẩm";
             }
         });
     }
-
 </script>

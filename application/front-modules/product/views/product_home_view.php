@@ -16,7 +16,7 @@
                             <a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>" class="thumb"><img src="<?php echo base_url(); ?>themes/front/img/products/<?php echo trim($product->image); ?>" alt="Product"></a>
                             <p><a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>"><?php echo $product->name; ?></a></p>
                             <p class="price"><?php echo number_format($this->cart->format_number($product->price) * 1000000, 0, ".", $thousands_sep = " ") . " VND"; ?></p>
-                            <button class="btn add_to_cart add_to_cart_global" id="<?php echo $product->productID; ?>" >Thêm vào giỏ </button>>
+                            <button class="btn add_to_cart add_to_cart_global" id="<?php echo $product->productID; ?>" >Thêm vào giỏ </button>
                             <a href="#" class="add-list"><i class="icon-tasks"></i>So sánh</a><a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>" class="add-comp"><i class="icon-share-alt"></i>Xem chi tiết</a>
                         </div>
                     </li>
@@ -42,7 +42,7 @@
                             <a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>" class="thumb"><img src="<?php echo base_url() . "themes/front/img/products/" . trim($product->image); ?>" alt="Product"></a>
                             <p><a href="<?php echo base_url(); ?>index.php/product/view_detail/<?php echo $product->productID; ?>"><?php echo $product->name; ?></a></p>
                             <p class="price"><?php echo number_format($this->cart->format_number($product->price) * 1000000, 0, ".", $thousands_sep = " ") . " VND"; ?></p>
-                            <button class="btn add_to_cart add_to_cart_global" id="<?php echo $product->productID; ?>" >Thêm vào giỏ </button>>
+                            <button class="btn add_to_cart add_to_cart_global" id="<?php echo $product->productID; ?>" >Thêm vào giỏ </button>
                             <a href="#" class="add-list"><i class="icon-tasks"></i>So sánh</a><a href="#" class="add-comp"><i class="icon-share-alt"></i>Xem chi tiết</a>
                         </div>
                     </li>

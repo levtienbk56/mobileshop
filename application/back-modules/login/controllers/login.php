@@ -5,7 +5,7 @@
 class Login extends CI_Controller{
     
     function __construct(){
-        parent::__construct();
+        parent::__construct();        
     }
 
     public function index($msg = NULL){
@@ -27,13 +27,15 @@ class Login extends CI_Controller{
             $this->index($msg);
         }else{
             // If user did validate, 
-            // Send them to members area
+            // Send them to members area            
             redirect('admin/index.php/home');
         }        
     }
     
     
     public function do_logout(){
+        session_start();
+        unset( $_SESSION['confirmed'] ); 
         $this->session->sess_destroy();
         redirect('admin/index.php/login');
     }

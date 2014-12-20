@@ -2,6 +2,8 @@
 
 class product_model_admin extends CI_Model {
 
+    //============PRODUCT================
+
     function getAllProducts() {
         $q = $this->db->get("allproductsbrief_view");
         if ($q->num_rows() > 0) {
@@ -10,55 +12,11 @@ class product_model_admin extends CI_Model {
         return array();
     }
 
-    
     function getDetail($productID) {
         $this->db->where("productID", $productID);
         $q = $this->db->get("productdetail_view");
         if ($q->num_rows() > 0) {
             return $q->row();
-        }
-        return false;
-    }
-
-    function getCategories() {
-        $q = $this->db->get("category");
-        if ($q->num_rows() > 0) {
-            return $q->result();
-        }
-        return array();
-    }
-    function getCategory($id){
-        $this->db->where("categoryID",$id);
-        $q = $this->db->get("category");
-        if ($q->num_rows() > 0) {
-            return $q->row();
-        }
-        return array();
-    }
-   
-
-    function getSuppliers() {
-        $q = $this->db->get("supplier");
-        if ($q->num_rows() > 0) {
-            return $q->result();
-        }
-        return array();
-    }
-
-    
-    function getOrders() {
-        $q = $this->db->get("order_view");
-        if ($q->num_rows() > 0) {
-            return $q->result();
-        }
-        return array();
-    }
-
-    function getOrderDetail($orderID) {
-        $this->db->where("orderID", $orderID);
-        $q = $this->db->get("order_detail_view");
-        if ($q->num_rows() > 0) {
-            return $q->result();
         }
         return false;
     }
@@ -100,7 +58,7 @@ $isnew,$isHot,$saleOff,$quantity,$status,$dateCreated,$categoryID,$supplierID)";
         $dateCreated = $inputArray[11];
         $categoryID = $inputArray[12];
         $supplierID = $inputArray[13];
-//echo $shortInfo ;
+        
         $sql = "CALL proc_insert_product($name,$image,$price,$shortInfo,$description,$config,
 $isnew,$isHot,$saleOff,$quantity,$status,$dateCreated,$categoryID,$supplierID)";
         $this->db->query($sql);
@@ -111,4 +69,103 @@ $isnew,$isHot,$saleOff,$quantity,$status,$dateCreated,$categoryID,$supplierID)";
         $this->db->query($sql);
     }
 
+//===================CATEGORY==========================
+    function getCategories() {
+        $q = $this->db->get("category");
+        if ($q->num_rows() > 0) {
+            return $q->result();
+        }
+        return array();
+    }
+
+    function getCategory($id) {
+        $this->db->where("categoryID", $id);
+        $q = $this->db->get("category");
+        if ($q->num_rows() > 0) {
+            return $q->row();
+        }
+        return array();
+    }
+
+    function updateCategory($data) {
+        $id = $data[0];
+        $categoryName = $data[1];
+        $description = $data[2];
+        $image = $data[3];
+        $sql = "CALL proc_update_category($id,$categoryName,$description,$image)";
+        $this->db->query($sql);
+    }
+
+    function addCategory($data) {
+        $categoryName = $data[0];
+        $description = $data[1];
+        $image = $data[2];
+        $sql = "CALL proc_insert_category($categoryName,$description,$image)";
+        $this->db->query($sql);
+    }
+
+    function deleteCategory($id) {
+        $sql = "call proc_delete_category($id)";
+        $this->db->query($sql);
+    }
+
+    //================SUPPLIER=============
+
+    function getSuppliers() {
+        $q = $this->db->get("supplier");
+        if ($q->num_rows() > 0) {
+            return $q->result();
+        }
+        return array();
+    }
+
+    function getSupplier($id) {
+        $this->db->where("supplierID", $id);
+        $q = $this->db->get("supplier");
+        if ($q->num_rows() > 0) {
+            return $q->row();
+        }
+        return array();
+    }
+
+    function updateSupplier($data) {
+        $id = $data[0];
+        $name = $data[1];
+        $description = trim($data[2]);
+        $sql = "CALL proc_update_supplier($id,$name,$description)";
+        $this->db->query($sql);
+    }
+
+    function addSupplier($data) {
+        $name = $data[0];
+        $description = $data[1];
+        $sql = "CALL proc_insert_supplier($name,$description)";
+        $this->db->query($sql);
+    }
+
+    function deleteSupplier($id) {
+        $sql = "call proc_delete_supplier($id)";
+        $this->db->query($sql);
+    }
+
+    //==================ORDER==============
+
+    function getOrders() {
+        $q = $this->db->get("order_view");
+        if ($q->num_rows() > 0) {
+            return $q->result();
+        }
+        return array();
+    }
+
+    function getOrderDetail($orderID) {
+        $this->db->where("orderID", $orderID);
+        $q = $this->db->get("order_detail_view");
+        if ($q->num_rows() > 0) {
+            return $q->result();
+        }
+        return false;
+    }
+
+ 
 }

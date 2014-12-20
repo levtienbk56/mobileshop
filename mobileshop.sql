@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 19, 2014 at 12:13 AM
+-- Generation Time: Dec 19, 2014 at 09:42 AM
 -- Server version: 5.5.40-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.5
 
@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `customer_review` (
   `time` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`reviewID`),
   KEY `fk_customerreview` (`productID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `customer_review`
@@ -169,7 +169,8 @@ INSERT INTO `customer_review` (`reviewID`, `productID`, `name`, `vote`, `comment
 (13, 6, 'Minh vl', 5, 'May ngon', 'Oct 22 2013'),
 (14, 6, 'Ngoc dragon', 3, 'hello', '05:18:32 PM 16-12-2014'),
 (15, 6, 'dokata', 1, 'may nhu shit', '05:38:33 PM 16-12-2014'),
-(16, 8, 'dokaka', 4, 'great deal', '05:42:56 PM 16-12-2014');
+(16, 8, 'dokaka', 4, 'great deal', '05:42:56 PM 16-12-2014'),
+(22, 9, 'abc', 1, 'kkk', '08:19:03 AM 19-12-2014');
 
 -- --------------------------------------------------------
 
@@ -270,7 +271,8 @@ INSERT INTO `order` (`orderID`, `status`, `dateOrder`, `name`, `phoneNumber`, `a
 ('12142014024808', '0', '2014-12-14', 'phanhuy', '01234-567-899', 'hanoi', 'phanhuy.hedspi56@gmail.com'),
 ('12142014024935', '0', '2014-12-14', 'Lê Ti?n', '01234-567-899', 'Thanh Hóa', 'tienle.bkhn@gmail.com'),
 ('12152014095154', '0', '2014-12-15', 'phanhuy 5', '01234-567-899', 'BG', 'phanhuy.hedspi56@gmail.com'),
-('12152014100547', '0', '2014-12-15', 'phanhuy', '01234-567-899', 'hanoi', 'afsdkjf@abc.com');
+('12152014100547', '0', '2014-12-15', 'phanhuy', '01234-567-899', 'hanoi', 'afsdkjf@abc.com'),
+('12192014091236', '0', '2014-12-19', 'phanhuy', '01234-567-899', 'hanoi', 'phanhuy.bkhn@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -285,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `order_details` (
   `unitPrice` double NOT NULL,
   `orderID` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`orderItemID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=51 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=53 ;
 
 --
 -- Dumping data for table `order_details`
@@ -301,7 +303,9 @@ INSERT INTO `order_details` (`orderItemID`, `productID`, `quantity`, `unitPrice`
 (47, 24, 1, 7.69, '12152014095154'),
 (48, 9, 3, 12.99, '12152014095154'),
 (49, 7, 6, 7.99, '12152014095154'),
-(50, 24, 1, 7.69, '12152014100547');
+(50, 24, 1, 7.69, '12152014100547'),
+(51, 9, 1, 12.99, '12192014091236'),
+(52, 25, 1, 20.4, '12192014091236');
 
 -- --------------------------------------------------------
 
@@ -353,7 +357,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `categoryID` int(10) NOT NULL,
   `supplierID` int(10) NOT NULL,
   PRIMARY KEY (`productID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
 
 --
 -- Dumping data for table `product`

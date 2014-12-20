@@ -105,7 +105,7 @@ class Product extends CI_Controller {
         $data['data'] = "";
         $data['template']   = "detail_product_view";
         $data['product']    = $p; 
-        $data['reviews']     = array();
+        $data['reviews'] = $this->product_model->getCustomerReview($productID);
         $this->load->view("webuser_layout/layout_webuser", $data);
     }
 
@@ -118,6 +118,16 @@ class Product extends CI_Controller {
         $data['products'] = $this->product_model->getCategoryProducts($id);
         $this->load->view("webuser_layout/layout_webuser", $data);
     }
+            
+
+    function  view_all(){
+        $data['title'] = "Danh mục sản phẩm";
+        $data['data'] = "Các sản phẩm trong danh mục";
+        $data['template'] = "allProducts_view";
+        $data['products'] = $this->product_model->getAllProducts();
+        $this->load->view("webuser_layout/layout_webuser", $data);
+    }
+
 
     //xem gio hang
     function view_cart() {
@@ -232,5 +242,14 @@ class Product extends CI_Controller {
     function add_review(){
         $this->product_model->add_review();
         echo 'success';
+    }
+    
+    function search_filter() {        
+        $data['title'] = "Danh mục sản phẩm";
+        $data['data'] = "Các sản phẩm trong danh mục";
+        $data['template'] = "category_view";
+        $data['products'] = $this->product_model->getProductSearchFilter_post();        
+        $this->load->view("reloadProduct_view", $data);
+        
     }
 }

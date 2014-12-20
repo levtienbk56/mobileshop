@@ -23,8 +23,18 @@
                         <?php foreach ($orders as $order) {?>
                         <tr>
                             <td><?php echo $order->orderID; ?></td>                            
-                            <td><?php echo $order->status;?></td>
-                            <td><?php echo $order->dateOrder; ?></td>
+                            <?php 
+                                $st = $order->status;
+                                if ($st == 0) {
+                                    $status = "chưa giao hàng";
+                                } elseif ($st == 1) {
+                                    $status= "đã xử lý";
+                                } else {
+                                    $status = $st;
+                                }
+                             ?>
+                            <td><?php  echo $status; ?></td>                            
+                            <td><?php echo date( 'd-m-Y', strtotime($order->dateOrder)); ?></td>
                             <td><?php echo $order->name; ?></td>
                             <td><?php echo $order->phoneNumber; ?></td>
                             <td><?php echo $order->address; ?></td>                                                        
