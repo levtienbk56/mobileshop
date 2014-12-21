@@ -75,7 +75,7 @@
             <nav class="navbar navbar-default navbar-fixed-top  phan-header-co-dinh" role="navigation">
                 <div class="container">
                     <div class="container" id="thaydoi_onscroll">
-                        <div class="row thaydoi_onscroll" >
+                        <div class="row thaydoi_onscroll" >                            
                             <!-- Logo --> 
                             <a href="<?php echo base_url(); ?>" id="logo"><img src="<?php echo base_url(); ?>themes/front/img/logo.png" alt="logo"></a> 
                             <!-- Navbar Search -->                     

@@ -52,7 +52,7 @@
                         <option value="2">không wifi</option>
                     </select>
                     <!----------- có 3G ----------------->
-                    <select name="_3g" onchange="search()" id="select-3g" style="float: left">
+                    <select name="_3g" onchange="search()" id="select-3g" style="float: left; display:none;">
                         <option class="selected" value="0">3G</option>
                         <option value="1">có 3G</option>
                         <option value="2">không 3G</option>
@@ -60,9 +60,9 @@
                     
                     <!---------- sắp xếp theo giá --------->
                     <select name="order" onchange="search()" id="select-order">
-                        <option class="selected" value="increase">Sort by Default</option>
-                        <option value="increase">Price ( Low &gt; High )</option>
-                        <option value="descrease">Price ( High &gt; Low )</option>
+                        <option class="selected" value="increase">Lựa chọn thứ tự</option>
+                        <option value="increase">Giá tăng dần </option>
+                        <option value="descrease">Giá giảm dần</option>
                     </select>
 
                 </form>

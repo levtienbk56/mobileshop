@@ -23,7 +23,7 @@
                             <a href="<?php echo base_url(); ?>admin/index.php/products/orders"><i class="fa fa-shopping-cart"></i>Đơn đặt hàng</a>
                         </li>
                         <li class="active">
-                            <a href="<?php echo base_url(); ?>admin">
+                            <a href="<?php echo base_url(); ?>admin/index.php/about">
                                 <i class="fa fa-info"></i> <span>Giới thiệu</span>
                             </a>
                         </li>

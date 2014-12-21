@@ -27,17 +27,16 @@
                                 <div style="margin-top: 15px;">
                                     <ul class="nav nav-pills nav-stacked">
                                         <li class="header">Các nhóm thư</li>
-                                        <li class="active"><a href="#"><i class="fa fa-inbox"></i> Chưa xem(14)</a></li>
-<!--                                        <li><a id="service_fd" href="<?php echo base_url(); ?>admin/index.php/feedback/get_service_feedback"><i class="fa  fa-toggle-up "></i>Dịch vụ</a></li>-->
+                                        <li class="active"><a id="all_fd"><i class="fa fa-inbox"></i> Tất cả</a></li>
                                         <li><a id="service_fd"><i class="fa  fa-toggle-up "></i>Dịch vụ</a></li>
                                         <li><a id="product_fd"><i class="fa fa-mobile"></i>Sản phẩm</a></li>
-                                        <li><a href="#"><i class="fa fa-puzzle-piece"></i>Góp ý</a></li>
+                                        <li><a id="suggest_fd"><i class="fa fa-puzzle-piece"></i>Góp ý</a></li>
                                         <li><a href="#"><i class="fa fa-star"></i>Quan tâm</a></li>
                                         <li><a href="#"><i class="fa fa-trash-o"></i>Thư rác</a></li>
                                     </ul>
                                 </div>
                             </div><!-- /.col (LEFT) -->
-                            <div class="col-md-9 col-sm-8">
+                            <div class="col-md-9 col-sm-8" id="load_load">
                                 <div class="row pad">
                                     <div class="col-sm-6">
                                         <label style="margin-right: 10px;">
@@ -64,7 +63,7 @@
                                             <div class="input-group">                                                
                                                 <input class="form-control input-sm" id="system-search" name="q" placeholder="Tìm kiếm" required>
                                                 <div class="input-group-btn">
-                                                    <button type="submit" name="q" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+                                                    <button  type="submit" name="q" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
                                                 </div>
                                             </div>
                                         </form>
@@ -73,29 +72,37 @@
 
                                 <div class="table-responsive" id="load_content">
                                     <!-- THE MESSAGES -->
-                                    <table class="table table-mailbox table-list-search" >
-                                        <?php foreach ($feedbacks as $feedback){ ?>
-                                        <tr <?php if($feedback->status == 1) echo "class=\"unread\""; //da doc?> >
-                                            <td class="small-col"><input type="checkbox" /></td>
-                                            <td class="small-col"><i class="fa fa-star"></i></td>
-                                            <td class="name"><a href=""><?php echo $feedback->name; ?></a></td>
-                                            <td class="subject"><a href="#"><?php echo $feedback->subject; ?></a></td>
-                                            <td class="subject"><a href="#"><?php $content = $feedback->content; if(strlen($content)>40) echo substr($content,40)."...";  else echo $content;?></a></td>
-                                            <td class="time"><?php echo date("d/m/y g:i A", strtotime($feedback->time)); ?></td>
-                                        </tr>                                        
+                                    <table class="table table-mailbox table-list-search "  >
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th>Họ tên</th>
+                                            <th>Loại phản hồi</th>
+                                            <th>Nội dung</th>
+                                            <th>Thời gian gửi</th>
+                                        </tr>
+                                        <?php foreach ($feedbacks as $feedback) { ?>
+                                        <tr class="view_message" id="<?php echo $feedback->content; ?>" <?php if ($feedback->status == 1) echo "class=\"unread\""; //da doc   ?> >
+                                                <td class="small-col"><input type="checkbox" /></td>
+                                                <td class="small-col"><i class="fa fa-star"></i></td>
+                                                <td class="name"><a href=""><?php echo $feedback->name; ?></a></td>
+                                                <td class="subject"><a href="#"><?php echo $feedback->subject; ?></a></td>
+                                                <td class="subject"><a class="feeback_content" id="<?php echo $feedback->feedbackID; ?>">
+                                                        <?php
+                                                        $content = $feedback->content;
+                                                        if (strlen($content) > 40)
+                                                            echo substr($content, 40) . "...";
+                                                        else
+                                                            echo $content;
+                                                        ?></a></td>
+                                                <td class="time"><?php echo date("d/m/y g:i A", strtotime($feedback->time)); ?></td>
+                                            </tr>                                        
                                         <?php } ?>
                                     </table>
                                 </div><!-- /.table-responsive -->
                             </div><!-- /.col (RIGHT) -->
                         </div><!-- /.row -->
-                    </div><!-- /.box-body -->
-                    <div class="box-footer clearfix">
-                        <div class="pull-right">
-                            <small>Showing 1-12/1,240</small>
-                            <button class="btn btn-xs btn-primary"><i class="fa fa-caret-left"></i></button>
-                            <button class="btn btn-xs btn-primary"><i class="fa fa-caret-right"></i></button>
-                        </div>
-                    </div><!-- box-footer -->
+                    </div><!-- /.box-body -->                    
                 </div><!-- /.box -->
             </div><!-- /.col (MAIN) -->
         </div>
@@ -103,6 +110,25 @@
 
     </section><!-- /.content -->
 </aside><!-- /.right-side -->
+
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="text-danger fa fa-times"></i></button>
+                <h4 class="modal-title" id="myModalLabel">Nội dung phản hồi</h4>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- fim Modal-->    
+
+
+
 
 <!-- Page script -->
 <script type="text/javascript">
@@ -207,34 +233,107 @@
 
 
 
-        <script>
-            $('#service_fd').click(
-                    function () {
-                        var _url = "<?php echo base_url(); ?>admin/index.php/feedback/get_service_feedback";
+<script>
+    $('#service_fd').click(
+            function () {
+                var _url = "<?php echo base_url(); ?>admin/index.php/feedback/get_service_feedback";
 
-                        $.ajax({
-                            url: _url,
-                            type: 'POST',                            
-                            dataType: "text",
-                            success:
-                                    function (data) {                                        
-                                        $("#load_content").html(data);
-                                    }
-                        });
-                    });
-                    $('#product_fd').click(
-                    function () {
-                        var _url = "<?php echo base_url(); ?>admin/index.php/feedback/get_product_feedback";
+                $.ajax({
+                    url: _url,
+                    type: 'POST',
+                    dataType: "text",
+                    success:
+                            function (data) {
+                                $("#load_content").html(data);
+                            }
+                });
+            });
+    $('#product_fd').click(
+            function () {
+                var _url = "<?php echo base_url(); ?>admin/index.php/feedback/get_product_feedback";
 
-                        $.ajax({
-                            url: _url,
-                            type: 'POST',                            
-                            dataType: "text",
-                            success:
-                                    function (data) {                                        
-                                        $("#load_content").html(data);
-                                    }
-                        });
-                    });
-                    
-        </script>        
+                $.ajax({
+                    url: _url,
+                    type: 'POST',
+                    dataType: "text",
+                    success:
+                            function (data) {
+                                $("#load_content").html(data);
+                            }
+                });
+            });
+
+    $('#suggest_fd').click(
+            function () {
+                var _url = "<?php echo base_url(); ?>admin/index.php/feedback/get_suggest_feedback";
+
+                $.ajax({
+                    url: _url,
+                    type: 'POST',
+                    dataType: "text",
+                    success:
+                            function (data) {
+                                $("#load_content").html(data);
+                            }
+                });
+            });
+    $('#all_fd').click(
+            function () {
+                var _url = "<?php echo base_url(); ?>admin/index.php/feedback/get_all_feedback";
+
+                $.ajax({
+                    url: _url,
+                    type: 'POST',
+                    dataType: "text",
+                    success:
+                            function (data) {
+                                $("#load_content").html(data);
+                            }
+                });
+            });    
+</script>        
+
+
+
+<script>
+    $(function () {
+        /* BOOTSNIPP FULLSCREEN FIX */
+        if (window.location == window.parent.location) {
+            $('#back-to-bootsnipp').removeClass('hide');
+            $('.alert').addClass('hide');
+        }
+
+        $('#fullscreen').on('click', function (event) {
+            event.preventDefault();
+            window.parent.location = "http://bootsnipp.com/iframe/Q60Oj";
+        });
+
+        $('tbody > tr').on('click', function (event) {
+            event.preventDefault();
+            $('#myModal').modal('show');
+        })
+
+        $('.btn-mais-info').on('click', function (event) {
+            $('.open_info').toggleClass("hide");
+        })
+
+
+    });
+</script>
+
+<script>
+    $(".view_message").click(function(){
+        var content = this.id;
+        $(".modal-body").html(content);        
+    });
+</script>
+
+<style>    
+    tbody > tr {
+        cursor: pointer;
+    }
+
+    .result{
+        margin-top:20px;
+    }
+</style>

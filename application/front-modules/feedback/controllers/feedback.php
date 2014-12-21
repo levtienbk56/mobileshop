@@ -11,10 +11,15 @@ class Feedback extends CI_Controller {
     }
 
     public function index() {
-        $data['title'] = "Lien he";
+        $data['title'] = "Gửi phản hồi";
         $data['data'] = "Contact";
         $data['template'] = "feedback_view";
         $this->load->view("webuser_layout/layout_webuser", $data);
+    }
+
+    public function add_feedback() {
+        $this->load->model("feedback_model");
+        $this->feedback_model->add_feedback();
     }
 
 }

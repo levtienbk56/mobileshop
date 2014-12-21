@@ -35,9 +35,20 @@
 
             <!-- Price -->
             <p class="main-price"><span><?php if ($product->saleOff > 0) echo number_format($product->price * (100 + $product->saleOff) / 100 * 1000000, 0, ".", $thousands_sep = ",") . "VND" ?></span> <strong><?php echo number_format($product->price * 1000000, 0, ".", $thousands_sep = ",") . "VND"; ?></strong></p>
-            <a  class="btn btn-add-cart add_to_cart_global" id="<?php echo $product->productID; ?>">Thêm vào giỏ </a>
+            <a  class="btn btn-add-cart add_to_cart_detail" id="<?php echo $product->productID; ?>">Thêm vào giỏ </a>
             
-            <input type="text" placeholder="1" class="input-quantity">
+            <select id="soluong" class="input-quantity" style="background: none repeat scroll 0% 0% #1A68F2;margin-right: 30px;">                                        
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
             <span class="input-quantity-text">Số lượng</span>
             <div class="clearfix"></div>
 
@@ -62,7 +73,7 @@
                             <div class="tab-pane fade" id="tab3primary">
                                 <!------------- customer review ----------------------->
                                 <div class="accordion-inner">
-                                    <ul class="unstyled">
+                                    <ul class="unstyled" id="reload">
                                         <!-------- LOOP-------------------------------->
                                         <?php
                                         foreach ($reviews as $review) {
@@ -94,7 +105,7 @@
                                     </ul>
 
                                     <!-- Write Review -->
-                                    <h5>Write a Review</h5>
+                                    <h5>Viết đánh giá</h5>
                                     <form id="form-review" class="write-review">
                                         <fieldset>
                                             <input type="text" placeholder="Name" id="customer-review">
@@ -137,10 +148,40 @@
                 dataType: "text",
                 success: function (data) {
                     alert("Đánh giá của bạn đã được gửi đi");
-                    $('#form-review').load(document.URL + ' #form-review');
+                    $('#reload').load(document.URL + ' #reload');
                 }
             });
         }
     }
 </script>
 
+
+
+<script>
+    $('.add_to_cart_detail').click(
+            function () {
+                var _url = "<?php echo base_url(); ?>index.php/product/add_item_cart";
+                var _soluong = $("#soluong").val();
+                $.ajax({
+                    url: _url,
+                    type: 'POST',
+                    data: {product_id: this.id, soluong: _soluong},
+                    dataType: "text",
+                    success:
+                            function (data) {
+                                var top = $(document).scrollTop();
+                                if (top > 450) {
+                                    $(".cart-content").css({"margin-top": "-15"});
+                                }
+                                else {
+                                    $(".cart-content").css({"margin-top": "0"});
+                                }
+
+                                if (data.trim() === "0")
+                                    $("#thongbaogio").load(document.URL + ' #thongbaogio');// phai co dau cach
+                                else
+                                    alert('Sản phẩm đã có trong giỏ hàng');
+                            }
+                });
+            });
+</script>

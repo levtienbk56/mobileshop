@@ -38,9 +38,14 @@ class Product extends CI_Controller {
                     $price = $product->price;
                     $name = $product->name;
                     $image = $product->image;
+                    if ($this->input->post('soluong') > 1) {
+                        $quantity = $this->input->post('soluong');
+                    } else {
+                        $quantity = 1;
+                    }
                     $insert = array(
                         'id' => $id,
-                        'qty' => 1,
+                        'qty' => $quantity,
                         'price' => $price,
                         'name' => $name,
                         'options' => array('img' => $image)
@@ -75,8 +80,7 @@ class Product extends CI_Controller {
                 );
                 $this->cart->update($info);                
             }
-        }
-        
+        }        
     }
 
     
@@ -94,7 +98,8 @@ class Product extends CI_Controller {
                 $this->cart->update($info);                
             }
         }       
-        $this->load->view("webuser_layout/layout_webuser", $data);
+        //$this->load->view("webuser_layout/layout_webuser", $data);
+        redirect(base_url()."index.php/product/view_cart");
     }
 
     

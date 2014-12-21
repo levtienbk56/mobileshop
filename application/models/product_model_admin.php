@@ -158,6 +158,15 @@ $isnew,$isHot,$saleOff,$quantity,$status,$dateCreated,$categoryID,$supplierID)";
         return array();
     }
 
+    function getOrderInfo($id) {
+        $this->db->where("orderID",$id);
+        $q = $this->db->get("order_view");
+        if ($q->num_rows() > 0) {
+            return $q->row();
+        }
+        return array();
+    }
+    
     function getOrderDetail($orderID) {
         $this->db->where("orderID", $orderID);
         $q = $this->db->get("order_detail_view");
@@ -167,5 +176,27 @@ $isnew,$isHot,$saleOff,$quantity,$status,$dateCreated,$categoryID,$supplierID)";
         return false;
     }
 
- 
+    
+            
+    function updateOrderInfo(){
+        $id = "\"".$this->input->post('orderID')."\"";
+        $name = "\"".$this->input->post('fullname')."\"";
+        $phone = "\"".$this->input->post('phonenumber')."\"";
+        $address = "\"".$this->input->post('address')."\"";
+        $status = $this->input->post('status');        
+        $sql = "call proc_update_order_info($id,$name,$phone,$address,$status);";        
+        $this->db->query($sql);
+    }
+    
+    function updateOrderItem($itemid,$quantity){
+        $sql = "call proc_update_order_item($itemid,$quantity);";
+        $this->db->query($sql);
+    } 
+    
+    function deleteOrderItem($id){
+        $sql = "call proc_delete_order_item($id);";
+        $this->db->query($sql);        
+    }
+    
+    
 }

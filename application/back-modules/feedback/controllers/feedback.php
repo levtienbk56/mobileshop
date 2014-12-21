@@ -26,6 +26,11 @@ class feedback extends CI_Controller {
         }
     }
 
+    function get_all_feedback() {
+        $data['feedbacks'] = $this->feedback_model->getFeedbacks();
+        $this->load->view("load_feedback", $data);
+    }
+
     function get_service_feedback() {
         $data['feedbacks'] = $this->feedback_model->getServices();
         $this->load->view("load_feedback", $data);
@@ -36,4 +41,13 @@ class feedback extends CI_Controller {
         $this->load->view("load_feedback", $data);
     }
 
+    function get_suggest_feedback() {
+        $data['feedbacks'] = $this->feedback_model->getSuggestions();
+        $this->load->view("load_feedback", $data);
+    }
+    
+    function get_message($feedback_id){
+        $data['message'] = $this->feedback_model->getFeedback($feedback_id);        
+        $this->load->view("load_content", $data);
+    }
 }
