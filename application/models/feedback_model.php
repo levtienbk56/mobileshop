@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 
 class feedback_model extends CI_Model {
 
@@ -9,6 +10,17 @@ class feedback_model extends CI_Model {
     function add_feedback() {
         $data = array(
             'name' => $this->input->post('fullname'),
+=======
+class Feedback_model extends CI_Model{
+    function __construct(){
+        parent::__construct();
+    }
+    //thêm vào bảng feedback cột time va subject
+    
+    function add_feedback(){
+        $data = array(
+            'name' => $this->input->post('firstname')." ".$this->input->post('lastname'),
+>>>>>>> 504751bab4f069f057ddcfd8ece4066c189b16ff
             'email' => $this->input->post('email'),
             'content' => $this->input->post('message'),
             'time' => date("h:i:s A d-m-Y"),
@@ -16,6 +28,7 @@ class feedback_model extends CI_Model {
         );
         $this->db->insert('feedback', $data);
     }
+<<<<<<< HEAD
 
     function getFeedbacks() {
         $p = $this->db->get("feedback_view");
@@ -60,3 +73,6 @@ class feedback_model extends CI_Model {
     }
 
 }
+=======
+}
+>>>>>>> 504751bab4f069f057ddcfd8ece4066c189b16ff

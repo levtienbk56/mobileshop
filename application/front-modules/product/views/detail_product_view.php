@@ -35,6 +35,7 @@
 
             <!-- Price -->
             <p class="main-price"><span><?php if ($product->saleOff > 0) echo number_format($product->price * (100 + $product->saleOff) / 100 * 1000000, 0, ".", $thousands_sep = ",") . "VND" ?></span> <strong><?php echo number_format($product->price * 1000000, 0, ".", $thousands_sep = ",") . "VND"; ?></strong></p>
+<<<<<<< HEAD
             <a  class="btn btn-add-cart add_to_cart_detail" id="<?php echo $product->productID; ?>">Thêm vào giỏ </a>
             
             <select id="soluong" class="input-quantity" style="background: none repeat scroll 0% 0% #1A68F2;margin-right: 30px;">                                        
@@ -49,6 +50,11 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
             </select>
+=======
+            <a  class="btn btn-add-cart add_to_cart_global" id="<?php echo $product->productID; ?>">Thêm vào giỏ </a>
+
+            <input type="text" placeholder="1" class="input-quantity">
+>>>>>>> 504751bab4f069f057ddcfd8ece4066c189b16ff
             <span class="input-quantity-text">Số lượng</span>
             <div class="clearfix"></div>
 
@@ -105,7 +111,11 @@
                                     </ul>
 
                                     <!-- Write Review -->
+<<<<<<< HEAD
                                     <h5>Viết đánh giá</h5>
+=======
+                                    <h5>Write a Review</h5>
+>>>>>>> 504751bab4f069f057ddcfd8ece4066c189b16ff
                                     <form id="form-review" class="write-review">
                                         <fieldset>
                                             <input type="text" placeholder="Name" id="customer-review">
@@ -128,9 +138,6 @@
     </div>
 
 </div>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
-</script>
 <script type="text/javascript">
     function sendReview() {
         var productID = <?php echo $product->productID; ?>;
@@ -148,7 +155,11 @@
                 dataType: "text",
                 success: function (data) {
                     alert("Đánh giá của bạn đã được gửi đi");
+<<<<<<< HEAD
                     $('#reload').load(document.URL + ' #reload');
+=======
+                    $('#form-review').load(document.URL + ' #form-review');
+>>>>>>> 504751bab4f069f057ddcfd8ece4066c189b16ff
                 }
             });
         }
