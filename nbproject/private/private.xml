@@ -4,9 +4,19 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/html/mobileshop/application/models/product_model_admin.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/about/views/about_view.php</file>
             <file>file:/var/www/html/mobileshop/application/back-modules/products/controllers/orders.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/controllers/categories.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/views/category_view/index.php</file>
+            <file>file:/var/www/html/mobileshop/application/models/webinfo_model.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/product/controllers/product.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/about/controllers/about.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/about/views/about_view.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/product/views/detail_product_view.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/about/controllers/about.php</file>
+            <file>file:/var/www/html/mobileshop/application/back-modules/products/views/order_view/order_view.php</file>
+            <file>file:/var/www/html/mobileshop/application/front-modules/feedback/views/feedback_view.php</file>
             <file>file:/var/www/html/mobileshop/application/back-modules/products/views/order_view/edit.php</file>
-            <file>file:/var/www/html/mobileshop/application/back-modules/products/views/order_view/order_detail_view.php</file>
         </group>
     </open-files>
 </project-private>
